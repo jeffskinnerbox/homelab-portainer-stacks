@@ -1,0 +1,32 @@
+#
+# Netdata is an open source tool designed to collect real-time metrics,
+# such as CPU usage, disk activity, bandwidth usage, website visits, etc.,
+# and then display them in live, easy-to-interpret charts.#
+#
+# Access Netdata by visiting
+# http://<ip of your server>:<port>, in my cased http://192.168.1.200:19999
+#
+# to start this docker container
+# sudo MUNIN_PORT=19999 MUNIN_HOST_NAME=$(hostname) docker-compose --file ./netdata-docker-compose.yml up -d
+#
+
+
+version: '3'
+services:
+  netdata:
+    image: aheimsbakk/munin-alpine
+    container_name: munin
+    hostname: ${MUNIN_HOST_NAME}       # set to fqdn of host
+    ports:
+      - ${MUNIN_PORT}:19999
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfine
+    volumes:
+      - /etc/munin/munin-conf.d:/etc/munin/munin-conf.d
+      - /etc/munin/plugin-conf.d:/etc/munin/plugin-conf.d
+      - /var/lib/munin:/var/lib/munin
+      - /var/log/munin:/var/log/munin
+

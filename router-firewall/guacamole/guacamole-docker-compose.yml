@@ -1,0 +1,33 @@
+#
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# Guacamole is a free & open source application that allows you to access your computers from anywhere.
+# It can be put behind a proxy server which allows you to access your servers from anywhere in the world.
+# Spcifically, Guacamole is an HTML5 remote access gateway.  This is made possible using
+# Windows Remote Desktop (RDP), VNC, Telnet, SSH, SFTP, or Kubernetes protocols,
+# just using a modern web browser (aka HTML5 web browser) and without the need for any client apps.
+# As long as you have access to a HTML5 web browser, you have access to your machines.
+#
+# to start this docker container for ubuntu desktop
+#    cd ~/src/docker-containers/guacamole
+#
+## start the snippet-box docker container via docker-compose
+#    sudo GUAC_PORT=8194 docker-compose up -d --file ./guacamole-docker-compose.yml
+#
+
+
+version: "3"
+services:
+  guacamole:
+    container_name: guacamole
+    image: abesnier/guacamole:latest
+    restart: unless-stopped
+    ports:
+      - ${GUAC_PORT}:8080
+    volumes:
+      - postgres:/config
+volumes:
+  postgres:
+    driver: local
+

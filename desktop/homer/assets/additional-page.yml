@@ -1,0 +1,97 @@
+---
+# Additional page configuration
+
+# Additional configurations are loaded using its file name, minus the extension, as an anchor (https://<mydashboad>#<config>).
+# `config.yml` is still used as a base configuration, and all values here will overwrite it, so you don't have to re-defined everything
+
+
+
+# header / title bar for webpage
+title: "Hobby Dashboard"
+subtitle: "this is additional dashboard page"
+logo: "logo.png"
+#icon: "fas fa-skull-crossbones" # optional additional icon
+header: true
+
+# set to 'footer: false' if you want to hide it
+footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab fa-github-alt"></i></a></p>'
+
+
+# This overwrites message config. Setting it to empty to remove message from this page and keep it only in the main one:
+message: ~
+
+# as we want to include a differente link here (so we can get back to home page), we need to replicate all links or they will be revome when overwriting the links field:
+links:
+  - name: "Home"
+    icon: "fas fa-home"
+    url: "#"
+  - name: "Contribute"
+    icon: "fab fa-github"
+    url: "https://github.com/bastienwirtz/homer"
+    target: "_blank" # optional html a tag target attribute
+  - name: "Wiki"
+    icon: "fas fa-book"
+    url: "https://www.wikipedia.org/"
+
+
+services:
+  # ------ First Person Video (FPV) Flight -------------------------------------
+  - name: "FPV Flight"
+    icon: "fas fa-jet-fighter"
+    items:
+      - name: "Awesome app on a second page!"
+        logo: "assets/tools/sample.png"
+        subtitle: "Bookmark example"
+        tag: "app"
+        url: "https://www.reddit.com/r/selfhosted/"
+        target: "_blank"
+
+
+  # ------ First Person Video (FPV) Radio Controlled (RC) Car ------------------
+  - name: "FPV RC Car"
+    icon: "fas fa-car-side"
+    items:
+      - name: "Awesome app on a second page!"
+        logo: "assets/tools/sample.png"
+        subtitle: "Bookmark example"
+        tag: "app"
+        url: "https://www.reddit.com/r/selfhosted/"
+        target: "_blank"
+
+
+  # ------ Amateur Radio -------------------------------------------------------
+  - name: "Amateur Radio"
+    icon: "fas fa-broadcast-tower"
+    items:
+      # https://k4lrg.org/
+      - name: "Loudoun Amateur Radio Group"
+        logo: "assets/icons/loudoun-amateur-radio-group-logo.png"
+        subtitle: "The quintessential geek hobby"
+        tag: "amateur radio"
+        url: "https://k4lrg.org/"
+        target: "_blank"
+
+      # https://www.repeaterbook.com/index.php/en-us/
+      - name: "RepeaterBook"
+        logo: "assets/icons/repeaterbook-logo.png"
+        subtitle: "Worldwide Repeater Directory"
+        tag: "amateur radio"
+        url: "https://www.repeaterbook.com/repeaters/location_search.php?type=county&state_id=51&loc=Loudoun"
+        target: "_blank"
+
+      # http://dcasler.com/
+      - name: "Ham Radio Answers"
+        logo: "assets/icons/dave-casler-logo.png"
+        subtitle: "Dave Casler - Ham Self Study"
+        tag: "amateur radio"
+        url: "http://dcasler.com/ham-radio/training/"
+        target: "_blank"
+
+      # https://fcc.gov
+      - name: "FCC"
+        logo: "assets/icons/fcc-logo.png"
+        subtitle: "Commission Registration System (CORES)"
+        tag: "amateur radio"
+        url: "https://apps.fcc.gov/cores/userLogin.do"
+        target: "_blank"
+

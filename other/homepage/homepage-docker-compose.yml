@@ -1,0 +1,20 @@
+
+# homepage - https://gethomepage.dev/latest/
+
+version: "3.3"
+services:
+  homepage:
+    container_name: homepage
+    image: "ghcr.io/gethomepage/homepage:latest"
+    restart: unless-stopped
+    #env_file: /home/jeff/src/docker-containers/homepage/config/.env
+    #env_file: .env
+    ports:
+      - 8084:3000
+    volumes:
+      - /home/jeff/src/docker-containers/homepage/config:/app/config   # make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock                      # (optional) For docker integrations
+    environment:                                                       # read them from .env
+      PUID: 1000
+      PGID: 1000
+

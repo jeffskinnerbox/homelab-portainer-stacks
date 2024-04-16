@@ -1,0 +1,48 @@
+
+# ------------------------------------------------------------------------------
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     Homer is a static dashboard, residing in a Docker container, generated from
+#     the source in its /src directory. Its setup and controlled via a YAML configuration
+#     making it simple to use. It has a nice default scheme that your can modify
+#     to suit your taste. With Homer, you can create a simple to maintain and
+#     attractive dashboard to access your applications.
+#
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/desktop/homer/docker-compose.yml
+#     To stop & remove container for compose file modification
+#         sudo docker stop homer
+#         sudo docker rm homer
+#
+# ACCESS
+#     To access Homer when deployed
+#         http://<ip-of-your-server>:<port>, in my cased http://192.168.1.200:8080
+#
+# SOURCES
+#     DockerHub: b4bz/homer - https://hub.docker.com/r/b4bz/homer/tags
+#     GitHub: bastienwirtz/homer - https://github.com/bastienwirtz/homer
+#     Configuring Homer Dashboard - https://tcude.net/configuring-homer-dashboard/
+# ------------------------------------------------------------------------------
+
+---
+
+version: "3"
+
+services:
+  homer:
+    container_name: homer
+    image: 'b4bz/homer:latest'
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - /home/jeff/src/homelab-portainer-stacks/desktop/homer/assets:/www/assets
+    environment:
+      - UID=1000
+      - GID=1000
+

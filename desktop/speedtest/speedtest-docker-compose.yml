@@ -1,0 +1,50 @@
+#
+# Access SpeedTest test results by visiting
+# http://<ip of your server>:<port>, in my cased http://192.168.1.200:3000
+#
+# to start this docker container
+# sudo GRAFANA_PORT=3000 SPEEDTEST_SPEEDTEST_INTERVAL=300 docker-compose --file ./speedtest-docker-compose.yml up -d
+#
+
+
+version: '3'
+services:
+  influxdb:
+    image: influxdb:1.8
+    container_name: influxdb
+    restart: always
+    ports:
+      - 8083:8083
+      - 8086:8086
+    volumes:
+      - ./influxdb/:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=speedtest              # database to save speedtest results
+      - INFLUXDB_ADMIN_USER=admin          # username for Influxdb authentication
+      - INFLUXDB_ADMIN_PASSWORD=password   # password for Influxdb authentication
+
+  grafana:
+    image: grafana/grafana:6.7.2
+    container_name: grafana
+    restart: always
+    volumes:
+      - ./docker/grafana/provisioning/:/etc/grafana/provisioning
+    ports:
+      - ${GRAFANA_PORT}:3000               # port used for grafana dashboards
+    environment:
+      - GF_SERVER_ROOT_URL=http://localhost
+      - GF_SECURITY_ADMIN_PASSWORD=password
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+    depends_on:
+      - influxdb
+
+  speedtest:
+    image: frdmn/speedtest-grafana:latest
+    container_name: speedtest
+    restart: always
+    environment:
+      - SPEEDTEST_INTERVAL=${SPEEDTEST_SPEEDTEST_INTERVAL}  # pause (in seconds) between speedtests
+      - SPEEDTEST_HOST=local                                # name of the client
+    depends_on:
+      - influxdb
+

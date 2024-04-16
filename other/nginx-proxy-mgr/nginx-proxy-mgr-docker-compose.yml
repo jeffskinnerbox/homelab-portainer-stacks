@@ -1,0 +1,45 @@
+#
+# Nginx Proxy Manager (NPM) is a reverse proxy management system
+#
+# To access NPM admin interface
+# http://<ip of your server>:<port>, in my cases http://192.168.1.200:8081
+#
+# To start this docker container
+# sudo ADMIN_PORT=8081 HTTP_PORT=9080 HTTPS_PORT=9443 NPM_HOME='/home/jeff/src/docker-containers/nginx-proxy-mgr' docker-compose --file ./nginx-proxy-mgr-docker-compose.yml up -d
+#
+
+version: "3"
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-mgr
+    restart: unless-stopped
+    ports:
+      # These ports are in format <host-port>:<container-port>
+      - ${ADMIN_PORT}:81      # admin web port
+      - ${HTTP_PORT}:80       # public http port
+      - ${HTTPS_PORT}:443     # public https port
+    environment:
+      DB_MYSQL_HOST: "db"
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: "npm"
+      DB_MYSQL_PASSWORD: "npm"
+      DB_MYSQL_NAME: "npm"
+      # DISABLE_IPV6: 'true'  # uncomment this if IPv6 is not enabled on your host
+    volumes:
+      - ${NPM_HOME}/data:/data
+      - ${NPM_HOME}/letsencrypt:/etc/letsencrypt
+      - ${NPM_HOME}/letsencrypt/log:/var/log/letsencrypt
+    depends_on:
+      - db
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'npm'
+      MYSQL_PASSWORD: 'npm'
+    volumes:
+      - ${NPM_HOME}/data/mysql:/var/lib/mysql

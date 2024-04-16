@@ -1,0 +1,42 @@
+
+# ------------------------------------------------------------------------------
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     Snippet Box is a simple self-hosted app for organizing your code snippets.
+#     It supports Markdown documentation for companion notes or simple documentation
+#     for your code. It it makes it easily to create, edit, browse, and manage
+#     your snippets in various languages.
+#
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/desktop/snippet-box/docker-compose.yml
+#     To stop & remove container for compose file modification
+#         sudo docker stop snippet-box
+#         sudo docker rm snippet-box
+#
+# ACCESS
+#     To access Homer when deployed
+#         http://<ip-of-your-server>:<port>, in my cased http://192.168.1.200:5000
+#
+# SOURCES
+#     DockerHub: pawelmalak/snippet-box - https://hub.docker.com/r/pawelmalak/snippet-box
+# ------------------------------------------------------------------------------
+
+---
+
+version: '3'
+
+services:
+  snippet-box:
+    container_name: snippet-box
+    image: pawelmalak/snippet-box:latest
+    volumes:
+      - /home/jeff/src/homelab-portainer-stacks/desktop/snippet-box/data:/app/data
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+

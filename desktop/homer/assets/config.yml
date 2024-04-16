@@ -1,0 +1,1931 @@
+---
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      0.7.0
+
+# includes:
+   # - secrets.yaml
+
+# HOMER_URL: "http://192.168.1.200:8080"
+# PORTAINER_URL: "http://192.168.1.200:8001/#!/home"
+
+# Homer HomeLab Dashboard configuration
+#    See https://fontawesome.com/v6/search for icons options
+#    See https://github.com/NX211/homer-icons for logos
+#    See https://www.flaticon.com/ for more icons
+#    See https://pictogrammers.com/library/mdi/ for more icons
+#    See https://simpleicons.org/ for even more icons
+#
+#    See Remove Image Background - https://www.remove.bg/
+#    How to Make Backgrounds Transparent in GIMP - https://linuxhint.com/make-backgrounds-transparent-gimp/
+#    Looking for content that is openly licensed - https://openverse.org/
+
+# Set the default layout and color scheme
+defaults:
+  layout: columns     # Either 'columns', or 'list'
+  colorTheme: auto    # One of 'auto', 'light', or 'dark'
+
+# Optional theme customization
+theme: default        # 'default' or one of the themes available in 'src/assets/themes'.
+
+# Here is the exhaustive list of customization parameters
+# However all value are optional and will fallback to default if not set.
+# if you want to change only some of the colors, feel free to remove all unused key.
+colors:
+  light:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#D3D3D3"
+    card-background: "#E5E4E2"
+    text: "#363636"
+    text-header: "#ffffff"
+    text-title: "#303030"
+    text-subtitle: "#424242"
+    card-shadow: rgba(0, 0, 0, 0.1)
+    link: "#3273dc"
+    link-hover: "#363636"
+    background-image: "/assets/tools/Albuquerque-International-Balloon-Fiesta.jpg"
+  dark:
+    highlight-primary: "#3367d6"
+    highlight-secondary: "#4285f4"
+    highlight-hover: "#5a95f5"
+    background: "#131313"
+    card-background: "#666666"
+    text: "#eaeaea"
+    text-header: "#ffffff"
+    text-title: "#fafafa"
+    text-subtitle: "#f5f5f5"
+    card-shadow: rgba(0, 0, 0, 0.4)
+    link: "#3273dc"
+    link-hover: "#ffdd57"
+
+# header / title bar for webpage
+title: "HomeLab Dashboard"
+subtitle: "Homer"
+logo: "logo.png"
+#icon: "fas fa-skull-crossbones" # optional additional icon
+header: true
+
+# set to 'footer: false' if you want to hide it
+footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a href="https://bulma.io/">bulma</a>, <a href="https://vuejs.org/">vuejs</a> & <a href="https://fontawesome.com/">font awesome</a> // Fork me on <a href="https://github.com/bastienwirtz/homer"><i class="fab fa-github-alt"></i></a></p>'
+
+# Optional navbar
+# links: [] # Allows for navbar (dark mode, layout, and search) without any links
+links:
+  - name: "Contribute"
+    icon: "fab fa-github"
+    url: "https://github.com/bastienwirtz/homer"
+    target: "_blank"
+  - name: "Wiki"
+    icon: "fas fa-book"
+    url: "https://www.wikipedia.org/"
+    target: "_blank"
+  # this will link to a second homer page that will load config from additional-page.yml and keep default config values as in config.yml file
+  # see url field and assets/additional-page.yml.dist used in this example:
+  - name: "another page!"
+    icon: "fas fa-file-alt"
+    url: "#additional-page"
+
+## optional message
+# message:
+  # #url: https://b4bz.io
+  # style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
+  # title: "Demo !"
+  # icon: "fa fa-grin"
+  # content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
+
+# optional message: duckduckgo search box
+# see https://smarthomepursuits.com/add-internet-search-bar-to-homer-dashboard/
+#message:
+#  style: "is-danger"
+#  title: "DuckDuckGo Search Box"
+#  icon: "fa fa-exclamation-triangle"
+#  content: '<iframe src="https://duckduckgo.com/search.html?prefill=Search DuckDuckGo&focus=yes&kz=1&kac=1&kn=1&kp=-2&k1=-1" style="overflow:hidden;margin:0;padding:0;width:calc(100% - 100px);height:60px;" frameborder="0"></iframe>'
+
+columns: "4" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
+
+# Services
+# First level array represent a group.
+# Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+services:
+  # ------ Applications --------------------------------------------------------
+  - name: "Applications"
+    icon: "fas fa-cloud"
+    items:
+      # https://hub.docker.com/r/kale5/rickroll
+      - name: "Rickroll"
+        logo: "assets/icons/rickroll-logo.jpeg"
+        subtitle: “Never Gonna Give You Up”
+        tag: "app"
+        url: "http://192.168.1.204:9431"
+        target: "_blank"
+
+      # https://github.com/bastienwirtz/homer
+      - name: "Homer"
+        logo: "assets/icons/homer-logo.png"
+        subtitle: "Homepage Dashboard"
+        tag: "app"
+        url: "http://192.168.1.200:8080"
+        # url: "{{HOMER_URL}}"
+        # url: !secret HOMER_URL
+        # target: "_blank"
+
+      # https://gethomepage.dev/latest/
+      - name: "Homepage"
+        logo: "assets/icons/homepage-logo.png"
+        subtitle: "Homepage Dashboard"
+        tag: "app"
+        url: "http://192.168.1.200:8084"
+        target: "_blank"
+
+      # https://noted.lol/flame-the-self-hosted-minimal-dashboard/
+      - name: "Flame"
+        logo: "assets/icons/flame-logo.png"
+        subtitle: "self-hosted startpage"
+        tag: "app"
+        url: "https://noted.lol/flame-the-self-hosted-minimal-dashboard/"
+        target: "_blank"
+
+      # https://dashy.to
+      - name: "Dashy"
+        logo: "assets/icons/dashy-logo.png"
+        subtitle: "Homepage Dashboard"
+        tag: "app"
+        url: "https://dashy.to/"
+        target: "_blank"
+
+      # https://www.youtube.com/watch?v=Y8OrPZADPkc
+      - name: "Snippit Box"
+        logo: "assets/icons/snippet-box-logo.png"
+        subtitle: "organizing your code snippets"
+        tag: "app"
+        url: "http://192.168.1.200:5000/snippets"
+        target: "_blank"
+
+      # https://github.com/zadam/trilium
+      - name: "Trilium Notes"
+        logo: "assets/icons/trilium-notes-logo.png"
+        subtitle: "Flexable Note Taking Tool"
+        tag: "notes"
+        url: "http://192.168.1.200:5001"
+        target: "_blank"
+
+      # https://github.com/
+      - name: "GitHub"
+        logo: "assets/icons/github-logo.png"
+        subtitle: "Source Code Version Control"
+        tag: "app"
+        url: "https://github.com/jeffskinnerbox/"
+        target: "_blank"
+
+      # https://hub.docker.com/r/linuxserver/webtop
+      - name: "Webtop"
+        logo: "assets/icons/null.png"
+        subtitle: "full linux desktop in browser"
+        tag: "app"
+        url: "https://www.linuxserver.io/blog/2021-05-05-meet-webtops-a-linux-desktop-environment-in-your-browser"
+        target: "_blank"
+
+      # https://www.gitpod.io/
+      - name: "Gitpod"
+        logo: "assets/icons/gitpod-logo.png"
+        subtitle: "automated dev environments in browser"
+        tag: "app"
+        url: "https://www.gitpod.io/"
+        target: "_blank"
+
+      # https://maclookup.app/
+      - name: "MACLookup"
+        logo: "assets/icons/maclookup-logo.png"
+        subtitle: "Vendor / MAC Address Lookup"
+        tag: "app"
+        url: "https://maclookup.app/"
+        target: "_blank"
+
+      # https://www.commandlinefu.com/commands/browse
+      - name: "CommandLineFu.com"
+        logo: "assets/icons/command-line-fu-logo.png"
+        subtitle: "Linux Command-line Gems"
+        tag: "app"
+        url: "https://www.commandlinefu.com/commands/browse"
+        target: "_blank"
+
+
+  # ------ Music & Video Media -------------------------------------------------
+  - name: "Music & Video Media"
+    icon: "fas fa-music"
+    items:
+      # https://www.plex.tv/
+      - name: "Plex"
+        logo: "assets/icons/plex-logo.jpg"
+        subtitle: "Home Media Server"
+        tag: "app"
+        url: "http://192.168.1.201:32400/"
+        target: "_blank"
+
+      # https://mymediaalexa.com/
+      - name: "myMedia for Alexa"
+        logo: "assets/icons/myMediaforAlexa-logo.png"
+        subtitle: "Stream Music to Alexa"
+        tag: "music"
+        url: "http://127.0.0.1:52051/index.html#!/"
+        target: "_blank"
+
+      # https://www.youtube.com/
+      - name: "Youtube"
+        logo: "assets/icons/youtube-logo.png"
+        subtitle: "Streaming Videos"
+        tag: "video"
+        url: "https://www.youtube.com/feed/history"
+        target: "_blank"
+
+      # https://jellyfin.org/
+      - name: "Jellyfin"
+        logo: "assets/icons/jellyfin-logo.png"
+        subtitle: "Media Server"
+        tag: "storage"
+        url: "https://jellyfin.org/"
+        target: "_blank"
+
+
+  # ------ AI Assistance -------------------------------------------------------
+  - name: "AI Assistance"
+    icon: "fas fa-clipboard-question"
+    items:
+      # https://chat.openai.com/auth/login
+      - name: "ChatGPT"
+        logo: "assets/icons/chatgpt-logo.png"
+        subtitle: "Answers To All Your Questions"
+        tag: "ai-asssit"
+        url: "https://chat.openai.com/"
+        target: "_blank"
+
+
+  # ------ eMail, Messaging ----------------------------------------------------
+  - name: "eMail, Messaging"
+    icon: "fas fa-envelope"
+    items:
+      # https://mail.aol.com/webmail-std/en-us/suite
+      - name: "Verizon/AOL eMail"
+        logo: "assets/icons/aol-mail-logo.png"
+        subtitle: "My primary email service"
+        tag: "email"
+        url: "https://mail.aol.com/webmail-std/en-us/suite"
+        target: "_blank"
+
+      # https://mail.google.com/mail/u/0/#inbox
+      - name: "Google eMail"
+        logo: "assets/icons/gmail-logo.png"
+        subtitle: "My secondary email service"
+        tag: "email"
+        url: "https://mail.google.com/mail/u/0/#inbox"
+        target: "_blank"
+
+      # https://mail.yahoo.com/d/folders/1
+      - name: "Yahoo eMail"
+        logo: "assets/icons/yahoo-mail-logo.png"
+        subtitle: "My web-life email service"
+        tag: "email"
+        url: "https://mail.yahoo.com/d/folders/1"
+        target: "_blank"
+
+      # https://slack.com/
+      - name: "Slack"
+        logo: "assets/icons/slack-logo.png"
+        subtitle: "Developer friendly messaging"
+        tag: "email"
+        url: "https://slack.com/"
+        target: "_blank"
+
+
+  # ------ Blogs, Wikis & Notes ------------------------------------------------
+  - name: "Blogs, Wikis & Notes"
+    icon: "fas fa-blog"
+    items:
+      # https://github.com/jeffskinnerbox/jeffskinnerbox.github.io
+      - name: "Blog"
+        logo: "assets/icons/blog.jeffskinnerbox.me-logo.png"
+        subtitle: "My Personal Web Blog"
+        tag: "blog"
+        url: "https://blog.jeffskinnerbox.me/"
+        target: "_blank"
+
+      # https://obsidian.md/
+      - name: "Obsidian"
+        logo: "assets/icons/obsidian-logo.png"
+        subtitle: "note-taking app for any device"
+        tag: "notes"
+        url: "http://192.168.1.200:8081"
+        target: "_blank"
+
+      # https://plus.excalidraw.com/
+      - name: "Excalidraw"
+        logo: "assets/icons/excalidraw-logo.png"
+        subtitle: "hand-drawn style whiteboard"
+        tag: "drawing"
+        url: "http://192.168.1.200:8082"
+        target: "_blank"
+
+      # https://getpelican.com/
+      - name: "Pelican"
+        logo: "assets/icons/pelican-logo.png"
+        subtitle: "static site generator powered by python"
+        tag: "blog"
+        url: "https://getpelican.com/"
+        target: "_blank"
+
+      # https://www.mkdocs.org/
+      - name: "MkDocs"
+        logo: "assets/icons/mkdocs-logo.png"
+        subtitle: "Static Site Project documentation with Markdown"
+        tag: "blog"
+        url: https://www.mkdocs.org/"
+        target: "_blank"
+
+      # https://tiddlywiki.com/
+      - name: "TiddlyWiki"
+        logo: "assets/icons/tiddlywiki-logo.png"
+        subtitle: "non-linear personal web notebook"
+        tag: "wiki"
+        url: "https://tiddlywiki.com/"
+        target: "_blank"
+
+      # https://www.dokuwiki.org/dokuwiki
+      - name: "DokuWiki"
+        logo: "assets/icons/dokuwiki-logo.png"
+        subtitle: "simiple and versatile wiki"
+        tag: "wiki"
+        url: "https://www.dokuwiki.org/dokuwiki"
+        target: "_blank"
+
+      # https://github.com/zadam/trilium
+      - name: "Trilium Notes"
+        logo: "assets/icons/trilium-notes-logo.png"
+        subtitle: "Flexable Note Taking Tool"
+        tag: "notes"
+        url: "https://www.youtube.com/watch?v=2orhoSiy-zk"
+        target: "_blank"
+
+      # http://keepnote.org/
+      - name: "KeepNote"
+        logo: "assets/icons/keepnote-logo.png"
+        subtitle: "Note Taking and Organization"
+        tag: "notes"
+        url: "http://keepnote.org/"
+        target: "_blank"
+
+      # https://www.giuspen.net/cherrytree/
+      - name: "Cherrytree"
+        logo: "assets/icons/cherrytree-logo.png"
+        subtitle: "Hierarchical Note Taking"
+        tag: "notes"
+        url: "https://www.giuspen.net/cherrytree/"
+        target: "_blank"
+
+      # https://git.lcomrade.su/root/lenpaste
+      - name: "Lenpaste"
+        logo: "assets/icons/null.png"
+        subtitle: "Pastebin Clone in Docker with Lenpaste"
+        tag: "notes"
+        url: "https://www.youtube.com/watch?v=YxcHxsZHh9A"
+        target: "_blank"
+
+      # https://www.bookstackapp.com/
+      - name: "BockStack"
+        logo: "assets/icons/bookstack-logo.png"
+        subtitle: "Simple, easy-to-use information storage"
+        tag: "notes"
+        url: "https://geek-cookbook.funkypenguin.co.nz/recipes/bookstack/"
+        target: "_blank"
+
+      # https://joplinapp.org/
+      - name: "Joplin"
+        logo: "assets/icons/joplin-logo.png"
+        subtitle: "note-taking app for any device"
+        tag: "notes"
+        url: "https://joplinapp.org/"
+        target: "_blank"
+
+
+  # ------ Internet of Things --------------------------------------------------
+  - name: "Internet of Things"
+    icon: "fas fa-microchip"
+    items:
+      # https://nodered.org/
+      - name: "Node-RED"
+        logo: "assets/icons/node-red-logo.png"
+        subtitle: "Visual Programming Dev Tool"
+        tag: "IoT"
+        url: "http://192.168.1.200:1880"
+        target: "_blank"
+
+      # https://www.home-assistant.io/
+      - name: "TEST - Home Assistant"
+        logo: "assets/icons/home-assistant-logo.png"
+        subtitle: "Home Automation"
+        tag: "IoT"
+        url: "http://192.168.1.205:8123"
+        target: "_blank"
+
+      # https://www.home-assistant.io/
+      - name: "Home Assistant"
+        logo: "assets/icons/home-assistant-logo.png"
+        subtitle: "Home Automation"
+        tag: "IoT"
+        url: "http://192.168.1.203:8123"
+        target: "_blank"
+
+      # https://www.home-assistant.io/
+      - name: "Room Assistant"
+        logo: "assets/icons/room-assistant-logo.png"
+        subtitle: "Room Presence Tracking"
+        tag: "IoT"
+        url: "https://www.room-assistant.io/"
+        target: "_blank"
+
+      # https://www.alexa.com/login
+      - name: "Alexa"
+        logo: "assets/icons/alexa-logo.png"
+        subtitle: "Speech Virtual Assistant"
+        tag: "IoT"
+        url: "https://www.alexa.com/login"
+        target: "_blank"
+
+      # https://www.samsung.com/us/smartthings/
+      - name: "Samsung SmartThings"
+        logo: "assets/icons/samsung-smartthings-logo.png"
+        subtitle: "SmarThings Gateway"
+        tag: "IoT"
+        url: "https://www.samsung.com/us/smartthings/"
+        target: "_blank"
+
+      # https://www.philips-hue.com/
+      - name: "Philips Hue Bridge"
+        logo: "assets/icons/philips-hue-logo.png"
+        subtitle: "Philips Hue Gateway"
+        tag: "IoT"
+        url: "https://www.philips-hue.com/en-us/p/hue-bridge/046677458478"
+        target: "_blank"
+
+
+  # ------ Fonts & Colors ------------------------------------------------------
+  - name: "Fonts & Colors"
+    icon: "fas fa-palette"
+    items:
+      # https://fontawesome.com/
+      - name: "Font Awesome"
+        logo: "assets/icons/font-awesome-logo.png"
+        subtitle: "Icon Library"
+        tag: "tools"
+        url: "https://fontawesome.com/icons"
+        target: "_blank"
+      # https://thenounproject.com/
+      - name: "The Noun Project"
+        logo: "assets/icons/the-noun-project-logo.png"
+        subtitle: "Icons and Photos For Everything"
+        tag: "tools"
+        url: "https://thenounproject.com/"
+        target: "_blank"
+      # https://coolors.co/
+      - name: "Coolors"
+        logo: "assets/icons/coolors-logo.png"
+        subtitle: "Color Palette Schemes"
+        tag: "tools"
+        url: "https://coolors.co/"
+        target: "_blank"
+
+
+  # ------ Tools ---------------------------------------------------------------
+  - name: "Tools"
+    icon: "fas fa-hammer"
+    items:
+      # https://www.diagrams.net/
+      - name: "diagrams.net"
+        logo: "assets/icons/diagrams.net-logo.png"
+        subtitle: "Diagramming Tool"
+        tag: "tools"
+        url: "https://www.diagrams.net/"
+        target: "_blank"
+
+      # https://stormboard.com/home
+      - name: "StormBoard"
+        logo: "assets/icons/stormboard-logo.jpeg"
+        subtitle: "Collaboration Tool"
+        tag: "tools"
+        url: "https://stormboard.com/home"
+        target: "_blank"
+
+      # https://filezilla-project.org/
+      - name: "FileZilla"
+        logo: "assets/icons/filezilla-logo.png"
+        subtitle: "FTP file transfer tool"
+        tag: "tools"
+        url: "https://filezilla-project.org/"
+        target: "_blank"
+
+
+  # ------ Inventory -----------------------------------------------------------
+  - name: "Inventory"
+    icon: "fas fa-boxes"
+    items:
+      # https://github.com/netbox-community/netbox
+      - name: "NetBox"
+        logo: "assets/icons/netbox-logo.png"
+        subtitle: "HomeLab Inventory"
+        tag: "inventory"
+        url: "https://netbox.dev/about/"
+        target: "_blank"
+
+      # https://hay-kot.github.io/homebox/
+      - name: "HomeBox"
+        logo: "assets/icons/homebox-logo.png"
+        subtitle: "Home Inventory"
+        tag: "inventory"
+        url: "https://hay-kot.github.io/homebox/"
+        target: "_blank"
+
+
+  # ------ Remote Access -------------------------------------------------------
+  - name: "Remote Access"
+    icon: "fas fa-terminal"
+    items:
+      # https://github.com/jeffskinnerbox/jeffskinnerbox.github.io
+      - name: "Blog"
+        logo: "assets/icons/blog.jeffskinnerbox.me-logo.png"
+        subtitle: "My Personal Web Blog"
+        tag: "blog"
+        url: "https://blog.jeffskinnerbox.me/"
+        target: "_blank"
+
+       # https://guacamole.apache.org/
+      - name: "Guacamole"
+        logo: "assets/icons/guacamole-logo.png"
+        subtitle: "Clientless Remote VNC, RDP, and SSH Gateway"
+        tag: "remote-access"
+        url: "http://guac.jeffskinnerbox.me"
+        target: "_blank"
+
+     # https://www.geeksforgeeks.org/shell-in-a-box-remote-linux-server-via-web-browser/
+      - name: "Shell In A Box"
+        logo: "assets/icons/shell-in-a-box-logo.png"
+        subtitle: "Web Secure Shell (SSH)"
+        tag: "remote-access"
+        url: "https://www.geeksforgeeks.org/shell-in-a-box-remote-linux-server-via-web-browser/"
+        target: "_blank"
+
+
+  # ------ Virtualization ------------------------------------------------------
+  - name: "Virtualization"
+    icon: "fas fa-gears"
+    items:
+      # https://www.portainer.io/
+      - name: "Portainer"
+        logo: "assets/icons/portainer-logo.png"
+        subtitle: "Container monitoring & mgmt."
+        tag: "virtualization"
+        url: "http://192.168.1.200:9000/#!/home"
+        # url: !secrets portainer_url
+        target: "_blank"
+
+      # https://containrrr.dev/watchtower/
+      - name: "Watchtower"
+        logo: "assets/icons/watchtower-logo.png"
+        subtitle: "Container Image Update Automation"
+        tag: "virtualization"
+        url: "https://containrrr.dev/watchtower/"
+        # url: !secrets portainer_url
+        target: "_blank"
+
+      # https://www.proxmox.com/en/
+      - name: "Proxmox"
+        logo: "assets/icons/proxmox-logo.png"
+        subtitle: "Bare Metal / Type 1 Hypervisor"
+        tag: "virtualization"
+        url: "https://192.168.1.202:8006"
+        # url: !secrets portainer_url
+        target: "_blank"
+
+      # https://www.virtualbox.org/
+      - name: "VitrualBox"
+        logo: "assets/icons/virtualbox-logo.png"
+        subtitle: "Hosted / Type 2 Hypervisor"
+        tag: "virtualization"
+        url: "https://www.virtualbox.org/"
+        target: "_blank"
+
+      # https://hub.docker.com
+      - name: "Docker Hub"
+        logo: "assets/icons/docker-logo.png"
+        subtitle: "Docker images"
+        tag: "containerized images"
+        url: "https://login.docker.com/u/login/identifier"
+        # url: !secrets portainer_url
+        target: "_blank"
+
+      # https://www.linuxserver.io/
+      - name: "LinuxServer.io"
+        logo: "assets/icons/linuxserver-logo.jpeg"
+        subtitle: "Docker images"
+        tag: "containerized images"
+        url: "https://www.linuxserver.io/"
+        # url: !secrets portainer_url
+        target: "_blank"
+
+
+  # ------ Troubleshooting -----------------------------------------------------
+  - name: "Troubleshooting"
+    icon: "fas fa-toolbox"
+    items:
+      # https://github.com/aceberg/WatchYourLAN
+      - name: "Watch Your LAN"
+        logo: "assets/icons/watchyourlan-logo.png"
+        subtitle: "Monitor for Rogue Devices"
+        tag: "troubleshooting"
+        url: "http://192.168.1.200:8840"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://www.speedtest.net/
+      - name: "SpeedTest"
+        logo: "assets/icons/speedtest-logo.png"
+        subtitle: "internet performance"
+        tag: "troubleshooting"
+        url: "http://192.168.1.200:3000/d/0A6hxROiz/speedtest-results?orgId=1"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://munin-monitoring.org/
+      - name: "Munin"
+        logo: "assets/icons/munin-logo.png"
+        subtitle: "server health monitoring"
+        tag: "troubleshooting"
+        url: "https://munin-monitoring.org/"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://www.netdata.cloud/overview
+      - name: "Netdata"
+        logo: "assets/icons/netdata-logo.png"
+        subtitle: "server health monitoring"
+        tag: "troubleshooting"
+        url: "http://192.168.1.200:19999"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://www.brotandgames.com/ciao/
+      - name: "Ciao"
+        logo: "assets/icons/null.png"
+        subtitle: "Check the Status of URLs"
+        tag: "troubleshooting"
+        url: "https://www.brotandgames.com/ciao/"
+        # url: !secrets NETDATA_URL
+        target: "_blank"
+
+      # https://www.brotandgames.com/ciao/
+      - name: "Uptime Kuma"
+        logo: "assets/icons/uptime-kuma-logo.png"
+        subtitle: "Monitor for Computer Services"
+        tag: "troubleshooting"
+        url: "https://uptime.kuma.pet/"
+        # url: !secrets NETDATA_URL
+        target: "_blank"
+
+      # https://healthchecks.io/
+      - name: "Healthchecks"
+        logo: "assets/icons/healthchecks-logo.png"
+        subtitle: "Monitor for Background Jobs"
+        tag: "troubleshooting"
+        url: "https://healthchecks.io/"
+        # url: !secrets NETDATA_URL
+        target: "_blank"
+
+
+  # ------ Alerts & Notifications ----------------------------------------------
+  - name: "Alerts & Notifications"
+    icon: "fas fa-bell"
+    items:
+      # https://github.com/jokob-sk/Pi.Alert a port to docker of pi.alert = https://github.com/pucherot/Pi.Alert
+      - name: "Pi.Alert"
+        logo: "assets/icons/pialert-logo.png"
+        subtitle: "WiFi/LAN intruder detector"
+        tag: "alerts"
+        url: "https://github.com/jokob-sk/Pi.Alert"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://github.com/caronc/apprise-api
+      - name: "Apprise"
+        logo: "assets/icons/apprise-logo.png"
+        subtitle: "send alerts to popular notification services"
+        tag: "alerts"
+        url: "http://localhost:8005/cfg/apprise"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://github.com/YoRyan/mailrise
+      - name: "Mailrise"
+        logo: "assets/icons/mailrise-logo.png"
+        subtitle: "SMTP gateway for Apprise notifications"
+        tag: "alerts"
+        url: "https://github.com/YoRyan/mailrise"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://pushover.net/
+      - name: "Pushover"
+        logo: "assets/icons/pushover-logo.png"
+        subtitle: "real-time notifications client"
+        tag: "alerts"
+        url: "https://pushover.net/login"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+
+  # ------ Log Management ------------------------------------------------------
+  - name: "Log Management"
+    icon: "fas fa-clipboard-list"
+    items:
+      #  https://grafana.com/oss/loki/
+      - name: "Grafana Loki"
+        logo: "assets/icons/grafana-loki-logo.png"
+        subtitle: "log aggregation system"
+        tag: "troubleshooting"
+        url: "https://grafana.com/oss/loki/"
+        target: "_blank"
+
+      # https://www.graylog.org/
+      - name: "Graylog"
+        logo: "assets/icons/graylog-logo.png"
+        subtitle: "log & event management"
+        tag: "troubleshooting"
+        url: "https://hometechhacker.com/how-to-create-a-graylog-container-in-docker/"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://www.graylog.org/
+      - name: "Logspout"
+        logo: "assets/icons/logspout-logo.png"
+        subtitle: "docker log management"
+        tag: "troubleshooting"
+        url: "https://hometechhacker.com/centralizing-docker-logging-using-logspout-and-graylog/"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+
+  # ------ Network Services ----------------------------------------------------
+  - name: "Networking Services"
+    icon: "fas fa-network-wired"
+    items:
+      #  https://www.verizon.com/about/sites/default/files/fios-qgr-userguide140925.pdf
+      # - name: "FiOS Router"
+        # logo: "assets/icons/fios-logo.png"
+        # subtitle: "ISP Provided Router / Firewall"
+        # tag: "network"
+        # url: "http://192.168.1.1"
+        # target: "_blank"
+
+      # https://www.pfsense.org/
+      - name: "pfSense"
+        logo: "assets/icons/pfsense-logo.png"
+        subtitle: "Router / Firewall for Home"
+        tag: "network"
+        url: "https://192.168.1.1"
+        target: "_blank"
+
+      # https://www.tp-link.com/us/business-networking/omada-sdn-access-point/eap660-hd/
+      - name: "Access Point"
+        logo: "assets/icons/tplink-logo.png"
+        subtitle: "WiFi 6 Access Point"
+        tag: "network"
+        url: "https://192.168.1.2"
+        target: "_blank"
+
+      # https://www.tp-link.com/us/home-networking/range-extender/re450/
+      - name: "Access Point"
+        logo: "assets/icons/tplink-logo.png"
+        subtitle: "WiFi Range Extender"
+        tag: "network"
+        url: "http://192.168.1.3"
+        target: "_blank"
+
+      # https://www.tp-link.com/us/business-networking/easy-smart-switch/tl-sg108e/
+      - name: "Ethernet Switch"
+        logo: "assets/icons/tplink-logo.png"
+        subtitle: "8-Port Managed Switch"
+        tag: "network"
+        url: "http://192.168.1.4"
+        target: "_blank"
+
+      # https://www.cloudflare.com/dns/
+      - name: "Cloudflare"
+        logo: "assets/icons/cloudflare-logo.png"
+        subtitle: "DNS Services"
+        tag: "network"
+        url: "https://dash.cloudflare.com/login"
+        target: "_blank"
+
+      # https://www.samsung.com/us/smartthings/
+      - name: "Samsung SmartThings"
+        logo: "assets/icons/samsung-smartthings-logo.png"
+        subtitle: "Smarthings Gateway"
+        tag: "network"
+        url: "https://smartthings.developer.samsung.com/"
+        target: "_blank"
+
+      # https://www.philips-hue.com/en-us/p/hue-bridge/046677458478
+      - name: "Philips Hue Bridge"
+        logo: "assets/icons/philips-hue-logo.png"
+        subtitle: "Philips Hue Gateway"
+        tag: "network"
+        url: "http://192.168.1.34:80"
+        target: "_blank"
+
+      # https://traefik.io/
+      - name: "Traefik"
+        logo: "assets/icons/traefik-logo.png"
+        subtitle: "Reverse Proxy"
+        tag: "network"
+        url: "https://hub.docker.com/_/traefik"
+        target: "_blank"
+
+      # http://www.haproxy.org/
+      - name: "HAProxy"
+        logo: "assets/icons/haproxy-logo.png"
+        subtitle: "Reverse Proxy"
+        tag: "network"
+        url: "http://www.haproxy.org/"
+        target: "_blank"
+
+      # https://nginxproxymanager.com/
+      - name: "Nginx Proxy Manager"
+        logo: "assets/icons/nginx-proxy-manager-logo.png"
+        subtitle: "Reverse Proxy"
+        tag: "network"
+        url: "https://nginxproxymanager.com/"
+        target: "_blank"
+
+      # https://pi-hole.net/
+      - name: "Pi-hole"
+        logo: "assets/icons/pihole-logo.png"
+        subtitle: "DNS Server and Ads Blocker"
+        tag: "network"
+        url: "https://pi-hole.net/"
+        target: "_blank"
+
+      # https://www.tp-link.com/us/business-networking/omada-sdn-controller/
+      # - name: "SDN Controller"
+        # logo: "assets/icons/tplink-logo.png"
+        # subtitle: "Omada Software Controller"
+        # tag: "network"
+        # url: "https://192.168.1.35:8043"
+        # target: "_blank"
+
+
+  # ------ Storage -------------------------------------------------------------
+  - name: "Storage"
+    icon: "fas fa-database"
+    items:
+      # https://www.synology.com/en-global
+      - name: "Synology NAS"
+        logo: "assets/icons/synology.png"
+        subtitle: "Network Attached Storage"
+        tag: "storage"
+        url: "http://192.168.1.201:5000"
+        target: "_blank"
+
+      # https://www.google.com/drive/
+      - name: "Google Drive"
+        logo: "assets/icons/google-drive-logo.png"
+        subtitle: "Cloud Storage"
+        tag: "storage"
+        url: "https://drive.google.com/drive/my-drive"
+        target: "_blank"
+
+      # https://www.box.com/
+      - name: "Box"
+        logo: "assets/icons/box-logo.png"
+        subtitle: "Cloud Storage"
+        tag: "storage"
+        url: "https://account.box.com/login"
+        target: "_blank"
+
+
+  # ------ Backup --------------------------------------------------------------
+  - name: "Backup"
+    icon: "fas fa-trash-restore"
+    items:
+      # https://www.synology.com/en-global
+      - name: "Synology NAS"
+        logo: "assets/icons/synology.png"
+        subtitle: "Network Attached Storage"
+        tag: "backup"
+        url: "http://192.168.1.201:5000"
+        target: "_blank"
+
+      # https://www.duplicati.com/
+      - name: "Duplicati"
+        logo: "assets/icons/duplicati-logo.png"
+        subtitle: "Backup Client"
+        tag: "backup"
+        url: "http://192.168.1.200:8270"
+        target: "_blank"
+
+      # https://www.elkarbackup.org/
+      - name: "ElkarBackup"
+        logo: "assets/icons/elkarbackup-logo.jpeg"
+        subtitle: "WebUI for Rsync/Rsnapshot"
+        tag: "backup"
+        url: "https://www.elkarbackup.org/"
+        target: "_blank"
+
+      # https://syncthing.net/
+      - name: "Syncthing"
+        logo: "assets/icons/syncthing-logo.png"
+        subtitle: "File Synchronization"
+        tag: "backup"
+        url: "https://syncthing.net/"
+        target: "_blank"
+
+      # https://clonezilla.org/
+      - name: "Clonezilla"
+        logo: "assets/icons/clonezilla-logo.png"
+        subtitle: "Disk Imaging"
+        tag: "backup"
+        url: "https://clonezilla.org/"
+        target: "_blank"
+
+      # https://www.veeam.com/
+      - name: "Veeam"
+        logo: "assets/icons/veeam-logo.png"
+        subtitle: "Disk Imaging"
+        tag: "backup"
+        url: "https://www.veeam.com/"
+        target: "_blank"
+
+
+  # ------ Security Services ---------------------------------------------------
+  - name: "Security Services"
+    icon: "fas fa-lock"
+    items:
+      # https://bitwarden.com/
+      - name: "Bitwarden"
+        logo: "assets/icons/bitwarden-logo.png"
+        subtitle: "Password Manager"
+        tag: "security"
+        url: "https://bitwarden.com/"
+        target: "_blank"
+
+      # https://lastpass.com/
+      - name: "LastPass"
+        logo: "assets/icons/lastpass-logo.png"
+        subtitle: "Password Manager"
+        tag: "security"
+        url: "https://lastpass.com/?ac=1&lpnorefresh=1"
+        target: "_blank"
+
+      # https://www.vaultproject.io/
+      - name: "Vault"
+        logo: "assets/icons/hashicorp-vault-logo.png"
+        subtitle: "Manage Secrets, Keys, and Certificates"
+        tag: "security"
+        url: "https://www.vaultproject.io/"
+        target: "_blank"
+
+      # https://www.authelia.com/
+      - name: "Authelia"
+        logo: "assets/icons/authelia-logo.png"
+        subtitle: "Single Sign-On and 2 Factor Authentication"
+        tag: "security"
+        url: "https://www.authelia.com/"
+        target: "_blank"
+
+      # https://letsencrypt.org/
+      - name: "Let's Encrypt"
+        logo: "assets/icons/letencrypt.png"
+        subtitle: "TLS Certificate Authority"
+        tag: "security"
+        url: "https://letsencrypt.org/"
+        target: "_blank"
+
+      # https://www.crowdsec.net/
+      - name: "CrowdSec"
+        logo: "assets/icons/crowdsec-logo.png"
+        subtitle: "cyberattack detection"
+        tag: "security"
+        url: "https://www.crowdsec.net/"
+        target: "_blank"
+
+      # https://haveibeenpwned.com/
+      - name: "Have I Been Pwned"
+        logo: "assets/icons/have-i-been-pwned-logo.png"
+        subtitle: "Check if you are in a data breach"
+        tag: "security"
+        url: "https://haveibeenpwned.com/"
+        target: "_blank"
+
+
+  # ------ Investments ---------------------------------------------------------
+  - name: "Investments"
+    icon: "fas fa-sack-dollar"
+    items:
+      # https://www.fidelity.com/
+      - name: "Fidelity Retirement Planner"
+        logo: "assets/icons/fidelity-investments-logo.png"
+        subtitle: "Income Analysis of Retirement"
+        tag: "investments"
+        url: "https://myguidance.fidelity.com/ftgw/pna/customer/planning/goals/retirement"
+        target: "_blank"
+
+      # https://www.fidelity.com/
+      - name: "Fidelity Investments"
+        logo: "assets/icons/fidelity-investments-logo.png"
+        subtitle: "401K - Verizon, Unisys, CapGemini, AT&T"
+        tag: "investments"
+        url: "https://www.fidelity.com/"
+        target: "_blank"
+
+      # https://leplb0640.upoint.ap.alight.com/web/unisys/login?forkPage=false
+      - name: "Unisys Pension"
+        logo: "assets/icons/unisys-logo.jpg"
+        subtitle: "pension & benefits"
+        tag: "benefits"
+        url: "https://leplb0640.upoint.ap.alight.com/web/unisys/login?forkPage=false"
+        target: "_blank"
+
+      # https://www.alight.com/
+      - name: "Alight Investments"
+        logo: "assets/icons/alight-logo.png"
+        subtitle: "401K - Accenture"
+        tag: "investments"
+        url: "https://leplb0540.upoint.alight.com/web/accenture/login"
+        target: "_blank"
+
+      # https://my.voya.com
+      - name: "Voya Investments"
+        logo: "assets/icons/voya-logo.png"
+        subtitle: "401K - Booz Allen"
+        tag: "investments"
+        url: "https://my.voya.com/voyassoui/index.html?domain=ecap.voya.com#/login-pweb"
+        target: "_blank"
+
+      # https://www.mycollegeadvantagedirect.com
+      - name: "College Advantage Direct"
+        logo: "assets/icons/ohio-529-savings-plan-logo.png"
+        subtitle: "529 College Savings Plan"
+        tag: "investments"
+        url: "https://www.mycollegeadvantagedirect.com/ohtpl/auth/ll.cs?Be7X3aLjo0qWfMVq2jI%2B7A%3D%3D="
+        target: "_blank"
+
+
+  # ------ Benefits ------------------------------------------------------------
+  - name: "Benefits"
+    icon: "fas fa-suitcase-medical"
+    items:
+      # https://www.verizonbenefitsconnection.com/
+      - name: "Verizon Benefits Connect"
+        logo: "assets/icons/verizon-logo.png"
+        subtitle: "work related benefits"
+        tag: "benefits"
+        url: "https://www.verizonbenefitsconnection.com/"
+        target: "_blank"
+
+      # https://www.aetna.com/
+      - name: "Aetna Dental Plan"
+        logo: "assets/icons/aetna-logo.jpg"
+        subtitle: "work related benefits"
+        tag: "benefits"
+        url: "https://www.aetna.com/AccountManagerV3/v/login"
+        target: "_blank"
+
+      # https://www.anthem.com/
+      - name: "Anthem Healthcare"
+        logo: "assets/icons/anthem-logo.png"
+        subtitle: "work related benefits"
+        tag: "benefits"
+        url: "https://www.anthem.com/login/"
+        target: "_blank"
+
+      # https://www.verizonbenefitsconnection.com/
+      - name: "Healthcare FSA"
+        logo: "assets/icons/verizon-logo.png"
+        subtitle: "work related benefits"
+        tag: "benefits"
+        url: "https://www.verizonbenefitsconnection.com/"
+        target: "_blank"
+
+
+  # ------ Shopping ------------------------------------------------------------
+  - name: "Shopping"
+    icon: "fas fa-shopping-cart"
+    items:
+      # https://www.amazon.com/
+      - name: "Amazon"
+        logo: "assets/icons/amazon-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.amazon.com/?ref_=nav_custrec_signin&"
+        target: "_blank"
+
+      # https://www.dfrobot.com/
+      - name: "DFRobot"
+        logo: "assets/icons/dfrobot-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.dfrobot.com/index.php?route=account/login"
+        target: "_blank"
+
+      # https://www.seeedstudio.com/
+      - name: "Seeed Studio"
+        logo: "assets/icons/seeed-studio-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.seeedstudio.com/customer/account/login"
+        target: "_blank"
+
+      # https://www.electromaker.io/
+      - name: "electro{maker}"
+        logo: "assets/icons/electromaker-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.electromaker.io/"
+        target: "_blank"
+
+      # https://www.adafruit.com/
+      - name: "Adafruit"
+        logo: "assets/icons/adafruit-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://accounts.adafruit.com/users/sign_in"
+        target: "_blank"
+
+      # https://www.sparkfun.com/
+      - name: "SparkFun"
+        logo: "assets/icons/sparkfun-logo.jpg"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.sparkfun.com/"
+        target: "_blank"
+
+      # https://www.jameco.com/
+      - name: "Jameco Electronics"
+        logo: "assets/icons/jameco-electronics-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.jameco.com/webapp/wcs/stores/servlet/LogonForm"
+        target: "_blank"
+
+      # https://www.mouser.com/
+      - name: "Mouser Electronics"
+        logo: "assets/icons/mouser-electronics-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.mouser.com/MyAccount/MouserLogin"
+        target: "_blank"
+
+      # https://octopart.com/
+      - name: "Octopart Electronics"
+        logo: "assets/icons/octopart-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://octopart.com/"
+        target: "_blank"
+
+      # https://www.pololu.com/
+      - name: "Pololu Robotics & Electronics"
+        logo: "assets/icons/pololu-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.pololu.com/"
+        target: "_blank"
+
+      # https://www.newark.com/
+      - name: "Newark Electronics"
+        logo: "assets/icons/newark-electronics-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.newark.com/"
+        target: "_blank"
+
+      # https://www.mcmaster.com/
+      - name: "McMaster-Carr"
+        logo: "assets/icons/mcmaster-carr-logo.png"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.mcmaster.com/"
+        target: "_blank"
+
+      # https://www.ishor.com/
+      - name: "Shor International"
+        logo: "assets/icons/shor-international.jpg"
+        subtitle: "For Your Shopping Pleasure"
+        tag: "shopping"
+        url: "https://www.ishor.com/"
+        target: "_blank"
+
+      # https://www.thorlabs.de/
+      - name: "ThorLabs"
+        logo: "assets/icons/thorlabs-logo.png"
+        subtitle: "Scientific Equipment"
+        tag: "shopping"
+        url: "https://www.thorlabs.de/navigation.cfm"
+        target: "_blank"
+
+      # https://www.gobilda.com/
+      - name: "goBILDA"
+        logo: "assets/icons/goBILDA-logo.jpeg"
+        subtitle: "build system designed for educators & students"
+        tag: "shopping"
+        url: "https://www.gobilda.com/"
+        target: "_blank"
+
+      # https://unitednuclear.com/
+      - name: "United Nuclear"
+        logo: "assets/icons/united-nuclear-logo.png"
+        subtitle: "scientific equipment & supplies"
+        tag: "shopping"
+        url: "https://unitednuclear.com/"
+        target: "_blank"
+
+
+  # ------ Smart Home ----------------------------------------------------------
+  - name: "Smart Home"
+    icon: "fas fa-home"
+    items:
+      # https://smarthomepursuits.com
+      - name: "Smart Home Pursuits"
+        logo: "assets/icons/null.png"
+        subtitle: "Home Automation"
+        tag: "smart-home"
+        url: "http://smarthomepursuits.com"
+        target: "_blank"
+
+      # https://hometechhacker.com/
+      - name: "HomeTech Hacker"
+        logo: "assets/icons/null.png"
+        subtitle: "Modern Home Solutions"
+        tag: "smart-home"
+        url: "https://hometechhacker.com/"
+        target: "_blank"
+
+      # https://www.youtube.com/c/HomeAutomationGuy
+      - name: "Home Automation Guy"
+        logo: "assets/icons/null.png"
+        subtitle: "Modern Home Solutions"
+        tag: "smart-home"
+        url: "https://www.youtube.com/c/HomeAutomationGuy"
+        target: "_blank"
+
+      # https://www.mostlychris.com/
+      - name: "Mostly Chris"
+        logo: "assets/icons/null.png"
+        subtitle: "home automation enthusiast"
+        tag: "smart-home"
+        url: "https://www.mostlychris.com/"
+        target: "_blank"
+
+      # https://everythingsmarthome.co.uk/
+      - name: "Everything Smart Home"
+        logo: "assets/icons/everything-smart-home-logo.jpg"
+        subtitle: "home assistant and more"
+        tag: "smart-home"
+        url: "https://everythingsmarthome.co.uk/home-assistant/"
+        target: "_blank"
+
+      # https://www.slacker-labs.com/
+      - name: "Slacker Labs"
+        logo: "assets/icons/slacker-labs-logo.png"
+        subtitle: "home assistant and more"
+        tag: "smart-home"
+        url: "https://www.slacker-labs.com/"
+        target: "_blank"
+
+      # https://www.slacker-labs.com/
+      - name: "Smart Home Makers"
+        logo: "assets/icons/smart-home-makers-logo.png"
+        subtitle: "home assistant and more"
+        tag: "smart-home"
+        url: "https://www.youtube.com/c/SmartHomeMakers"
+        target: "_blank"
+
+
+  # ------ Computer Vision -----------------------------------------------------
+  - name: "Computer Vision"
+    icon: "fa-solid fa-video"
+    items:
+      # https://learnopencv.com/
+      - name: "LearnOpenCV"
+        logo: "assets/icons/null.png"
+        subtitle: "OpenCv Training & Tutorials"
+        tag: "computer-vision"
+        url: "https://learnopencv.com/"
+        target: "_blank"
+
+      # https://pyimagesearch.com/
+      - name: "PyImageSearch"
+        logo: "assets/icons/null.png"
+        subtitle: "OpenCv Training & Tutorials"
+        tag: "computer-vision"
+        url: "https://pyimagesearch.com/blog/"
+        target: "_blank"
+
+
+  # ------ Self Hosting --------------------------------------------------------
+  - name: "Self Hosting"
+    icon: "fas fa-server"
+    items:
+      # https://geek-cookbook.funkypenguin.co.nz/
+      - name: "Geek Cookbook"
+        logo: "assets/icons/funky-penguin-logo.png"
+        subtitle: "how-to guides for selfhosting"
+        tag: "self-hosting"
+        url: "https://geek-cookbook.funkypenguin.co.nz/"
+        target: "_blank"
+
+      # https://www.dlford.io/tag/how-to-home-lab-series/
+      - name: "dlford.io"
+        logo: "assets/icons/null.png"
+        subtitle: "How-to Home Lab Series"
+        tag: "self-hosting"
+        url: "https://www.dlford.io/tag/how-to-home-lab-series/"
+        target: "_blank"
+
+      # https://github.com/awesome-selfhosted/awesome-selfhosted
+      - name: "Awesome Open Source"
+        logo: "assets/icons/awesome-open-source-logo.png"
+        subtitle: "Free Software hosted on your own servers"
+        tag: "self-hosting"
+        url: "https://www.youtube.com/c/AwesomeOpenSource"
+        target: "_blank"
+
+
+  # ------ Development and Testing Tools ---------------------------------------
+  - name: "Dev & Test Tools"
+    icon: "fab fa-dev"
+    items:
+      # https://opentelemetry.io/
+      - name: "OpenTelemetry"
+        logo: "assets/icons/opentelemetry-logo.png"
+        subtitle: "telemetry data for software"
+        tag: "dev & test tools"
+        url: "https://opentelemetry.io/"
+        target: "_blank"
+
+      # https://randomnerdtutorials.com/
+      - name: "Random Nerd Tutorials"
+        logo: "assets/icons/random-nerd-tutorials-logo.jpg"
+        subtitle: "Help for ESP8266 & ESP32"
+        tag: "dev & test tools"
+        url: "https://randomnerdtutorials.com/"
+        target: "_blank"
+
+      # https://www.iotsharing.com/
+      - name: "IoT Sharing"
+        logo: "assets/icons/null.png"
+        subtitle: "Help for ESP32 projects"
+        tag: "dev & test tools"
+        url: "https://www.iotsharing.com/search/label/ESP32"
+        target: "_blank"
+
+      # https://embeddedexplorer.com/
+      - name: "Embedded Explorer"
+        logo: "assets/icons/null.png"
+        subtitle: "Help for ESP32 projects"
+        tag: "dev & test tools"
+        url: "https://embeddedexplorer.com/esp32/"
+        target: "_blank"
+
+      # https://www.survivingwithandroid.com/
+      - name: "SWA - Surviving Without Android"
+        logo: "assets/icons/null.png"
+        subtitle: "Help for ESP projects"
+        tag: "dev & test tools"
+        url: "https://www.survivingwithandroid.com/"
+        target: "_blank"
+
+      # https://www.circuitlab.com/
+      - name: "CircuitLab"
+        logo: "assets/icons/circuit-lab.png"
+        subtitle: "Circuit Simulations"
+        tag: "dev & test tools"
+        url: "https://www.circuitlab.com/"
+        target: "_blank"
+
+      # https://www.youtube.com/@sentdex
+      - name: "SentDex"
+        logo: "assets/icons/sentdex-logo.jpg"
+        subtitle: "Python and Neural Networks"
+        tag: "dev & test tools"
+        url: "https://www.youtube.com/@sentdex"
+        target: "_blank"
+
+      # https://howtomechatronics.com/
+      - name: "How To Mechatronics"
+        logo: "assets/icons/how-to-mechatronics-logo.jpeg"
+        subtitle: "Projects & Tutorials"
+        tag: "dev & test tools"
+        url: "https://howtomechatronics.com/"
+        target: "_blank"
+
+      # https://dronebotworkshop.com/
+      - name: "DroneBot Workshop"
+        logo: "assets/icons/dronebot-workshop-logo.jpg"
+        subtitle: "Projects & Tutorials"
+        tag: "dev & test tools"
+        url: "https://dronebotworkshop.com/"
+        target: "_blank"
+
+      # https://diyodemag.com/
+      - name: "DYIODE"
+        logo: "assets/icons/diyode-logo.png"
+        subtitle: "Electronics Enthusiasts and Makers"
+        tag: "dev & test tools"
+        url: "https://diyodemag.com/"
+        target: "_blank"
+
+      # https://www.dfrobot.com/blog-tag-esp32.html
+      - name: "ESP32 Tutorial Blog"
+        logo: "assets/icons/dfrobot-logo.png"
+        subtitle: "Electronics Enthusiasts and Makers"
+        tag: "dev & test tools"
+        url: "https://www.dfrobot.com/blog-tag-esp32.html"
+        target: "_blank"
+
+
+  # ------ Health and Fitness --------------------------------------------------
+  - name: "Health & Fitness"
+    icon: "fab fa-dumbbell"
+    items:
+      # https://www.withings.com/us/en/
+      - name: "Withings Health Mate"
+        logo: "assets/icons/withings-health-mate-logo.png"
+        subtitle: "health tracking for Withings devices"
+        tag: "health & fitness"
+        url: "https://healthmate.withings.com/31298649/timeline"
+        target: "_blank"
+
+
+  # ------ Website Monitoring --------------------------------------------------
+  - name: "Website Monitoring"
+    icon: "fab fa-watchman-monitoring"
+    items:
+      # https://opensource.com/article/22/9/changedetection-io-open-source-website-changes
+      - name: "Change Detection"
+        logo: "assets/icons/null.png"
+        subtitle: "Website Change Detection Tracking"
+        tag: "website monitoring"
+        url: "https://opensource.com/article/22/9/changedetection-io-open-source-website-changes"
+        target: "_blank"
+
+
+  # ------ Resume & Job Search -------------------------------------------------
+  - name: "Resume & Job Search"
+    icon: "fas fa-file"
+    items:
+      # https://www.linkedin.com/
+      - name: "LinkedIn"
+        logo: "assets/icons/linkedin-logo.png"
+        subtitle: "Resume Post and Job Search"
+        tag: "job search"
+        url: "https://www.linkedin.com/in/jeffreyirland/"
+        target: "_blank"
+
+      # https://www.indeed.com/
+      - name: "Indeed"
+        logo: "assets/icons/indeed-logo.png"
+        subtitle: "Resume Post and Job Search"
+        tag: "job search"
+        url: "https://www.indeed.com/"
+        target: "_blank"
+
+      # https://www.dice.com/
+      - name: "Dice"
+        logo: "assets/icons/dice-logo.png"
+        subtitle: "Resume Post and Job Search"
+        tag: "job search"
+        url: "https://www.dice.com/"
+        target: "_blank"
+
+      # https://www.careerbuilder.com/
+      - name: "CareerBuilder"
+        logo: "assets/icons/careerbuilder-logo.png"
+        subtitle: "Resume Post and Job Search"
+        tag: "job search"
+        url: "https://www.careerbuilder.com/"
+        target: "_blank"
+
+      # https://www.talent.com/
+      - name: "CareerBuilder"
+        logo: "assets/icons/talent-dot-com-logo.png"
+        subtitle: "Job Search"
+        tag: "job search"
+        url: "https://www.careerbuilder.com/"
+        target: "_blank"
+
+      # https://retirementjobs.com/
+      - name: "RetirementJobs"
+        logo: "assets/icons/retirementjobs-logo.jpeg"
+        subtitle: "Resume Post and Job Search"
+        tag: "job search"
+        url: "https://retirementjobs.com/seeker-home"
+        target: "_blank"
+
+
+  # ------ Educational Computing -----------------------------------------------
+  - name: "Educational Computing"
+    icon: "fas fa-graduation-cap"
+    items:
+      # https://microblocks.fun/
+      - name: "MicroBlocks"
+        logo: "assets/icons/microblocks-logo.png"
+        subtitle: "Learning Physical Computing"
+        tag: "educational"
+        url: "https://microblocks.fun/"
+        target: "_blank"
+
+      # https://scratch.mit.edu/
+      - name: "Scratch"
+        logo: "assets/icons/scratch-logo.png"
+        subtitle: "Learning Visual Coding"
+        tag: "educational"
+        url: "https://scratch.mit.edu/"
+        target: "_blank"
+
+
+  # ------ Skills Building -----------------------------------------------------
+  - name: "Skills Building"
+    icon: "fas fa-chalkboard-teacher"
+    items:
+      # https://skillsbuild.org/
+      - name: "IBM Skills Building"
+        logo: "assets/icons/null.png"
+        subtitle: "Computing Related Skills"
+        tag: "educational"
+        url: "https://skillsbuild.org/learners"
+        target: "_blank"
+
+      # https://brilliant.org/
+      - name: "Brilliant"
+        logo: "assets/icons/null.png"
+        subtitle: "Math, Science, and Computing Skills"
+        tag: "educational"
+        url: "https://brilliant.org/"
+        target: "_blank"
+
+      # https://neovim.io/
+      - name: "NeoVim"
+        logo: "assets/icons/neovim-logo.png"
+        subtitle: "Learn The Practical Way"
+        tag: "tools"
+        url: "https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f"
+        target: "_blank"
+
+      # https://plus.maths.org/content/
+      - name: "+Plus Magazine"
+        logo: "assets/icons/plus-logo.png"
+        subtitle: "Learning the World of Mathematics"
+        tag: "tools"
+        url: "https://plus.maths.org/content/"
+        target: "_blank"
+
+
+  # ------ Online Courses and Books --------------------------------------------
+  - name: "Online Courses and Books"
+    icon: "fas fa-book-open"
+    items:
+      # https://www.youtube.com/playlist?list=PLlXfTHzgMRULkodlIEqfgTS-H1AY_bNtq
+      - name: "Introduction to Tensor Calculus"
+        logo: "assets/icons/math-the-beautiful-logo.jpg"
+        subtitle: "coordinate independent calculus"
+        tag: "courses & books"
+        url: "https://www.youtube.com/playlist?list=PLlXfTHzgMRULkodlIEqfgTS-H1AY_bNtq"
+        target: "_blank"
+
+
+  # ------ Quantum Computing ---------------------------------------------------
+  - name: "Quantum Computing"
+    icon: "fas fa-chalkboard-teacher"
+    items:
+      # https://phasespacecomputing.com/
+      - name: "Phase Space Computing"
+        logo: "assets/icons/null.png"
+        subtitle: "Education tools for quantum information science"
+        tag: "educational"
+        url: "https://phasespacecomputing.com/"
+        target: "_blank"
+
+     # https://qiskit.org/
+      - name: "Qiskit"
+        logo: "assets/icons/qiskit-logo.png"
+        subtitle: "Open-source toolkit for quantum computing"
+        tag: "educational"
+        url: "https://qiskit.org/"
+        target: "_blank"
+
+
+  # ------ Websites ------------------------------------------------------------
+  - name: "Websites"
+    icon: "fas fa-window-restore"
+    items:
+      # https://www.wmbriggs.com/
+      - name: "William M. Briggs"
+        logo: "assets/icons/william-m-briggs-logo.jpeg"
+        subtitle: "Statistician to the Stars!"
+        tag: "websites"
+        url: "https://www.wmbriggs.com/"
+        target: "_blank"
+
+      # https://brokenscience.org/
+      - name: "The Broken Science Initiative"
+        logo: "assets/icons/the-broken-science-initiative-logo.jpg"
+        subtitle: "???"
+        tag: "websites"
+        url: "https://brokenscience.org/"
+        target: "_blank"
+
+      # https://streetscience.net/
+      - name: "StreetScience"
+        logo: "assets/icons/streetscience-logo.png"
+        subtitle: "Explore humanity's most curious questions"
+        tag: "websites"
+        url: "https://streetscience.net/"
+        target: "_blank"
+
+
+  # ------ Edge Computing ------------------------------------------------------
+  - name: "Edge Computing"
+    icon: "fas fa-project-diagram"
+    items:
+      # https://www.lfedge.org/
+      - name: "LF Edge"
+        logo: "assets/icons/lfedge-logo.png"
+        subtitle: "Linux Foundation Edge Computing"
+        tag: "edge"
+        url: "https://github.com/lf-edge"
+        target: "_blank"
+
+      # https://www.edgexfoundry.org/
+      - name: "EdgeX Foundry"
+        logo: "assets/icons/edgex-foundry-logo.png"
+        subtitle: "Open Source Interoperable Edge Platform"
+        tag: "edge"
+        url: "https://github.com/edgexfoundry"
+        target: "_blank"
+
+
+  # ------ Cheatsheets ---------------------------------------------------------
+  - name: "Cheatsheets"
+    icon: "fas fa-clipboard"
+    items:
+      # https://collabnix.com/docker-cheatsheet/
+      - name: "Docker Cheatsheets"
+        logo: "assets/icons/docker-logo.png"
+        subtitle: "Summary of Important Information"
+        tag: "cheatsheet"
+        url: "https://github.com/lf-edge"
+        target: "_blank"
+
+
+  # ------ Physics Explained ---------------------------------------------------
+  - name: "Physics Explained"
+    icon: "fas fa-atom"
+    items:
+      # https://www.youtube.com/@DotPhysics
+      - name: "Physics Explained"
+        logo: "assets/icons/physics-explained-logo.jpg"
+        subtitle: "Derivations & Descriptions"
+        tag: "physics"
+        url: "https://www.youtube.com/@DotPhysics"
+        target: "_blank"
+
+      # https://www.youtube.com/@viascience
+      - name: "Quantum Mechanics"
+        logo: "assets/icons/null.png"
+        subtitle: "The Experiments that Defined QM"
+        tag: "physics"
+        url: "https://www.youtube.com/playlist?list=PL193BC0532FE7B02C"
+        target: "_blank"
+
+      # https://www.feynmanlectures.caltech.edu/
+      - name: "Feynman's Messenger Lectures"
+        logo: "assets/icons/cornell-university-logo.png"
+        subtitle: "1964 Messenger Lectures at Cornell University"
+        tag: "physics"
+        url: "https://www.feynmanlectures.caltech.edu/messenger.html"
+        target: "_blank"
+
+      # https://www.physicswithelliot.com/
+      - name: "Physics with Elliot"
+        logo: "assets/icons/physics-with-elliot-logo.png"
+        subtitle: "Explaining Physics"
+        tag: "physics"
+        url: "https://www.physicswithelliot.com/"
+        target: "_blank"
+
+
+  # ------ Mathematics Explained -----------------------------------------------
+  - name: "Mathematics Explained"
+    icon: "fas fa-infinity"
+    items:
+      # https://grinfeld.org/
+      - name: "MathTheBeautiful"
+        logo: "assets/icons/math-the-beautiful-logo.jpg"
+        subtitle: "Mathematics topics"
+        tag: "mathematics"
+        url: "https://www.youtube.com/MathTheBeautiful"
+        target: "_blank"
+
+      # https://cloud.google.com/blog/topics/developers-practitioners/celebrating-pi-day-cloud-functions
+      - name: "π Calculation"
+        logo: "assets/icons/pi-logo.png"
+        subtitle: "Celebrating Pi Day"
+        tag: "mathematics"
+        url: "https://cloud.google.com/blog/topics/developers-practitioners/celebrating-pi-day-cloud-functions"
+        target: "_blank"
+
+
+  # ------ Philosophy in Small Bites -------------------------------------------
+  - name: "Philosophy in Small Bites"
+    icon: "fas fa-clipboard"
+    items:
+      # https://www.wi-phi.com/
+      # https://www.youtube.com/@WirelessPhilosophy
+      - name: "Wireless Philosophy"
+        logo: "assets/icons/wireless-philosophy-logo.jpg"
+        subtitle: "???"
+        tag: "philosophy"
+        url: "https://www.wi-phi.com/videos/"
+        target: "_blank"
+
+
+  # ------ People Search & Background ------------------------------------------
+  - name: "People Search & Background"
+    icon: "fas fa-user-check"
+    items:
+      # https://www.beenverified.com/
+      - name: "Been Verified"
+        logo: "assets/icons/been-verified-logo.png"
+        subtitle: "People, Vehicle, Property and Contact Info."
+        tag: "search"
+        url: "https://www.beenverified.com/"
+        target: "_blank"
+
+      # https://radaris.com/
+      - name: "Radaris"
+        logo: "assets/icons/radaris-logo.png"
+        subtitle: "Contact Information & Public Records"
+        tag: "search"
+        url: "https://radaris.com/"
+        target: "_blank"
+
+
+  # ------  Continuous Integration and Continuous Delivery (CI/CD) -------------
+  - name: "CI/CD"
+    icon: "fas fa-truck"
+    items:
+      # https://www.ansible-semaphore.com/
+      - name: "Ansible Semaphore"
+        logo: "assets/icons/ansible-semaphore.png"
+        subtitle: "WebUI for Running Ansible Playbooks"
+        tag: "ci/cd"
+        url: "https://www.ansible-semaphore.com/"
+        target: "_blank"
+
+
+  # ------  Global Navigation Satellite Systems (GNSS) -------------------------
+  - name: "GNSS"
+    icon: "fas fa-truck"
+    items:
+      # https://gssc.esa.int/navipedia/index.php?title=Main_Page
+      - name: "Navipedia"
+        logo: "assets/icons/null.png"
+        subtitle: "Referance for GNSS"
+        tag: "GNSS"
+        url: "https://gssc.esa.int/navipedia/index.php?title=Main_Page"
+        target: "_blank"
+
+
+  # ------  Computer Aided Design (CAD) ----------------------------------------
+  - name: "CAD"
+    icon: "fas fa-computer"
+    items:
+      # https://openscad.org/
+      - name: "OpenSCAD"
+        logo: "assets/icons/OpenSCAD-logo.png"
+        subtitle: "The Programmers Solid 3D CAD Modeller"
+        tag: "CAD"
+        url: "https://openscad.org/"
+        target: "_blank"
+
+
+  # ------  3D Printing  -------------------------------------------------------
+  - name: "3D Printing"
+    icon: "fas fa-cubes"
+    items:
+      # https://www.klipper3d.org/
+      - name: "Klipper"
+        logo: "assets/icons/klipper-logo.png"
+        subtitle: "3d-Printer Firmware"
+        tag: "3D-Print"
+        url: "https://www.klipper3d.org/"
+        target: "_blank"
+
+      # https://marlinfw.org/
+      - name: "Klipper"
+        logo: "assets/icons/marlin-logo.png"
+        subtitle: "3d-Printer Firmware"
+        tag: "3D-Print"
+        url: "https://marlinfw.org/"
+        target: "_blank"
+
+      # https://all3dp.com/
+      - name: "All3DP"
+        logo: "assets/icons/all3dp-logo.png"
+        subtitle: "3d-Printer News & Reviews"
+        tag: "3D-Print"
+        url: "https://all3dp.com/"
+        target: "_blank"
+
+      # https://thangs.com/
+      - name: "Thangs"
+        logo: "assets/icons/thangs-logo.png"
+        subtitle: "Popular models for 3D enthusiasts"
+        tag: "3D-Print"
+        url: "https://thangs.com/?sort=trending"
+        target: "_blank"
+
+      # https://www.thingiverse.com/
+      - name: "Thingiverse"
+        logo: "assets/icons/thingiverse-logo.png"
+        subtitle: "Popular models for 3D enthusiasts"
+        tag: "3D-Print"
+        url: "https://www.thingiverse.com/"
+        target: "_blank"
+
+      # https://makerworld.com/en
+      - name: "Thingiverse"
+        logo: "assets/icons/makerworld-logo.png"
+        subtitle: "Popular models for 3D enthusiasts"
+        tag: "3D-Print"
+        url: "https://makerworld.com/en"
+        target: "_blank"
+
+
+  # ------  FPV Drones ---------------------------------------------------------
+  - name: "FPV Drones"
+    icon: "fas fa-plane"
+    items:
+      # https://oscarliang.com/
+      - name: "OscarLiang.com"
+        logo: "assets/icons/oscarliang-logo.png"
+        subtitle: "Dedicated to Everything FPV"
+        tag: "FPV"
+        url: "https://oscarliang.com/"
+        target: "_blank"
+
+      # https://dojofordrones.com/
+      - name: "Drone Dojo"
+        logo: "assets/icons/drone-dojo-logo.png"
+        subtitle: "Turning Your Ideas Into Prototypes"
+        tag: "FPV"
+        url: "https://dojofordrones.com/"
+        target: "_blank"
+
+
+  # ------  Home Lab -----------------------------------------------------------
+  - name: "Home Lab"
+    icon: "fas fa-flask-vial"
+    items:
+      # https://dbtechreviews.com/
+      - name: "DB Tech"
+        logo: "assets/icons/db-tech-logo.jpg"
+        subtitle: "Self-hosting, Tech, Home Servers"
+        tag: "Lab"
+        url: https://dbtechreviews.com/"
+        target: "_blank"
+
+
+  # ------  News Sources -------------------------------------------------------
+  - name: "News"
+    icon: "fas fa-newspaper"
+    items:
+      # https://ground.news/
+      - name: "Ground News"
+        logo: "assets/icons/ground-news-logo.png"
+        subtitle: "Compare Diverse Perspectives from Multiple Sources"
+        tag: "News"
+        url: "https://ground.news/"
+        target: "_blank"
+
+
+  # ------ Genealogy -----------------------------------------------------------
+  - name: "Genealogy"
+    icon: "fas fa-newspaper"
+    items:
+      # https://www.ancestry.com
+      - name: "Ancestry"
+        logo: "assets/icons/ancestry-logo.png"
+        subtitle: "Online Family History Records"
+        tag: "News"
+        url: "https://www.ancestry.com/account/signin?returnUrl="
+        target: "_blank"
+

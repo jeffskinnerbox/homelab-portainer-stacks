@@ -1,0 +1,30 @@
+#
+# Portainer is a popular Docker UI that helps you visualise your containers,
+# images, volumes and networks.
+# With Portainer, you centrally configure, manage and secure containerized environments,
+# regardless of where they are hosted.
+#
+# Access Portainer by visiting
+#    http://<ip of your server>:<port>, in my cased http://192.168.1.200:9000
+#
+# To start this docker container
+#    sudo PORTAINER_PORT=9000 docker-compose --file ./portainer-docker-compose.yml up -d
+#
+
+
+version: '3'
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - ${PORTAINER_PORT}:9000
+      #- 9443:9443
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer-data:/data
+

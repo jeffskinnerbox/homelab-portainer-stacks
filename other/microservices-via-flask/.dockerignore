@@ -1,0 +1,71 @@
+
+### --------------------------- Project Specific --------------------------- ###
+
+
+### ------------------------------- General -------------------------------- ###
+
+### Compiler and Linker Files ###
+*.pyc
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.bin
+*.elf
+
+### Packages & Images ###
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+### Git / Unit test / coverage reports
+logs/
+.git
+.cache
+htmlcov/
+.tox/
+.coverage
+nosetests.xml
+coverage.xml
+
+### Ingore all markdown and class files
+*.md
+**/*.class
+
+### Header files containing secrets
+secret.h
+secrets.h
+passwords.txt
+
+### Logs & Databases ###
+*.log
+*.sql
+*.sqlite*
+*.dblite
+.ipynb_checkpoints
+.ropeproject
+__pycache__
+
+### OS Generated Files ###
+*.out
+*.swp
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+### Vagrant files & directory
+*.box
+.vagrant
+

@@ -1,0 +1,57 @@
+
+# ------------------------------------------------------------------------------
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     Netdata is an open source tool designed to collect real-time metrics,
+#     such as CPU usage, disk activity, bandwidth usage, website visits, etc.,
+#     and then display them in live, easy-to-interpret charts.
+#
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/desktop/netdata/docker-compose.yml
+#     To stop & remove container for compose file modification
+#         sudo docker stop netdata
+#         sudo docker rm netdata
+#
+# ACCESS
+#     To access NetData when deployed
+#         http://<ip-of-your-server>:<port>, in my cased http://192.168.1.200:19999
+#
+# SOURCES
+#     Install Netdata with Docker - https://learn.netdata.cloud/docs/netdata-agent/installation/docker
+# ------------------------------------------------------------------------------
+
+---
+
+version: '3'
+
+services:
+  netdata:
+    container_name: netdata
+    image: netdata/netdata
+    hostname: desktop               # set to fqdn of host
+    pid: host
+    network_mode: host
+    restart: unless-stopped
+    cap_add:
+      - SYS_PTRACE
+      - SYS_ADMIN
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - /home/jeff/src/homelab-portainer-stacks/desktop/netdata/volumes/netdataconfig:/etc/netdata
+      - /home/jeff/src/homelab-portainer-stacks/desktop/netdata/volumes/netdatalib:/var/lib/netdata
+      - /home/jeff/src/homelab-portainer-stacks/desktop/netdata/volumes/netdatacache:/var/cache/netdata
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /etc/os-release:/host/etc/os-release:ro
+      - /var/log:/host/var/log:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+

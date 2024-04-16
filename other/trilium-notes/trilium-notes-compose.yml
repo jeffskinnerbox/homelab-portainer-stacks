@@ -1,0 +1,30 @@
+#
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# Trilium Notes is a hierarchical note taking application.  It can work decently
+# as a simple note taker but also works as a knowledge base - tool to record,
+# catalogize and process all kinds of information and keep them long-term.
+#
+# to start this docker container for ubuntu desktop
+#    cd ~/src/docker-containers/trilium-notes
+#
+# start the trilium-notes docker container via docker-compose
+# sudo TRILIUM_PORT=5001 \
+#      TRILIUM_TAG="0.55-latest" \
+#      TRILIUM_VOLUME="/home/jeff/src/docker-containers/trilium-notes/trilium-data" \
+#      docker-compose --file ./trilium-notes-compose.yml up -d
+#
+
+
+version: '3'
+services:
+  trilium:
+    image: zadam/trilium:${TRILIUM_TAG}
+    container_name: trilium-notes
+    restart: unless-stopped
+    ports:
+      - ${TRILIUM_PORT}:8080
+    volumes:
+      - ${TRILIUM_VOLUME}:/home/node/trilium-data
+

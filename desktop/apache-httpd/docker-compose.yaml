@@ -1,0 +1,43 @@
+
+# ------------------------------------------------------------------------------
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     The Apache HTTP Server is a Web server application that serves up web pages.
+#     It is motst notable for playing a key role in the initial growth of the World Wide Web.
+#     If you want to run a simple HTML server, simply place all your HTML files in '/var/www/html'.
+#
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/desktop/apache-httpd/docker-compose.yml
+#     To stop & remove container for compose file modification
+#         sudo docker stop apache
+#         sudo docker rm apache
+#
+# ACCESS
+#     To access Homer when deployed
+#         http://<ip-of-your-server>:<port>, in my cased http://192.168.1.200:80
+#
+# SOURCES
+#     DockerHub: httpd - https://hub.docker.com/_/httpd
+#     How to use docker-compose with Apache httpd example - https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Simple-Apache-docker-compose-example-with-Dockers-httpd-image
+# ------------------------------------------------------------------------------
+
+---
+
+version: '3.9'
+
+services:
+  apache:
+    container_name: apache-httpd
+    image: httpd:latest
+    restart: unless-stopped
+    ports:
+      - '80:80'                                                   # port 80 is the traditional port to serve web pages
+    volumes:
+      - /home/jeff/blogging/output:/usr/local/apache2/htdocs      # '/home/jeff/blogging/output' is my personal blog
+      #- /var/www/html:/usr/local/apache2/htdocs                  # '/var/www/html' is traditional place where web pages are served from
+

@@ -1,0 +1,1027 @@
+[178688.310] 
+X.Org X Server 1.20.11
+X Protocol Version 11, Revision 0
+[178688.310] Build Operating System: linux Ubuntu
+[178688.310] Current Operating System: Linux a4e69d633d6d 5.4.0-89-generic #100-Ubuntu SMP Fri Sep 24 14:50:10 UTC 2021 x86_64
+[178688.310] Kernel command line: BOOT_IMAGE=/vmlinuz-5.4.0-89-generic root=UUID=2918f2bb-f434-4d2f-9a0e-323008d79389 ro quiet splash nomdmonddf nomdmonisw vt.handoff=7
+[178688.310] Build Date: 06 July 2021  10:17:51AM
+[178688.310] xorg-server 2:1.20.11-1ubuntu1~20.04.2 (For technical support please see http://www.ubuntu.com/support) 
+[178688.310] Current version of pixman: 0.38.4
+[178688.311] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[178688.311] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[178688.311] (++) Log file: ".xorgxrdp.10.log", Time: Tue Nov  2 21:16:25 2021
+[178688.311] (++) Using config file: "/etc/X11/xrdp/xorg.conf"
+[178688.311] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[178688.311] (==) ServerLayout "X11 Server"
+[178688.311] (**) |-->Screen "Screen (xrdpdev)" (0)
+[178688.311] (**) |   |-->Monitor "Monitor"
+[178688.312] (**) |   |-->Device "Video Card (xrdpdev)"
+[178688.312] (**) |-->Input Device "xrdpMouse"
+[178688.312] (**) |-->Input Device "xrdpKeyboard"
+[178688.312] (**) Option "DontVTSwitch" "on"
+[178688.312] (**) Option "AutoAddDevices" "off"
+[178688.312] (**) Not automatically adding devices
+[178688.312] (==) Automatically enabling devices
+[178688.312] (==) Automatically adding GPU devices
+[178688.312] (==) Automatically binding GPU devices
+[178688.312] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[178688.312] (WW) The directory "/usr/share/fonts/X11/cyrillic" does not exist.
+[178688.312] 	Entry deleted from font path.
+[178688.312] (WW) The directory "/usr/share/fonts/X11/100dpi/" does not exist.
+[178688.312] 	Entry deleted from font path.
+[178688.312] (WW) The directory "/usr/share/fonts/X11/75dpi/" does not exist.
+[178688.312] 	Entry deleted from font path.
+[178688.312] (WW) The directory "/usr/share/fonts/X11/Type1" does not exist.
+[178688.312] 	Entry deleted from font path.
+[178688.312] (WW) The directory "/usr/share/fonts/X11/100dpi" does not exist.
+[178688.312] 	Entry deleted from font path.
+[178688.312] (WW) The directory "/usr/share/fonts/X11/75dpi" does not exist.
+[178688.312] 	Entry deleted from font path.
+[178688.312] (==) FontPath set to:
+	/usr/share/fonts/X11/misc,
+	built-ins
+[178688.312] (==) ModulePath set to "/usr/lib/xorg/modules"
+[178688.312] (II) Loader magic: 0x555659b1a020
+[178688.312] (II) Module ABI versions:
+[178688.312] 	X.Org ANSI C Emulation: 0.4
+[178688.312] 	X.Org Video Driver: 24.1
+[178688.312] 	X.Org XInput driver : 24.1
+[178688.312] 	X.Org Server Extension : 10.0
+[178688.312] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178688.313] (II) xfree86: Adding drm device (/dev/dri/card0)
+[178688.318] (--) PCI:*(0@0:2:0) 8086:0162:8086:2037 rev 9, Mem @ 0xef400000/4194304, 0xd0000000/268435456, I/O @ 0x0000f000/64, BIOS @ 0x????????/131072
+[178688.318] (II) "glx" will be loaded. This was enabled by default and also specified in the config file.
+[178688.318] (II) LoadModule: "dbe"
+[178688.318] (II) Module "dbe" already built-in
+[178688.318] (II) LoadModule: "ddc"
+[178688.319] (II) Module "ddc" already built-in
+[178688.319] (II) LoadModule: "extmod"
+[178688.319] (II) Module "extmod" already built-in
+[178688.319] (II) LoadModule: "glx"
+[178688.319] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[178688.319] (II) Module glx: vendor="X.Org Foundation"
+[178688.319] 	compiled for 1.20.11, module version = 1.0.0
+[178688.319] 	ABI class: X.Org Server Extension, version 10.0
+[178688.319] (II) LoadModule: "int10"
+[178688.320] (II) Loading /usr/lib/xorg/modules/libint10.so
+[178688.320] (II) Module int10: vendor="X.Org Foundation"
+[178688.320] 	compiled for 1.20.11, module version = 1.0.0
+[178688.320] 	ABI class: X.Org Video Driver, version 24.1
+[178688.320] (II) LoadModule: "record"
+[178688.320] (II) Module "record" already built-in
+[178688.320] (II) LoadModule: "vbe"
+[178688.320] (II) Loading /usr/lib/xorg/modules/libvbe.so
+[178688.320] (II) Module vbe: vendor="X.Org Foundation"
+[178688.320] 	compiled for 1.20.11, module version = 1.1.0
+[178688.320] 	ABI class: X.Org Video Driver, version 24.1
+[178688.320] (II) LoadModule: "glamoregl"
+[178688.320] (II) Loading /usr/lib/xorg/modules/libglamoregl.so
+[178688.322] (II) Module glamoregl: vendor="X.Org Foundation"
+[178688.322] 	compiled for 1.20.11, module version = 1.0.1
+[178688.322] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[178688.322] (II) LoadModule: "xorgxrdp"
+[178688.322] (II) Loading /usr/lib/xorg/modules/libxorgxrdp.so
+[178688.322] (II) Module XORGXRDP: vendor="X.Org Foundation"
+[178688.322] 	compiled for 1.20.6, module version = 0.2.12
+[178688.322] 	ABI class: X.Org Video Driver, version 24.0
+[178688.322] xorgxrdpSetup:
+[178688.322] (II) LoadModule: "fb"
+[178688.322] (II) Loading /usr/lib/xorg/modules/libfb.so
+[178688.322] (II) Module fb: vendor="X.Org Foundation"
+[178688.322] 	compiled for 1.20.11, module version = 1.0.0
+[178688.322] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[178688.322] (II) LoadModule: "xrdpdev"
+[178688.323] (II) Loading /usr/lib/xorg/modules/drivers/xrdpdev_drv.so
+[178688.323] (II) Module XRDPDEV: vendor="X.Org Foundation"
+[178688.323] 	compiled for 1.20.6, module version = 0.2.12
+[178688.323] 	ABI class: X.Org Video Driver, version 24.0
+[178688.323] xrdpdevSetup:
+[178688.323] (II) LoadModule: "xrdpmouse"
+[178688.323] (II) Loading /usr/lib/xorg/modules/input/xrdpmouse_drv.so
+[178688.323] (II) Module XRDPMOUSE: vendor="X.Org Foundation"
+[178688.323] 	compiled for 1.20.6, module version = 0.2.12
+[178688.323] 	Module class: X.Org XInput Driver
+[178688.323] 	ABI class: X.Org XInput driver, version 24.1
+[178688.323] rdpmousePlug:
+[178688.323] (II) LoadModule: "xrdpkeyb"
+[178688.323] (II) Loading /usr/lib/xorg/modules/input/xrdpkeyb_drv.so
+[178688.323] (II) Module XRDPKEYB: vendor="X.Org Foundation"
+[178688.323] 	compiled for 1.20.6, module version = 0.2.12
+[178688.323] 	Module class: X.Org XInput Driver
+[178688.323] 	ABI class: X.Org XInput driver, version 24.1
+[178688.323] rdpkeybPlug:
+[178688.323] rdpIdentify:
+[178688.323] (II) XRDPDEV: driver for xrdp: XRDPDEV
+[178688.323] rdpDriverFunc: op 10
+[178688.323] (WW) Falling back to old probe method for XRDPDEV
+[178688.323] rdpProbe:
+[178688.323] (II) Loading sub module "fb"
+[178688.323] (II) LoadModule: "fb"
+[178688.323] (II) Loading /usr/lib/xorg/modules/libfb.so
+[178688.323] (II) Module fb: vendor="X.Org Foundation"
+[178688.323] 	compiled for 1.20.11, module version = 1.0.0
+[178688.323] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[178688.323] rdpProbe: found DRMDevice xorg.conf value [/dev/dri/renderD128]
+[178688.323] rdpProbe: found DRI3 xorg.conf value [1]
+[178688.323] (II) XRDPDEV(0): using default device
+[178688.323] (WW) VGA arbiter: cannot open kernel arbiter, no multi-card support
+[178688.323] rdpPreInit:
+[178688.323] rdpPreInit: /dev/dri/renderD128 open failed
+[178688.323] (**) XRDPDEV(0): Depth 24, (--) framebuffer bpp 32
+[178688.323] (==) XRDPDEV(0): RGB weight 888
+[178688.323] (==) XRDPDEV(0): Using gamma correction (1.0, 1.0, 1.0)
+[178688.323] (==) XRDPDEV(0): Default visual is TrueColor
+[178688.323] (==) XRDPDEV(0): DPI set to (96, 96)
+[178688.323] (II) XRDPDEV(0): 	mode "640x480" ok
+[178688.323] (II) XRDPDEV(0): 	mode "800x600" ok
+[178688.323] (II) XRDPDEV(0): Virtual size is 800x600 (pitch 800)
+[178688.323] (**) XRDPDEV(0):  Default mode "800x600": 36.0 MHz (scaled from 0.0 MHz), 35.2 kHz, 56.2 Hz
+[178688.323] (II) XRDPDEV(0): Modeline "800x600"x0.0   36.00  800 824 896 1024  600 601 603 625 +hsync +vsync (35.2 kHz d)
+[178688.323] rdpScreenInit: virtualX 800 virtualY 600 rgbBits 8 depth 24
+[178688.323] rdpScreenInit: pfbMemory bytes 1920000
+[178688.323] rdpScreenInit: pfbMemory 0x7f10a7fc2010
+[178688.323] rdpSimdInit: assigning yuv functions
+[178688.323] rdpSimdInit: cpuid ax 1 cx 0 return ax 0x000306a9 bx 0x00100800 cx 0x7f9ae3bf dx 0xbfebfbff
+[178688.323] rdpSimdInit: sse2 amd64 yuv functions assigned
+[178688.323] (==) XRDPDEV(0): Backing store enabled
+[178688.323] rdpClientConInit: disconnect idle session after [0] sec
+[178688.323] rdpClientConInit: kill disconnected [0] timeout [0] sec
+[178688.323] rdpXvInit: depth 24
+[178688.323] rdpScreenInit: out
+[178688.323] (II) Initializing extension Generic Event Extension
+[178688.324] (II) Initializing extension SHAPE
+[178688.324] (II) Initializing extension MIT-SHM
+[178688.324] (II) Initializing extension XInputExtension
+[178688.324] (II) Initializing extension XTEST
+[178688.324] (II) Initializing extension BIG-REQUESTS
+[178688.324] (II) Initializing extension SYNC
+[178688.324] (II) Initializing extension XKEYBOARD
+[178688.324] (II) Initializing extension XC-MISC
+[178688.324] (II) Initializing extension SECURITY
+[178688.324] (II) Initializing extension XFIXES
+[178688.324] (II) Initializing extension RENDER
+[178688.324] (II) Initializing extension RANDR
+[178688.325] (II) Initializing extension COMPOSITE
+[178688.325] (II) Initializing extension DAMAGE
+[178688.325] (II) Initializing extension MIT-SCREEN-SAVER
+[178688.325] (II) Initializing extension DOUBLE-BUFFER
+[178688.325] (II) Initializing extension RECORD
+[178688.325] (II) Initializing extension DPMS
+[178688.325] (II) Initializing extension Present
+[178688.325] (II) Initializing extension DRI3
+[178688.325] (II) Initializing extension X-Resource
+[178688.325] (II) Initializing extension XVideo
+[178688.325] (II) Initializing extension XVideo-MotionCompensation
+[178688.325] (II) Initializing extension SELinux
+[178688.325] (II) SELinux: Disabled on system
+[178688.325] (II) Initializing extension GLX
+[178688.325] (II) AIGLX: Screen 0 is not DRI2 capable
+[178688.345] (II) IGLX: Loaded and initialized swrast
+[178688.345] (II) GLX: Initialized DRISWRAST GL provider for screen 0
+[178688.345] (II) Initializing extension XFree86-VidModeExtension
+[178688.345] (II) Initializing extension XFree86-DGA
+[178688.345] (II) Initializing extension XFree86-DRI
+[178688.345] (II) Initializing extension DRI2
+[178688.345] rdpCreateScreenResources:
+[178688.372] (II) Using input driver 'XRDPMOUSE' for 'xrdpMouse'
+[178688.372] (**) Option "CorePointer"
+[178688.372] (**) xrdpMouse: always reports core events
+[178688.372] rdpmousePreInit: drv 0x55565ae07650 info 0x55565b11a850, flags 0x0
+[178688.372] (II) XINPUT: Adding extended input device "xrdpMouse" (type: Mouse, id 6)
+[178688.372] rdpmouseControl: what 0
+[178688.372] rdpmouseDeviceInit:
+[178688.372] rdpmouseCtrl:
+[178688.372] rdpRegisterInputCallback: type 1 proc 0x7f10a9527430
+[178688.372] (**) xrdpMouse: (accel) keeping acceleration scheme 1
+[178688.372] (**) xrdpMouse: (accel) acceleration profile 0
+[178688.372] (**) xrdpMouse: (accel) acceleration factor: 2.000
+[178688.372] (**) xrdpMouse: (accel) acceleration threshold: 4
+[178688.372] rdpmouseControl: what 1
+[178688.372] rdpmouseDeviceOn:
+[178688.372] (II) Using input driver 'XRDPKEYB' for 'xrdpKeyboard'
+[178688.372] (**) Option "CoreKeyboard"
+[178688.372] (**) xrdpKeyboard: always reports core events
+[178688.372] rdpkeybPreInit: drv 0x55565ae07600 info 0x55565b11cf00, flags 0x0
+[178688.372] (II) XINPUT: Adding extended input device "xrdpKeyboard" (type: Keyboard, id 7)
+[178688.372] rdpkeybControl: what 0
+[178688.372] rdpkeybDeviceInit:
+[178688.388] rdpkeybChangeKeyboardControl:
+[178688.388] rdpkeybChangeKeyboardControl: autoRepeat on
+[178688.388] rdpRegisterInputCallback: type 0 proc 0x7f10a86b38e0
+[178688.388] rdpkeybControl: what 1
+[178688.388] rdpkeybDeviceOn:
+[178688.404] (II) config/udev: Adding drm device (/dev/dri/card0)
+[178688.404] (II) xfree86: Adding drm device (/dev/dri/card0)
+[178688.412] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178688.412] rdpDeferredRandR:
+[178688.412] rdpResizeSession: width 1024 height 768
+[178688.412]   calling RRScreenSizeSet
+[178688.412] rdpRRScreenSetSize: width 1024 height 768 mmWidth 271 mmHeight 203
+[178688.412] rdpRRGetInfo:
+[178688.412]   screen resized to 1024x768
+[178688.413]   RRScreenSizeSet ok 1
+[178688.413] rdpResizeSession: width 1364 height 1029
+[178688.413]   calling RRScreenSizeSet
+[178688.413] rdpRRScreenSetSize: width 1364 height 1029 mmWidth 361 mmHeight 272
+[178688.413] rdpRRGetInfo:
+[178688.413]   screen resized to 1364x1029
+[178688.415]   RRScreenSizeSet ok 1
+[178688.415] rdpClientConGotConnection:
+[178688.415] rdpClientConGotConnection: g_sck_accept ok new_sck 7
+[178688.415] rdpClientConGetConnection: idle_disconnect_timeout set to non-positive value, idle timer turned off
+[178688.415] rdpAddClientConToDev: adding first clientCon 0x55565b1640b0
+[178688.415] rdpClientConProcessMsgVersion: version 0 0 0 1
+[178688.415] rdpClientConProcessScreenSizeMsg: set width 1364 height 1029 bpp 16
+[178688.415] rdpClientConProcessScreenSizeMsg: shmemid 0 shmemptr 0x7f1079ff4000
+[178688.415] rdpClientConProcessMsgClientInput: invalidate x 0 y 0 cx 1364 cy 1029
+[178688.489] rdpInDeferredRepeatCallback:
+[178688.489] rdpkeybChangeKeyboardControl:
+[178688.489] rdpkeybChangeKeyboardControl: autoRepeat off
+[178688.567] (EE) Failed to open authorization file ".Xauthority": No such file or directory
+[178688.595] rdpRRGetInfo:
+[178688.904] rdpClientConProcessMsgClientInfo:
+[178688.904]   got client info bytes 5752
+[178688.904]   jpeg support 0
+[178688.904]   offscreen support 0
+[178688.904]   offscreen size 0
+[178688.904]   offscreen entries 0
+[178688.904]   client supports glyph cache but server disabled
+[178688.904]   client can not do offscreen to offscreen blits
+[178688.904]   client can do new(color) cursor
+[178688.904]   client can not do multimon
+[178688.904] rdpRRSetRdpOutputs: numCrtcs 0 numOutputs 0 monitorCount 0
+[178688.904] rdpRRSetRdpOutputs: add output 0 left 0 top 0 width 1364 height 1029
+[178688.904] rdpLoadLayout: keylayout 0x00000409 variant  display 10
+[178688.904] rdpkeybChangeKeyboardControl:
+[178688.904] rdpkeybChangeKeyboardControl: autoRepeat on
+[178688.905] rdpkeybChangeKeyboardControl:
+[178688.905] rdpkeybChangeKeyboardControl: autoRepeat on
+[178689.004] rdpInDeferredRepeatCallback:
+[178689.004] rdpkeybChangeKeyboardControl:
+[178689.004] rdpkeybChangeKeyboardControl: autoRepeat off
+[178689.006] rdpInDeferredRepeatCallback:
+[178689.006] rdpkeybChangeKeyboardControl:
+[178689.006] rdpkeybChangeKeyboardControl: autoRepeat off
+[178691.524] rdpPolyArc:
+[178691.524] rdpPolyArc:
+[178691.524] rdpPolyArc:
+[178694.045] rdpPolyArc:
+[178694.045] rdpPolyArc:
+[178694.045] rdpPolyArc:
+[178698.412] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178708.413] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178718.413] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178728.414] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178738.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178748.404] rdpPolyArc:
+[178748.404] rdpPolyArc:
+[178748.404] rdpPolyArc:
+[178748.404] rdpPolyArc:
+[178748.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178748.539] rdpPolyArc:
+[178748.539] rdpPolyArc:
+[178748.539] rdpPolyArc:
+[178748.539] rdpPolyArc:
+[178748.603] rdpPolyArc:
+[178748.603] rdpPolyArc:
+[178748.603] rdpPolyArc:
+[178748.603] rdpPolyArc:
+[178750.258] rdpPolyArc:
+[178750.258] rdpPolyArc:
+[178750.258] rdpPolyArc:
+[178750.258] rdpPolyArc:
+[178750.413] rdpPolyArc:
+[178750.413] rdpPolyArc:
+[178750.413] rdpPolyArc:
+[178750.413] rdpPolyArc:
+[178750.749] rdpPolyArc:
+[178750.749] rdpPolyArc:
+[178750.749] rdpPolyArc:
+[178750.750] rdpPolyArc:
+[178751.679] rdpPolyArc:
+[178751.679] rdpPolyArc:
+[178751.679] rdpPolyArc:
+[178751.679] rdpPolyArc:
+[178751.714] rdpPolyArc:
+[178751.714] rdpPolyArc:
+[178751.714] rdpPolyArc:
+[178751.714] rdpPolyArc:
+[178751.723] rdpPolyArc:
+[178751.723] rdpPolyArc:
+[178751.723] rdpPolyArc:
+[178751.723] rdpPolyArc:
+[178751.730] rdpPolyArc:
+[178751.730] rdpPolyArc:
+[178751.730] rdpPolyArc:
+[178751.730] rdpPolyArc:
+[178754.515] rdpPolyArc:
+[178754.516] rdpPolyArc:
+[178754.516] rdpPolyArc:
+[178754.516] rdpPolyArc:
+[178758.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178768.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178778.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178780.303] rdpPolyArc:
+[178780.303] rdpPolyArc:
+[178780.303] rdpPolyArc:
+[178780.303] rdpPolyArc:
+[178785.372] rdpPolyArc:
+[178785.372] rdpPolyArc:
+[178785.372] rdpPolyArc:
+[178785.372] rdpPolyArc:
+[178787.782] rdpPolyArc:
+[178787.782] rdpPolyArc:
+[178787.782] rdpPolyArc:
+[178787.782] rdpPolyArc:
+[178788.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178793.193] rdpPolyArc:
+[178793.193] rdpPolyArc:
+[178793.193] rdpPolyArc:
+[178793.193] rdpPolyArc:
+[178795.549] rdpPolyArc:
+[178795.549] rdpPolyArc:
+[178795.549] rdpPolyArc:
+[178795.549] rdpPolyArc:
+[178798.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178805.155] rdpPolyArc:
+[178805.155] rdpPolyArc:
+[178805.155] rdpPolyArc:
+[178805.155] rdpPolyArc:
+[178805.291] rdpPolyArc:
+[178805.291] rdpPolyArc:
+[178805.291] rdpPolyArc:
+[178805.291] rdpPolyArc:
+[178806.145] rdpPolyArc:
+[178806.145] rdpPolyArc:
+[178806.145] rdpPolyArc:
+[178806.145] rdpPolyArc:
+[178808.119] rdpPolyArc:
+[178808.119] rdpPolyArc:
+[178808.119] rdpPolyArc:
+[178808.119] rdpPolyArc:
+[178808.415] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178810.060] rdpPolyArc:
+[178810.060] rdpPolyArc:
+[178810.060] rdpPolyArc:
+[178810.060] rdpPolyArc:
+[178810.161] rdpPolyArc:
+[178810.161] rdpPolyArc:
+[178810.161] rdpPolyArc:
+[178810.161] rdpPolyArc:
+[178812.014] rdpPolyArc:
+[178812.015] rdpPolyArc:
+[178812.015] rdpPolyArc:
+[178812.015] rdpPolyArc:
+[178812.072] rdpPolyArc:
+[178812.072] rdpPolyArc:
+[178812.072] rdpPolyArc:
+[178812.072] rdpPolyArc:
+[178818.416] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178828.416] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178831.160] rdpPolyArc:
+[178831.160] rdpPolyArc:
+[178831.160] rdpPolyArc:
+[178831.160] rdpPolyArc:
+[178831.310] rdpPolyArc:
+[178831.310] rdpPolyArc:
+[178831.310] rdpPolyArc:
+[178831.310] rdpPolyArc:
+[178833.808] rdpPolyArc:
+[178833.808] rdpPolyArc:
+[178833.808] rdpPolyArc:
+[178833.808] rdpPolyArc:
+[178837.142] rdpPolyArc:
+[178837.142] rdpPolyArc:
+[178837.142] rdpPolyArc:
+[178837.142] rdpPolyArc:
+[178838.416] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178843.908] rdpPolyArc:
+[178843.908] rdpPolyArc:
+[178843.908] rdpPolyArc:
+[178843.908] rdpPolyArc:
+[178843.940] rdpPolyArc:
+[178843.940] rdpPolyArc:
+[178843.940] rdpPolyArc:
+[178843.940] rdpPolyArc:
+[178844.010] rdpPolyArc:
+[178844.010] rdpPolyArc:
+[178844.010] rdpPolyArc:
+[178844.010] rdpPolyArc:
+[178846.608] rdpPolyArc:
+[178846.608] rdpPolyArc:
+[178846.608] rdpPolyArc:
+[178846.608] rdpPolyArc:
+[178848.358] rdpPolyArc:
+[178848.358] rdpPolyArc:
+[178848.358] rdpPolyArc:
+[178848.358] rdpPolyArc:
+[178848.416] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178849.991] rdpPolyArc:
+[178849.991] rdpPolyArc:
+[178849.991] rdpPolyArc:
+[178849.991] rdpPolyArc:
+[178851.925] rdpPolyArc:
+[178851.925] rdpPolyArc:
+[178851.925] rdpPolyArc:
+[178851.925] rdpPolyArc:
+[178851.959] rdpPolyArc:
+[178851.959] rdpPolyArc:
+[178851.959] rdpPolyArc:
+[178851.959] rdpPolyArc:
+[178852.012] rdpPolyArc:
+[178852.012] rdpPolyArc:
+[178852.012] rdpPolyArc:
+[178852.012] rdpPolyArc:
+[178852.179] rdpPolyArc:
+[178852.179] rdpPolyArc:
+[178852.179] rdpPolyArc:
+[178852.179] rdpPolyArc:
+[178852.280] rdpPolyArc:
+[178852.280] rdpPolyArc:
+[178852.280] rdpPolyArc:
+[178852.280] rdpPolyArc:
+[178857.528] rdpPolyArc:
+[178857.528] rdpPolyArc:
+[178857.528] rdpPolyArc:
+[178857.528] rdpPolyArc:
+[178858.417] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178863.551] rdpPolyArc:
+[178863.551] rdpPolyArc:
+[178863.551] rdpPolyArc:
+[178863.551] rdpPolyArc:
+[178866.357] rdpPolyArc:
+[178866.358] rdpPolyArc:
+[178866.358] rdpPolyArc:
+[178866.358] rdpPolyArc:
+[178868.417] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178878.417] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178884.340] rdpPolyArc:
+[178884.340] rdpPolyArc:
+[178884.340] rdpPolyArc:
+[178884.340] rdpPolyArc:
+[178884.392] rdpPolyArc:
+[178884.392] rdpPolyArc:
+[178884.392] rdpPolyArc:
+[178884.392] rdpPolyArc:
+[178888.417] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178892.051] rdpPolyArc:
+[178892.051] rdpPolyArc:
+[178892.051] rdpPolyArc:
+[178892.051] rdpPolyArc:
+[178898.417] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178908.417] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178918.418] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178920.803] rdpPolyArc:
+[178920.803] rdpPolyArc:
+[178920.803] rdpPolyArc:
+[178920.803] rdpPolyArc:
+[178924.524] rdpPolyArc:
+[178924.524] rdpPolyArc:
+[178924.524] rdpPolyArc:
+[178924.524] rdpPolyArc:
+[178924.535] rdpPolyArc:
+[178924.535] rdpPolyArc:
+[178924.535] rdpPolyArc:
+[178924.535] rdpPolyArc:
+[178928.418] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178929.202] rdpPolyArc:
+[178929.202] rdpPolyArc:
+[178929.202] rdpPolyArc:
+[178929.202] rdpPolyArc:
+[178929.285] rdpPolyArc:
+[178929.285] rdpPolyArc:
+[178929.285] rdpPolyArc:
+[178929.285] rdpPolyArc:
+[178929.643] rdpPolyArc:
+[178929.644] rdpPolyArc:
+[178929.644] rdpPolyArc:
+[178929.644] rdpPolyArc:
+[178929.650] rdpPolyArc:
+[178929.650] rdpPolyArc:
+[178929.650] rdpPolyArc:
+[178929.650] rdpPolyArc:
+[178931.656] rdpPolyArc:
+[178931.656] rdpPolyArc:
+[178931.656] rdpPolyArc:
+[178931.656] rdpPolyArc:
+[178931.667] rdpPolyArc:
+[178931.667] rdpPolyArc:
+[178931.667] rdpPolyArc:
+[178931.667] rdpPolyArc:
+[178935.520] rdpPolyArc:
+[178935.520] rdpPolyArc:
+[178935.520] rdpPolyArc:
+[178935.520] rdpPolyArc:
+[178936.640] rdpPolyArc:
+[178936.640] rdpPolyArc:
+[178936.640] rdpPolyArc:
+[178936.640] rdpPolyArc:
+[178938.418] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178940.372] rdpPolyArc:
+[178940.372] rdpPolyArc:
+[178940.372] rdpPolyArc:
+[178940.372] rdpPolyArc:
+[178940.604] rdpPolyArc:
+[178940.604] rdpPolyArc:
+[178940.604] rdpPolyArc:
+[178940.604] rdpPolyArc:
+[178944.271] rdpPolyArc:
+[178944.271] rdpPolyArc:
+[178944.271] rdpPolyArc:
+[178944.271] rdpPolyArc:
+[178944.285] rdpPolyArc:
+[178944.285] rdpPolyArc:
+[178944.285] rdpPolyArc:
+[178944.285] rdpPolyArc:
+[178946.386] rdpPolyArc:
+[178946.386] rdpPolyArc:
+[178946.386] rdpPolyArc:
+[178946.386] rdpPolyArc:
+[178946.435] rdpPolyArc:
+[178946.435] rdpPolyArc:
+[178946.435] rdpPolyArc:
+[178946.435] rdpPolyArc:
+[178946.448] rdpPolyArc:
+[178946.448] rdpPolyArc:
+[178946.448] rdpPolyArc:
+[178946.448] rdpPolyArc:
+[178946.465] rdpPolyArc:
+[178946.465] rdpPolyArc:
+[178946.466] rdpPolyArc:
+[178946.466] rdpPolyArc:
+[178946.501] rdpPolyArc:
+[178946.501] rdpPolyArc:
+[178946.501] rdpPolyArc:
+[178946.501] rdpPolyArc:
+[178946.513] rdpPolyArc:
+[178946.513] rdpPolyArc:
+[178946.513] rdpPolyArc:
+[178946.513] rdpPolyArc:
+[178946.560] rdpPolyArc:
+[178946.560] rdpPolyArc:
+[178946.560] rdpPolyArc:
+[178946.560] rdpPolyArc:
+[178946.574] rdpPolyArc:
+[178946.574] rdpPolyArc:
+[178946.574] rdpPolyArc:
+[178946.574] rdpPolyArc:
+[178946.621] rdpPolyArc:
+[178946.621] rdpPolyArc:
+[178946.621] rdpPolyArc:
+[178946.621] rdpPolyArc:
+[178946.634] rdpPolyArc:
+[178946.634] rdpPolyArc:
+[178946.634] rdpPolyArc:
+[178946.634] rdpPolyArc:
+[178946.649] rdpPolyArc:
+[178946.649] rdpPolyArc:
+[178946.649] rdpPolyArc:
+[178946.649] rdpPolyArc:
+[178946.666] rdpPolyArc:
+[178946.666] rdpPolyArc:
+[178946.666] rdpPolyArc:
+[178946.666] rdpPolyArc:
+[178946.681] rdpPolyArc:
+[178946.681] rdpPolyArc:
+[178946.681] rdpPolyArc:
+[178946.681] rdpPolyArc:
+[178946.699] rdpPolyArc:
+[178946.699] rdpPolyArc:
+[178946.699] rdpPolyArc:
+[178946.699] rdpPolyArc:
+[178946.725] rdpPolyArc:
+[178946.725] rdpPolyArc:
+[178946.725] rdpPolyArc:
+[178946.725] rdpPolyArc:
+[178946.734] rdpPolyArc:
+[178946.735] rdpPolyArc:
+[178946.735] rdpPolyArc:
+[178946.735] rdpPolyArc:
+[178946.778] rdpPolyArc:
+[178946.778] rdpPolyArc:
+[178946.778] rdpPolyArc:
+[178946.778] rdpPolyArc:
+[178946.790] rdpPolyArc:
+[178946.790] rdpPolyArc:
+[178946.790] rdpPolyArc:
+[178946.790] rdpPolyArc:
+[178946.799] rdpPolyArc:
+[178946.799] rdpPolyArc:
+[178946.799] rdpPolyArc:
+[178946.799] rdpPolyArc:
+[178946.816] rdpPolyArc:
+[178946.816] rdpPolyArc:
+[178946.816] rdpPolyArc:
+[178946.816] rdpPolyArc:
+[178946.838] rdpPolyArc:
+[178946.838] rdpPolyArc:
+[178946.838] rdpPolyArc:
+[178946.838] rdpPolyArc:
+[178946.851] rdpPolyArc:
+[178946.851] rdpPolyArc:
+[178946.851] rdpPolyArc:
+[178946.851] rdpPolyArc:
+[178946.899] rdpPolyArc:
+[178946.899] rdpPolyArc:
+[178946.899] rdpPolyArc:
+[178946.899] rdpPolyArc:
+[178948.419] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178948.619] rdpPolyArc:
+[178948.619] rdpPolyArc:
+[178948.619] rdpPolyArc:
+[178948.619] rdpPolyArc:
+[178948.633] rdpPolyArc:
+[178948.633] rdpPolyArc:
+[178948.633] rdpPolyArc:
+[178948.633] rdpPolyArc:
+[178948.650] rdpPolyArc:
+[178948.650] rdpPolyArc:
+[178948.650] rdpPolyArc:
+[178948.650] rdpPolyArc:
+[178948.668] rdpPolyArc:
+[178948.668] rdpPolyArc:
+[178948.668] rdpPolyArc:
+[178948.668] rdpPolyArc:
+[178948.683] rdpPolyArc:
+[178948.683] rdpPolyArc:
+[178948.683] rdpPolyArc:
+[178948.683] rdpPolyArc:
+[178948.701] rdpPolyArc:
+[178948.701] rdpPolyArc:
+[178948.701] rdpPolyArc:
+[178948.701] rdpPolyArc:
+[178948.728] rdpPolyArc:
+[178948.728] rdpPolyArc:
+[178948.728] rdpPolyArc:
+[178948.728] rdpPolyArc:
+[178948.742] rdpPolyArc:
+[178948.742] rdpPolyArc:
+[178948.742] rdpPolyArc:
+[178948.742] rdpPolyArc:
+[178948.791] rdpPolyArc:
+[178948.791] rdpPolyArc:
+[178948.791] rdpPolyArc:
+[178948.791] rdpPolyArc:
+[178948.917] rdpPolyArc:
+[178948.917] rdpPolyArc:
+[178948.917] rdpPolyArc:
+[178948.917] rdpPolyArc:
+[178948.935] rdpPolyArc:
+[178948.935] rdpPolyArc:
+[178948.935] rdpPolyArc:
+[178948.935] rdpPolyArc:
+[178948.950] rdpPolyArc:
+[178948.950] rdpPolyArc:
+[178948.950] rdpPolyArc:
+[178948.950] rdpPolyArc:
+[178948.969] rdpPolyArc:
+[178948.969] rdpPolyArc:
+[178948.969] rdpPolyArc:
+[178948.969] rdpPolyArc:
+[178948.986] rdpPolyArc:
+[178948.986] rdpPolyArc:
+[178948.986] rdpPolyArc:
+[178948.986] rdpPolyArc:
+[178949.030] rdpPolyArc:
+[178949.031] rdpPolyArc:
+[178949.031] rdpPolyArc:
+[178949.031] rdpPolyArc:
+[178949.039] rdpPolyArc:
+[178949.039] rdpPolyArc:
+[178949.039] rdpPolyArc:
+[178949.039] rdpPolyArc:
+[178949.084] rdpPolyArc:
+[178949.084] rdpPolyArc:
+[178949.084] rdpPolyArc:
+[178949.084] rdpPolyArc:
+[178949.094] rdpPolyArc:
+[178949.094] rdpPolyArc:
+[178949.094] rdpPolyArc:
+[178949.094] rdpPolyArc:
+[178949.102] rdpPolyArc:
+[178949.102] rdpPolyArc:
+[178949.102] rdpPolyArc:
+[178949.102] rdpPolyArc:
+[178949.116] rdpPolyArc:
+[178949.116] rdpPolyArc:
+[178949.116] rdpPolyArc:
+[178949.116] rdpPolyArc:
+[178949.135] rdpPolyArc:
+[178949.135] rdpPolyArc:
+[178949.135] rdpPolyArc:
+[178949.135] rdpPolyArc:
+[178949.151] rdpPolyArc:
+[178949.151] rdpPolyArc:
+[178949.151] rdpPolyArc:
+[178949.151] rdpPolyArc:
+[178949.192] rdpPolyArc:
+[178949.192] rdpPolyArc:
+[178949.192] rdpPolyArc:
+[178949.192] rdpPolyArc:
+[178949.208] rdpPolyArc:
+[178949.208] rdpPolyArc:
+[178949.208] rdpPolyArc:
+[178949.208] rdpPolyArc:
+[178949.254] rdpPolyArc:
+[178949.254] rdpPolyArc:
+[178949.254] rdpPolyArc:
+[178949.254] rdpPolyArc:
+[178949.268] rdpPolyArc:
+[178949.268] rdpPolyArc:
+[178949.268] rdpPolyArc:
+[178949.268] rdpPolyArc:
+[178949.315] rdpPolyArc:
+[178949.315] rdpPolyArc:
+[178949.315] rdpPolyArc:
+[178949.315] rdpPolyArc:
+[178950.441] rdpPolyArc:
+[178950.441] rdpPolyArc:
+[178950.441] rdpPolyArc:
+[178950.441] rdpPolyArc:
+[178953.338] rdpPolyArc:
+[178953.338] rdpPolyArc:
+[178953.338] rdpPolyArc:
+[178953.338] rdpPolyArc:
+[178953.348] rdpPolyArc:
+[178953.349] rdpPolyArc:
+[178953.349] rdpPolyArc:
+[178953.349] rdpPolyArc:
+[178953.365] rdpPolyArc:
+[178953.365] rdpPolyArc:
+[178953.365] rdpPolyArc:
+[178953.365] rdpPolyArc:
+[178953.404] rdpPolyArc:
+[178953.404] rdpPolyArc:
+[178953.404] rdpPolyArc:
+[178953.404] rdpPolyArc:
+[178958.419] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178960.299] rdpPolyArc:
+[178960.299] rdpPolyArc:
+[178960.299] rdpPolyArc:
+[178960.299] rdpPolyArc:
+[178960.316] rdpPolyArc:
+[178960.316] rdpPolyArc:
+[178960.316] rdpPolyArc:
+[178960.316] rdpPolyArc:
+[178968.420] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178977.630] rdpPolyArc:
+[178977.631] rdpPolyArc:
+[178977.631] rdpPolyArc:
+[178977.631] rdpPolyArc:
+[178977.638] rdpPolyArc:
+[178977.638] rdpPolyArc:
+[178977.638] rdpPolyArc:
+[178977.638] rdpPolyArc:
+[178977.831] rdpPolyArc:
+[178977.831] rdpPolyArc:
+[178977.831] rdpPolyArc:
+[178977.831] rdpPolyArc:
+[178977.883] rdpPolyArc:
+[178977.883] rdpPolyArc:
+[178977.883] rdpPolyArc:
+[178977.883] rdpPolyArc:
+[178977.927] rdpPolyArc:
+[178977.927] rdpPolyArc:
+[178977.927] rdpPolyArc:
+[178977.927] rdpPolyArc:
+[178977.979] rdpPolyArc:
+[178977.979] rdpPolyArc:
+[178977.979] rdpPolyArc:
+[178977.979] rdpPolyArc:
+[178978.031] rdpPolyArc:
+[178978.031] rdpPolyArc:
+[178978.031] rdpPolyArc:
+[178978.031] rdpPolyArc:
+[178978.080] rdpPolyArc:
+[178978.081] rdpPolyArc:
+[178978.081] rdpPolyArc:
+[178978.081] rdpPolyArc:
+[178978.130] rdpPolyArc:
+[178978.130] rdpPolyArc:
+[178978.130] rdpPolyArc:
+[178978.130] rdpPolyArc:
+[178978.180] rdpPolyArc:
+[178978.180] rdpPolyArc:
+[178978.180] rdpPolyArc:
+[178978.180] rdpPolyArc:
+[178978.230] rdpPolyArc:
+[178978.230] rdpPolyArc:
+[178978.230] rdpPolyArc:
+[178978.230] rdpPolyArc:
+[178978.282] rdpPolyArc:
+[178978.282] rdpPolyArc:
+[178978.282] rdpPolyArc:
+[178978.282] rdpPolyArc:
+[178978.331] rdpPolyArc:
+[178978.331] rdpPolyArc:
+[178978.331] rdpPolyArc:
+[178978.331] rdpPolyArc:
+[178978.382] rdpPolyArc:
+[178978.382] rdpPolyArc:
+[178978.382] rdpPolyArc:
+[178978.382] rdpPolyArc:
+[178978.420] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178978.433] rdpPolyArc:
+[178978.433] rdpPolyArc:
+[178978.433] rdpPolyArc:
+[178978.433] rdpPolyArc:
+[178978.483] rdpPolyArc:
+[178978.483] rdpPolyArc:
+[178978.483] rdpPolyArc:
+[178978.483] rdpPolyArc:
+[178978.534] rdpPolyArc:
+[178978.534] rdpPolyArc:
+[178978.534] rdpPolyArc:
+[178978.534] rdpPolyArc:
+[178978.856] rdpPolyArc:
+[178978.856] rdpPolyArc:
+[178978.856] rdpPolyArc:
+[178978.856] rdpPolyArc:
+[178978.863] rdpPolyArc:
+[178978.863] rdpPolyArc:
+[178978.863] rdpPolyArc:
+[178978.863] rdpPolyArc:
+[178982.558] rdpPolyArc:
+[178982.558] rdpPolyArc:
+[178982.558] rdpPolyArc:
+[178982.558] rdpPolyArc:
+[178983.671] rdpPolyArc:
+[178983.671] rdpPolyArc:
+[178983.671] rdpPolyArc:
+[178983.671] rdpPolyArc:
+[178986.638] rdpPolyArc:
+[178986.638] rdpPolyArc:
+[178986.638] rdpPolyArc:
+[178986.638] rdpPolyArc:
+[178986.777] rdpPolyArc:
+[178986.778] rdpPolyArc:
+[178986.778] rdpPolyArc:
+[178986.778] rdpPolyArc:
+[178988.421] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[178990.324] rdpPolyArc:
+[178990.324] rdpPolyArc:
+[178990.324] rdpPolyArc:
+[178990.324] rdpPolyArc:
+[178990.330] rdpPolyArc:
+[178990.330] rdpPolyArc:
+[178990.330] rdpPolyArc:
+[178990.330] rdpPolyArc:
+[178990.412] rdpPolyArc:
+[178990.412] rdpPolyArc:
+[178990.412] rdpPolyArc:
+[178990.412] rdpPolyArc:
+[178990.421] rdpPolyArc:
+[178990.421] rdpPolyArc:
+[178990.421] rdpPolyArc:
+[178990.421] rdpPolyArc:
+[178991.435] rdpPolyArc:
+[178991.435] rdpPolyArc:
+[178991.435] rdpPolyArc:
+[178991.435] rdpPolyArc:
+[178991.450] rdpPolyArc:
+[178991.450] rdpPolyArc:
+[178991.450] rdpPolyArc:
+[178991.450] rdpPolyArc:
+[178991.868] rdpPolyArc:
+[178991.868] rdpPolyArc:
+[178991.868] rdpPolyArc:
+[178991.868] rdpPolyArc:
+[178991.985] rdpPolyArc:
+[178991.985] rdpPolyArc:
+[178991.985] rdpPolyArc:
+[178991.985] rdpPolyArc:
+[178992.242] rdpPolyArc:
+[178992.242] rdpPolyArc:
+[178992.242] rdpPolyArc:
+[178992.242] rdpPolyArc:
+[178992.249] rdpPolyArc:
+[178992.249] rdpPolyArc:
+[178992.249] rdpPolyArc:
+[178992.250] rdpPolyArc:
+[178992.310] rdpPolyArc:
+[178992.310] rdpPolyArc:
+[178992.310] rdpPolyArc:
+[178992.310] rdpPolyArc:
+[178992.318] rdpPolyArc:
+[178992.318] rdpPolyArc:
+[178992.318] rdpPolyArc:
+[178992.318] rdpPolyArc:
+[178998.421] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179008.421] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179018.422] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179028.424] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179038.424] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179048.425] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179058.425] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179068.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179078.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179088.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179098.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179108.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179112.449] rdpPolyArc:
+[179112.449] rdpPolyArc:
+[179112.449] rdpPolyArc:
+[179112.449] rdpPolyArc:
+[179112.477] rdpPolyArc:
+[179112.477] rdpPolyArc:
+[179112.477] rdpPolyArc:
+[179112.477] rdpPolyArc:
+[179118.168] rdpPolyArc:
+[179118.168] rdpPolyArc:
+[179118.168] rdpPolyArc:
+[179118.168] rdpPolyArc:
+[179118.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179128.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179138.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179148.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179158.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179168.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179178.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179188.426] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179198.427] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179208.427] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179218.427] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179228.429] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179238.429] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179248.430] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179258.430] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179268.430] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179278.431] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179288.431] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179298.432] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179308.432] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179318.432] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179328.432] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179338.432] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179348.432] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179358.433] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179368.433] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179378.433] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179388.433] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179398.433] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179408.433] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179408.909] rdpPolyArc:
+[179408.909] rdpPolyArc:
+[179408.909] rdpPolyArc:
+[179408.909] rdpPolyArc:
+[179409.016] rdpPolyArc:
+[179409.016] rdpPolyArc:
+[179409.016] rdpPolyArc:
+[179409.016] rdpPolyArc:
+[179412.243] rdpPolyArc:
+[179412.243] rdpPolyArc:
+[179412.243] rdpPolyArc:
+[179412.243] rdpPolyArc:
+[179412.354] rdpPolyArc:
+[179412.354] rdpPolyArc:
+[179412.354] rdpPolyArc:
+[179412.354] rdpPolyArc:
+[179412.947] rdpPolyArc:
+[179412.947] rdpPolyArc:
+[179412.947] rdpPolyArc:
+[179412.947] rdpPolyArc:
+[179413.051] rdpPolyArc:
+[179413.051] rdpPolyArc:
+[179413.051] rdpPolyArc:
+[179413.051] rdpPolyArc:
+[179413.432] rdpPolyArc:
+[179413.432] rdpPolyArc:
+[179413.432] rdpPolyArc:
+[179413.432] rdpPolyArc:
+[179413.556] rdpPolyArc:
+[179413.556] rdpPolyArc:
+[179413.556] rdpPolyArc:
+[179413.556] rdpPolyArc:
+[179413.787] rdpPolyArc:
+[179413.787] rdpPolyArc:
+[179413.787] rdpPolyArc:
+[179413.787] rdpPolyArc:
+[179416.328] rdpPolyArc:
+[179416.328] rdpPolyArc:
+[179416.328] rdpPolyArc:
+[179416.328] rdpPolyArc:
+[179417.470] rdpPolyArc:
+[179417.470] rdpPolyArc:
+[179417.470] rdpPolyArc:
+[179417.470] rdpPolyArc:
+[179418.433] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179420.486] rdpPolyArc:
+[179420.486] rdpPolyArc:
+[179420.486] rdpPolyArc:
+[179420.486] rdpPolyArc:
+[179420.653] rdpPolyArc:
+[179420.653] rdpPolyArc:
+[179420.653] rdpPolyArc:
+[179420.653] rdpPolyArc:
+[179424.948] rdpPolyArc:
+[179424.948] rdpPolyArc:
+[179424.948] rdpPolyArc:
+[179424.948] rdpPolyArc:
+[179428.434] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179438.435] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179448.436] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179458.436] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)
+[179468.437] (EE) dbus-core: error connecting to system bus: org.freedesktop.DBus.Error.FileNotFound (Failed to connect to socket /var/run/dbus/system_bus_socket: No such file or directory)

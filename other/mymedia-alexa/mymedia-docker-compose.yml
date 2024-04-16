@@ -1,0 +1,24 @@
+#
+# My Media for Alexa allows you to stream your home music library from your
+# computer to an Amazon Alexa device, eg an Alexa Echo or Alexa Dot.
+#
+# You can access MyMedia for Alexa by visiting
+# http://<ip of your server>:<port>, in my cased http://192.168.1.200:52050
+#
+# To start this docker container
+# sudo LIB='/home/jeff' docker-compose --file ./mymedia-docker-compose.yml up -d
+#
+
+version: "3"
+services:
+  mymedia:
+    image: 'bizmodeller/mymediaforalexa:latest'
+    container_name: 'mymedia-alexa'
+    restart: unless-stopped
+    ports:
+      - 52050:52050
+      - 52051:52051
+    volumes:
+      - ${LIB}/Music:/medialibrary
+      - ${LIB}/.MyMediaforAlexa:/datadir
+

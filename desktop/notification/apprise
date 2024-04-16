@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# This utility does a push notification to the service Pushover (https://pushover.net/)
+# via the apprise server hosted locally in a Docker container
+
+# Parse command line options
+USAGE="Usage: `basename $0` [-h] -t title -m message"
+while getopts ht:m: OPT; do
+    case "$OPT" in
+        h)
+            echo $USAGE
+            exit 0
+            ;;
+        t)
+            TITLE=$OPTARG
+            ;;
+        m)
+            MESSAGE=$OPTARG
+            ;;
+        \?)
+            # getopts issues an error message
+            echo $USAGE >&2
+            exit 1
+            ;;
+    esac
+done
+
+# Send message to Pushover to create notification
+#curl --silent \
+#    -F "token=$APPTOKEN" \
+#    -F "user=$USERKEY" \
+#    -F "message=$MESSAGE" \
+#    -F "device=desktop" \
+#    -F "title=$TITLE" \
+#    -F "sound=spacealarm" \
+#    https://api.pushover.net/1/messages.json | grep '"status":1' > /dev/null
+
+
+# see apprise api - http://localhost:8005/cfg/apprise
+# see 'Persistent Storage Solution' - https://hub.docker.com/r/caronc/apprise
+# sends notification to all of the end points you've configured associated with a key = 'apprise'
+#curl -X POST -F "title=Test Message" -F "body=This is a test messsage." -F "type=info" -F "format=text" -F "tags=all" http://localhost:8005/notify/apprise
+curl --silent -X POST -F "title=$TITLE" -F "body=$MESSAGE" -F "type=info" -F "format=text" -F "tags=all" http://localhost:8005/notify/apprise 2>&1 /dev/null
+
+# Check the exit code to identify an error
+if [ $? -eq 0 ];
+    then
+        exit 0
+    else
+        echo "apprise failed with exit code $?"
+        exit 1
+fi
