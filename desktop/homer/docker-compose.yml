@@ -41,7 +41,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - /home/jeff/src/homelab-portainer-stacks/desktop/homer/assets:/www/assets
+      - /home/jeff/src/homelab-portainer-stacks/desktop/homer/assets:/www/assets   # configuration files for homer
     environment:
       - UID=1000
       - GID=1000

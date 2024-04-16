@@ -43,9 +43,9 @@ services:
     security_opt:
       - apparmor:unconfined
     volumes:
-      - /home/jeff/src/homelab-portainer-stacks/desktop/netdata/volumes/netdataconfig:/etc/netdata
-      - /home/jeff/src/homelab-portainer-stacks/desktop/netdata/volumes/netdatalib:/var/lib/netdata
-      - /home/jeff/src/homelab-portainer-stacks/desktop/netdata/volumes/netdatacache:/var/cache/netdata
+      - /var/lib/docker/volumes/netdata/config:/etc/netdata
+      - /var/lib/docker/volumes/netdata/lib:/var/lib/netdata
+      - /var/lib/docker/volumes/netdata/cache:/var/cache/netdata
       - /etc/passwd:/host/etc/passwd:ro
       - /etc/group:/host/etc/group:ro
       - /etc/localtime:/etc/localtime:ro
