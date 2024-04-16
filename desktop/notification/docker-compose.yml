@@ -1,0 +1,58 @@
+
+# ------------------------------------------------------------------------------
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     I choose a push notification scheme, using a mobile app (i.e. Pushover),
+#     to notify me of success or failure of background apps like backups.
+#     I didn't want to load up email with these status messages, I just wanted
+#     a quick & simple message for me to review on my mobile phone.
+#     This gives me a single notification scheme for my homelab envirnment;
+#     a combination of Pushover, Apprise, and Mailrise.
+#
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/desktop/notification/docker-compose.yml
+#     To stop & remove container for compose file modification
+#         sudo docker stop notification
+#         sudo docker rm notification
+#
+# ACCESS
+#     To access notification when deployed
+#         http://<ip-of-your-server>:<port>, in my cased http://192.168.1.200:8005
+#         and http://192.168.1.200:8025
+#
+# SOURCES
+#     Best Notification System for Home Servers with Apprise Push Alerts - https://www.youtube.com/watch?v=Cj7A46NuACA
+#     How To Setup A Notification System For Labs And Home Networks - https://www.youtube.com/watch?v=WdhhIZmnmaI
+# ------------------------------------------------------------------------------
+
+---
+
+version: '3.8'
+
+services:
+  apprise-api:
+    image: caronc/apprise:latest
+    container_name: apprise
+    restart: unless-stopped
+    ports:
+      - '8005:8000'
+    volumes:
+      - /home/jeff/src/docker-containers/notification-server/config/apprise.conf:/config
+      - /var/lib/docker/volumes/apprise/attach:/attach     # used for file attachments, you do not have to mount this if you don't intend to use it
+    environment:
+      - APPRISE_WORKER_COUNT=1                             # all that is needed for a light-weight self-hosted solution
+
+  mailrise:
+    image: yoryan/mailrise:latest
+    container_name: mailrise
+    restart: unless-stopped
+    ports:
+      - '8025:8025'
+    volumes:
+      - /home/jeff/src/docker-containers/notification-server/config/mailrise.conf:/etc/mailrise.conf
+

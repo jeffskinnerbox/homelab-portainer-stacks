@@ -57,7 +57,7 @@ Sources:
 * [Best Notification System for Home Servers with Apprise Push Alerts][11]
 * [Setup A Notification System For Labs And Home Networks](https://www.techtutorials.tv/sections/management-and-monitoring/setup-a-notification-system-for-labs-and-home-networks/)
 * [How To Setup A Notification System For Labs And Home Networks][07]
-* [Get Instant Push Notifications with Zero Subscription Fee!][08] - DONE
+* [Get Instant Push Notifications with Zero Subscription Fee!][08]
 
 # Install Notification Server
 I combined the two installations steps below into a single Docker Compose Stack
