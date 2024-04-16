@@ -1,0 +1,53 @@
+
+# ------------------------------------------------------------------------------
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     Speedtest Tracker is a self-hosted internet performance tracking application
+#     that runs speedtest checks against Ookla's Speedtest service.
+
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/desktop/speedtest/docker-compose.yml
+#     To stop & remove container for compose file modification
+#         sudo docker stop speedtest
+#         sudo docker rm speedtest
+#
+# ACCESS
+#     To access speedtest when deployed
+#         http://<ip-of-your-server>:<port>, in my cased http://192.168.1.200:8083
+#
+# SOURCES
+#     DockerHub: linuxserver/speedtest-tracker - https://hub.docker.com/r/linuxserver/speedtest-tracker
+#     Speedtest Tracker - https://docs.speedtest-tracker.dev/
+#     GitHub: alexjustesen/speedtest-tracker - https://github.com/alexjustesen/speedtest-tracker
+# ------------------------------------------------------------------------------
+
+---
+
+version: '3'
+
+services:
+  speedtest:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    container_name: speedtest
+    restart: unless-stopped
+    ports:
+      - 80:8083
+    volumes:
+      - /var/lib/docker/volumes/speedtest/config:/etc/netdata
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - DB_CONNECTION=sqlite
+      #- APP_KEY=                          # optional
+      #- DB_HOST=                          # optional
+      #- DB_PORT=                          # optional
+      #- DB_DATABASE=                      # optional
+      #- DB_USERNAME=                      # optional
+      #- DB_PASSWORD=                      # optional
+
