@@ -11,11 +11,17 @@ Version:      0.0.1
 
 ----
 
-# SpeedTest
+# Speedtest Tracker
 Speedtest Tracker is a self-hosted internet performance tracking application
 that runs speedtest checks against Ookla's Speedtest service.
+
+## Default User Account
+Username: `admin@example.com`
+Password: `password`
 
 * [DockerHub: linuxserver/speedtest-tracker](https://hub.docker.com/r/linuxserver/speedtest-tracker)
 * [Speedtest Tracker](https://docs.speedtest-tracker.dev/)
 * [GitHub: alexjustesen/speedtest-tracker](https://github.com/alexjustesen/speedtest-tracker)
+* [Internet SpeedTest Tracker on Docker - 2022 Edition](https://www.youtube.com/watch?v=feArak6WCLw)
+* [Homelab Series - Creating a SpeedTest Tracker Server](https://www.youtube.com/watch?v=MJOvWNIIZnk)
 

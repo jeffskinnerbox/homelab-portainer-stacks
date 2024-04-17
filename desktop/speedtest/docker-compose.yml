@@ -24,30 +24,72 @@
 #     DockerHub: linuxserver/speedtest-tracker - https://hub.docker.com/r/linuxserver/speedtest-tracker
 #     Speedtest Tracker - https://docs.speedtest-tracker.dev/
 #     GitHub: alexjustesen/speedtest-tracker - https://github.com/alexjustesen/speedtest-tracker
+#     Internet SpeedTest Tracker on Docker - https://www.youtube.com/watch?v=feArak6WCLw
 # ------------------------------------------------------------------------------
 
 ---
 
-version: '3'
+#version: '3'
+
+#services:
+#  speedtest:
+#    image: lscr.io/linuxserver/speedtest-tracker:latest
+#    container_name: speedtest
+#    restart: unless-stopped
+#    ports:
+#      - 8083:80
+#      - 8484:443
+#    volumes:
+#      - /var/lib/docker/volumes/speedtest/config:/config
+#    environment:
+#      - PUID=1000
+#      - PGID=1000
+#      - TZ=Etc/UTC
+#      - DB_CONNECTION=sqlite
+#      #- APP_KEY=                          # optional
+#      #- DB_HOST=                          # optional
+#      #- DB_PORT=                          # optional
+#      #- DB_DATABASE=                      # optional
+#      #- DB_USERNAME=                      # optional
+#      #- DB_PASSWORD=                      # optional
+
+
+
+version: '3.4'
 
 services:
-  speedtest:
-    image: lscr.io/linuxserver/speedtest-tracker:latest
-    container_name: speedtest
-    restart: unless-stopped
-    ports:
-      - 8083:80
-    volumes:
-      - /var/lib/docker/volumes/speedtest/config:/etc/netdata
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-      - DB_CONNECTION=sqlite
-      #- APP_KEY=                          # optional
-      #- DB_HOST=                          # optional
-      #- DB_PORT=                          # optional
-      #- DB_DATABASE=                      # optional
-      #- DB_USERNAME=                      # optional
-      #- DB_PASSWORD=                      # optional
+    speedtest-tracker:
+        image: lscr.io/linuxserver/speedtest-tracker:latest
+        container_name: speedtest
+        restart: unless-stopped
+        ports:
+            - 8083:80
+            - 8084:443
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - DB_CONNECTION=mysql
+            - DB_HOST=db
+            - DB_PORT=3306
+            - DB_DATABASE=speedtest_tracker
+            - DB_USERNAME=admin
+            - DB_PASSWORD=password
+        volumes:
+            - /var/lib/docker/volumes/speedtest/config:/config
+            #- /path/to-custom-ssl-keys:/config/keys
+        depends_on:
+            - db
 
+    db:
+        image: mariadb:10
+        restart: always
+        environment:
+            - MARIADB_DATABASE=speedtest_tracker
+            - MARIADB_USER=admin
+            - MARIADB_PASSWORD=password
+            - MARIADB_RANDOM_ROOT_PASSWORD=true
+        volumes:
+            - speedtest-db:/var/lib/mysql
+
+volumes:
+  speedtest-db:
