@@ -29,32 +29,6 @@
 
 ---
 
-#version: '3'
-
-#services:
-#  speedtest:
-#    image: lscr.io/linuxserver/speedtest-tracker:latest
-#    container_name: speedtest
-#    restart: unless-stopped
-#    ports:
-#      - 8083:80
-#      - 8484:443
-#    volumes:
-#      - /var/lib/docker/volumes/speedtest/config:/config
-#    environment:
-#      - PUID=1000
-#      - PGID=1000
-#      - TZ=Etc/UTC
-#      - DB_CONNECTION=sqlite
-#      #- APP_KEY=                          # optional
-#      #- DB_HOST=                          # optional
-#      #- DB_PORT=                          # optional
-#      #- DB_DATABASE=                      # optional
-#      #- DB_USERNAME=                      # optional
-#      #- DB_PASSWORD=                      # optional
-
-
-
 version: '3.4'
 
 services:
@@ -93,3 +67,4 @@ services:
 
 volumes:
   speedtest-db:
+
