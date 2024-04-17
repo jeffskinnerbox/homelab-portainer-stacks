@@ -10,6 +10,7 @@ Version:      0.0.1
 
 
 [Excalidraw - A Self Hosted Diagram and Drawing Portal](https://noted.lol/excalidraw/)
+[Homelab Series - Creating a Excalidraw Server - Whiteboard to Sketch Diagrams](https://www.youtube.com/watch?v=szv-z9pYTAs)
 
 
 ----
