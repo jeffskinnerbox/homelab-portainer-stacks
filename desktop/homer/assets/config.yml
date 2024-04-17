@@ -645,12 +645,12 @@ services:
         # url: !secrets netdata_url
         target: "_blank"
 
-      # https://www.speedtest.net/
-      - name: "SpeedTest"
-        logo: "assets/icons/speedtest-logo.png"
-        subtitle: "internet performance"
+      # https://docs.speedtest-tracker.dev/
+      - name: "Speedtest Tracker"
+        logo: "assets/icons/speedtest-tracker-logo.png"
+        subtitle: "Internet Performance"
         tag: "troubleshooting"
-        url: "http://192.168.1.200:3000/d/0A6hxROiz/speedtest-results?orgId=1"
+        url: "http://192.168.1.200:8083/admin"
         # url: !secrets netdata_url
         target: "_blank"
 
