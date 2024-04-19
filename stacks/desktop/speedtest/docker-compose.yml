@@ -1,5 +1,6 @@
 
 # ------------------------------------------------------------------------------
+#
 # Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
 # Version:      1.0.0
 #
@@ -25,6 +26,7 @@
 #     Speedtest Tracker - https://docs.speedtest-tracker.dev/
 #     GitHub: alexjustesen/speedtest-tracker - https://github.com/alexjustesen/speedtest-tracker
 #     Internet SpeedTest Tracker on Docker - https://www.youtube.com/watch?v=feArak6WCLw
+#
 # ------------------------------------------------------------------------------
 
 ---
@@ -66,5 +68,5 @@ services:
             - speedtest-db:/var/lib/mysql
 
 volumes:
-  speedtest-db:
+  speedtest-db:             # database is stored in /var/lib/docker/volumes
 

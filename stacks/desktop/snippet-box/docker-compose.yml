@@ -1,5 +1,6 @@
 
 # ------------------------------------------------------------------------------
+#
 # Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
 # Version:      1.0.0
 #
@@ -24,6 +25,7 @@
 #
 # SOURCES
 #     DockerHub: pawelmalak/snippet-box - https://hub.docker.com/r/pawelmalak/snippet-box
+#
 # ------------------------------------------------------------------------------
 
 ---

@@ -1,3 +1,34 @@
+
+# ------------------------------------------------------------------------------
+#
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     Portainer, as a management interface for Docker, can be deployed in a
+#     distributed manner to manage multiple Docker environments, allowing you
+#     to easily build and manage containers in Docker, Docker Swarm, Kubernetes.
+#
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/stacks/desktop/portainer/docker-compose.yml
+#     To stop & remove container for compose file modification
+#         sudo docker stop portainer
+#         sudo docker rm portainer
+#
+# ACCESS
+#     To access Portainer when deployed
+#         http://<ip-of-your-server>:<port>, in my cased http://192.168.1.200:9000
+#
+# SOURCES
+#     Portainer Documentation - https://docs.portainer.io/v/2.20
+#
+# ------------------------------------------------------------------------------
+
+---
+
 version: '3.2'
 
 services:
@@ -36,4 +67,5 @@ networks:
     attachable: true
 
 volumes:
-  portainer_data:
+  portainer_data:         # data is stored in /var/lib/docker/volumes
+
