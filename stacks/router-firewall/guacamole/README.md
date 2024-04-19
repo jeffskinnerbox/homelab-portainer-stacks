@@ -9,6 +9,17 @@ Version:      1.0.0
 </div>
 
 
+# Check this out
+* [How To Access Your PCs and Servers from Anywhere Using Guacamole and Cloudflare Tunnels](https://www.youtube.com/watch?v=tg1CbMEzCsc)
+    * [DockerHub: abesnier/guacamole](https://hub.docker.com/r/abesnier/guacamole)
+    * [Secure Cloudflare Tunnels with vLANs and an Internal Firewall Before It's Too Late!](https://www.youtube.com/watch?v=1n9lCYCLUYI)
+    * [Cloudflare Tunnels: Restrict Access with Google and Github](https://www.youtube.com/watch?v=wdmbAo02ktQ)
+
+
+
+
+-----
+
 # Guacamole
 [Guacamole][01] is a free & open source application
 that allows you to access your computers from anywhere.

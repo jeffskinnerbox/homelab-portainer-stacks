@@ -1,5 +1,6 @@
 
 # ------------------------------------------------------------------------------
+#
 # Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
 # Version:      1.0.0
 #
@@ -27,6 +28,7 @@
 #     DockerHub: b4bz/homer - https://hub.docker.com/r/b4bz/homer/tags
 #     GitHub: bastienwirtz/homer - https://github.com/bastienwirtz/homer
 #     Configuring Homer Dashboard - https://tcude.net/configuring-homer-dashboard/
+#
 # ------------------------------------------------------------------------------
 
 ---

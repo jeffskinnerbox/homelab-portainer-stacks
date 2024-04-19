@@ -1,5 +1,6 @@
 
 # ------------------------------------------------------------------------------
+#
 # Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
 # Version:      1.0.0
 #
@@ -24,6 +25,7 @@
 # SOURCES
 #     DockerHub: httpd - https://hub.docker.com/_/httpd
 #     How to use docker-compose with Apache httpd example - https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Simple-Apache-docker-compose-example-with-Dockers-httpd-image
+#
 # ------------------------------------------------------------------------------
 
 ---
