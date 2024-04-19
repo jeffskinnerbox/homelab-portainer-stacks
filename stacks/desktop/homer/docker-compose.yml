@@ -15,7 +15,7 @@
 #     YAML linter to spot YAML syntax errors
 #         yamllint docker-compose.yml
 #     To start this docker container for validation
-#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/desktop/homer/docker-compose.yml
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/stacks/desktop/homer/docker-compose.yml
 #     To stop & remove container for compose file modification
 #         sudo docker stop homer
 #         sudo docker rm homer
@@ -43,7 +43,7 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - /home/jeff/src/homelab-portainer-stacks/desktop/homer/assets:/www/assets   # configuration files for homer
+      - /home/jeff/src/homelab-portainer-stacks/stacks/desktop/homer/assets:/www/assets   # configuration files for homer
     environment:
       - UID=1000
       - GID=1000
