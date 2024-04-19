@@ -235,7 +235,7 @@ It is easy to do, just follow these steps:
 (ex. `https://github.com/jeffskinnerbox/homelab-portainer-stacks`).
 8. Still within the **Create stack** page, on the **Repository reference** line, no modification.
 9. Still within the **Create stack** page, on the **Compose path** line, enter path to your `docker-compose.yml` file
-(ex. `desktop/homer/docker-compose.yml`).
+(ex. `stacks/desktop/homer/docker-compose.yml`).
 10. Still within the **Create stack** page, at the bottom of the page, click on the **+Deploy the stack** button.
 
 
