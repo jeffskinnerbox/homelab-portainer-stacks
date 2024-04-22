@@ -11,6 +11,14 @@ Version:      0.0.1
 
 ----
 
+
+desktop           192.168.1.200
+synology          192.168.1.201:9001
+router-firewall   192.168.1.204:9001
+test-pi           192.168.1.205:9001
+
+
+
 Connect existing Portainer agent to new Portainer host - https://www.reddit.com/r/portainer/comments/xmdbt1/connect_existing_portainer_agent_to_new_portainer/
     do this: `sudo docker restart portainer-agent`
 

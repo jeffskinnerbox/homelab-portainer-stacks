@@ -17,7 +17,7 @@
 #     YAML linter to spot YAML syntax errors
 #         yamllint docker-compose.yml
 #     To start this docker container for validation
-#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/stacks/<platform>/portainer-agent/docker-compose.yml
+#         sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/stacks/synology/portainer-agent/docker-compose.yml
 #     To stop & remove container for compose file modification
 #         sudo docker stop portainer-agent
 #         sudo docker rm portainer-agent
@@ -50,6 +50,7 @@ services:
       - portainer_data:/var/lib/docker/volumes
 
 #networks:                       # needed for swarms
+#networks:
   #agent_network:
     #driver: overlay
     #attachable: true

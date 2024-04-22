@@ -36,24 +36,22 @@ Sources:
 ------
 
 
-# Step 0: Install Docker and Docker Compose
+# Installing Portainer on Manager Server
+
+#### Step 0: Install Docker and Docker Compose
 I'm going to install Portainer as a Docker container, and to do so,
-make sure you install Docker & Docker Compose first.
+I'm assuming you have installed Docker & Docker Compose first.
 
-The use of Docker for installation of Portainer does present a dilemma ... bit of a chicken or egg situation.
-One of the nice feature of Portain is how it make it easy to update containers,
-but Portainer is itself a container, how can it update itself?
-Well ... it can't.
-We will have to use Docker to do any updates of Portainer.
-On the other hand, updating of the Portainer Agent can be done via Portainer without any concern.
-
-# Step 1: Install Portainer
-I prefer to launch Portainer via `docker-compose`, use the following file:
+#### Step 1: Install Portainer via Docker
+I prefer to launch the installation of Portainer via `docker-compose`,
+use the following `docker-compose.yml` file:
 
 >**NOTE:** If you are installing Portainer on a Synology,
 >See the subsection below titled "Installing Docker & Portainer on Synology".
 
 ```yaml
+---
+
 version: '3'
 
 services:
@@ -64,71 +62,195 @@ services:
     security_opt:
       - no-new-privileges:true
     ports:
-      - ${PORTAINER_PORT}:9000
-      #- 9443:9443
+      - 9000:9000
+      - 9443:9443
+    networks:
+      - agent_network
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./portainer-data:/data
+      - portainer_data:/data
+
+networks:
+  agent_network:
+    driver: overlay
+    attachable: true
+
+volumes:
+  portainer_data:         # data is stored in /var/lib/docker/volumes
 ```
 
-To do the install, execute the following commandline:
+To do the install, execute the following on the commandline:
 
 ```bash
 # start the docker container
-sudo PORTAINER_PORT=9000 docker-compose --file ./portainer-docker-compose.yml up -d
+sudo docker-compose --file ./portainer-docker-compose.yml up -d
 
 # check for any errors during the install via
 sudo docker logs portainer
-```
-
-An alterenative method is via `docker` directly
-using the following Docker commands to deploy the Portainer Server:
-
-```bash
-# create the volume for storing persistent data
-cd ~/src/docker-containers/portainer
-sudo docker volume create ./portainer-data
-
-# install the portainer container (ports 9001 is for agents and 9000 for web ui)
-sudo docker run -d -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer-data:/data portainer/portainer-ce:latest
 
 # check if portainer is running
 sudo docker ps -a -s
 ```
 
-Now using your browser, log into portainer via this URL: `localhost:9000`.
+Now using your browser, log into Portainer via this URL: `localhost:9000`.
 
-### Step 2: Manage Multiple Hosts in Portainer
+#### Step X: Do Backup Before Upgrading Portainer
+Very first thing to do is create a backup for the Portainer configuration.
+Log in as an admin user. From the menu select Settings, then scroll down to the Backup Portainer section. Download backup file is the default option. As an optional step, toggle Password protect on and enter a password to encrypt the backup file.
+* [Portainer Documentation: Backing up to a local disk](https://docs.portainer.io/admin/settings#backup-portainer)
+
+You'll make use of this backup when you do your first login to the upgraded Portainer.
+Log in as a user that was known by the Portainer that was restored.
+* [Portainer Documentation: Restoring from a local file](https://docs.portainer.io/admin/settings#restoring-from-a-local-file)
+
+Next you do the upgrade.
+
+#### Step X: Upgrading Portainer
+The use of Docker for installation of Portainer does present a dilemma ... bit of a chicken or egg situation.
+One of the nice feature of Portainer is how it make it so easy to update containers,
+but when Portainer is itself is a container, how can it update itself?
+**Well ... it can't.**
+We will have to use Docker directly, and **not** Portainer, to do any updates of Portainer.
+On the other hand, updating of the Portainer Agent can be done via Portainer without any concern.
+
+To [upgrade to the latest version of Portainer Server][64],
+you must use commandline tools.
+To do this manually, you following this simple proccedure:
+stop Portainer with Docker, remove the old version of Portainer,
+and finally do a new install of Portainer.
+
+See below for the **manual method**:
+
+```bash
+# stop and remove the protainer container
+sudo docker stop portainer
+sudo docker rm portainer
+
+# pull down the latest version of portainer
+sudo docker pull portainer/portainer-ce:latest
+
+# reinstall portainer
+sudo docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+```
+
+You may want to also upgrade the Portainer Agent and this must be done seperately:
+
+```bash
+# stop and remove the protainer agent container
+sudo docker stop portainer_agent
+sudo docker rm portainer_agent
+
+# pull nd start the updated version of the image
+sudo docker pull portainer/agent:latest
+sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
+```
+
+You could put all of the above steps into script.
+(Check out the video
+"[Pi-Hosted : Upgrading Portainer and Updating Containers Part 6][59]"
+for a script to do the above steps)
+See below for my version of this **scripted method**:
+
+```bash
+
+```
+
+### Step X: Update Your Docker Container
+You can update you Docker containers via the commandline,
+but Portainer provides a intuitive browser UI to do the same.
+Check out the videos:
+
+* [Use Portainer to update your Docker Containers while they are running. No command line needed][65].
+* [How to Update a Docker Container using Portainer](https://www.wundertech.net/how-to-update-a-docker-container-using-portainer/)
+
+## Removing Portainer Images & Containers
+If you run into problems, kill Portainer
+and clean-up any unused resources
+(i.e. images, containers, volumes, and networks)
+that are dangling (not tagged or associated with a container).
+This is shown below:
+
+```bash
+# kill the container
+sudo docker kill portainer
+
+# remove the container image
+sudo docker rmi portainer/portainer-ce
+
+# list any dangling images
+sudo docker images -f dangling=true
+
+# removes all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes
+sudo docker system prune
+```
+
+Source:
+
+* [How To Remove Docker Images, Containers, and Volumes](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
+
+
+
+------
+
+
+# Installing Portainer Agent on Remote Server
+
+#### Step 2: Manage Remote Hosts with Portainer
+Portainer Remote Host Management feature, using the Paortain Agent,
+exposes the Docker API to your Docker agent network.
+This isn't a big concern if your within you own LAN,
+but if your remotes are outside your LAN, then you have a security concern.
+n my case, I'm exposing my Portainer Agent network only to my LAN.
+
+It is important to secure the Docker daemon socket to prevent unauthorized access
+to the Docker daemon and to protect sensitive information that may be exposed through the socket.
+To learn how to securely expose the Docker API on a remote server
+and connect your Portainer GUI, check out the sources below.
+
+Sources:
 * [How to manage multiple Hosts in Portainer?](https://www.youtube.com/watch?v=kKDoPohpiNk&list=RDCMUCZNhwA1B5YqiY1nLzmM0ZRg&index=4)
+* [How to Secure Docker's TCP Socket With TLS](https://www.howtogeek.com/devops/how-to-secure-dockers-tcp-socket-with-tls/)
+* [Protect the Docker Daemon Socket](https://docs.docker.com/engine/security/protect-access/)
+* [Protect the Docker daemon socket](https://www.tutorialspoint.com/protect-the-docker-daemon-socket)
 
-### Step 2: Portainer Agent Deployment
+#### Step 2: Portainer Agent Deployment
 Use the following Docker commands to deploy the Portainer Agent.
 Agents are installed on Docker nodes being managed remotely by Portainer.
 The agent is not needed on standalone hosts,
 however it does provide additional functionality if used:
 
-```bash
-# install the portainer container
-sudo docker run -d -p 9001:9001 --name portainer-agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent
-```
-
 I prefer to launch the Portainer Agent via `docker-compose`.
-The Docker Compose file is (I call it `portainer-agent-docker-compose.yml`):
+use the following `docker-compose.yml` file:
 
 ```yaml
-version: "3"
+---
+
+version: '3'
+
 services:
-  portainer-agent:
+  portainer:
+    image: portainer/agent:latest
     container_name: portainer-agent
-    image: portainer/agent
     restart: unless-stopped
     ports:
-      - ${PORTAINER_PORT}:9001
+      - 9001:9001
+    networks:
+      - agent_network
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /var/lib/docker/volumes:/var/lib/docker/volumes
+      - portainer_data:/var/lib/docker/volumes
+
+networks:
+  agent_network:
+    driver: overlay
+    attachable: true
+
+volumes:
+  portainer_data:         # data is stored in /var/lib/docker/volumes
 ```
+
+To do the install, execute the following on the commandline:
 
 ```bash
 # remove the container image
@@ -145,20 +267,13 @@ sudo docker ps -a -s
 ```
 
 Now using your browser, log into portainer via this URL: `localhost:9000`.
-
-
-Enter Portainer and navigate to target machine to
+Enter Portainer and navigate to the target machine to
 [install Portainer Agent via Portainer][68]:
 
 * Select **Stacks** > **Add stack** > **Web editor**
 * name the stack via **Name** "portainer-agent".
 * Paste the above YAML script into the **Web editor**.
 * Scroll down to the bottom and click the **Deploy the stack** button.
-
-
-
-
-
 
 ### Step 3: Manage Proxmox Docker Containers via Desktop Portainer
 We now want to connect the Proxmox based `docker-containers` so it can be monitored
@@ -186,10 +301,10 @@ Source:
 -----
 
 
-## Installing Docker & Portainer on Synology
+# Installing Docker & Portainer Agent on Synology
 The Docker installation on Synology must done a little different than a standard Linux box.
-The implementation Synology DSM isn't standard Debian Linux, as you might be lead to believe
-by pursuing its filesystem.
+The implementation Synology DSM isn't standard Debian Linux,
+as you might be lead to believe by pursuing its filesystem.
 I suspect Synology DSM places some of the Linux filesystem in memory,
 and uses little to no disk space (saving it for its NAS function).
 
@@ -282,89 +397,6 @@ Source:
 
 * [Installing Portainer and Portainer Agent - An update to show you an easier way to manage Docker](https://www.youtube.com/watch?v=-LPaWq1_GF0)
 * [Add ALL of your Docker Hosts to ONE Portainer Dashboard Using the Portainer Edge Agent](https://www.youtube.com/watch?v=8YmQoQ7gAg8)
-
-
------
-
-
-# Install Some Containers
-* [How to Install Nextcloud on Ubuntu, Move Data Directory, Setup Free DDNS Domain & SSL Certificate](https://www.youtube.com/watch?v=g1mYxrxdJXM&t=0s)
-* [How to Install Nextcloud Hub 21 on Ubuntu 20.04 - Apache, MySQL, and PHP Configuration](https://www.youtube.com/watch?v=ZM1fL6ze4X8)
-* [Fix Nextcloud Cron Job not Running on NC 21.0.3 - Nextcloud Redis Setup](https://www.youtube.com/watch?v=8JVhRtArovg)
-* [How to Install Bitwarden on Ubuntu 20.04 - Self Hosting a Password Manager](https://www.youtube.com/watch?v=7bFuJCxWH6I)
-
-### Step X: Upgrading Portainer
-To [upgrade to the latest version of Portainer Server][64],
-you must do it from the commandline.
-Use the following commands to stop Portainer, then remove the old version,
-and finally do a new install of Portainer.
-
-```bash
-# stop and remove the protainer container
-sudo docker stop portainer
-sudo docker rm portainer
-
-# pull down the latest version of portainer
-sudo docker pull portainer/portainer-ce:latest
-
-# reinstall portainer
-sudo docker run -d -p 8000:8000 -p 9000:9000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
-```
-
-You may want to also upgrade the Portainer Agent and this must be done seperately:
-
-```bash
-# stop and remove the protainer agent container
-sudo docker stop portainer_agent
-sudo docker rm portainer_agent
-
-# pull nd start the updated version of the image
-sudo docker pull portainer/agent:latest
-sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
-```
-
->**NOTE:** Check out the video
->"[Pi-Hosted : Upgrading Portainer and Updating Containers Part 6][59]"
->for a script to do the above steps.
-
-### Step X: Update Your Docker Container
-You can update you Docker containers via the commandline,
-but Portainer provides a intuitive browser UI to do the same.
-Check out the videos:
-
-* [Use Portainer to update your Docker Containers while they are running. No command line needed][65].
-* [How to Update a Docker Container using Portainer](https://www.wundertech.net/how-to-update-a-docker-container-using-portainer/)
-
-## Removing Portainer Images & Containers
-If you run into problems, kill Portainer
-and clean-up any unused resources
-(i.e. images, containers, volumes, and networks)
-that are dangling (not tagged or associated with a container).
-This is shown below:
-
-```bash
-# kill the container
-sudo docker kill portainer
-
-# remove the container image
-sudo docker rmi portainer/portainer-ce
-
-# list any dangling images
-sudo docker images -f dangling=true
-
-# removes all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes
-sudo docker system prune
-```
-
-Source:
-
-* [How To Remove Docker Images, Containers, and Volumes](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
-
-
-
-
-----
-
 
 
 
