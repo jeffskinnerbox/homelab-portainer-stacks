@@ -16,6 +16,7 @@ desktop           192.168.1.200
 synology          192.168.1.201:9001
 router-firewall   192.168.1.204:9001
 test-pi           192.168.1.205:9001
+print-server
 
 
 

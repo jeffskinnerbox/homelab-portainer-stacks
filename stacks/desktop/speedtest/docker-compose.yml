@@ -58,6 +58,7 @@ services:
 
     db:
         image: mariadb:10
+        container_name: mariadb
         restart: always
         environment:
             - MARIADB_DATABASE=speedtest_tracker

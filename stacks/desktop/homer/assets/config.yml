@@ -379,7 +379,7 @@ services:
         logo: "assets/icons/keepnote-logo.png"
         subtitle: "Note Taking and Organization"
         tag: "notes"
-        url: "http://keepnote.org/"
+        url: "https://keepnote.org/"
         target: "_blank"
 
       # https://www.giuspen.net/cherrytree/
@@ -570,7 +570,7 @@ services:
         logo: "assets/icons/guacamole-logo.png"
         subtitle: "Clientless Remote VNC, RDP, and SSH Gateway"
         tag: "remote-access"
-        url: "http://guac.jeffskinnerbox.me"
+        url: "https://guac.jeffskinnerbox.me"
         target: "_blank"
 
      # https://www.geeksforgeeks.org/shell-in-a-box-remote-linux-server-via-web-browser/
@@ -797,7 +797,7 @@ services:
         logo: "assets/icons/pfsense-logo.png"
         subtitle: "Router / Firewall for Home"
         tag: "network"
-        url: "https://192.168.1.1"
+        url: "http://192.168.1.1"
         target: "_blank"
 
       # https://www.tp-link.com/us/business-networking/omada-sdn-access-point/eap660-hd/
@@ -856,12 +856,12 @@ services:
         url: "https://hub.docker.com/_/traefik"
         target: "_blank"
 
-      # http://www.haproxy.org/
+      # https://www.haproxy.org/
       - name: "HAProxy"
         logo: "assets/icons/haproxy-logo.png"
         subtitle: "Reverse Proxy"
         tag: "network"
-        url: "http://www.haproxy.org/"
+        url: "https://www.haproxy.org/"
         target: "_blank"
 
       # https://nginxproxymanager.com/

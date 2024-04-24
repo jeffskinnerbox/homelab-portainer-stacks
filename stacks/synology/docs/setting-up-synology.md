@@ -1,0 +1,1 @@
+/home/jeff/blogging/content/ideas/setting-up-synology.md

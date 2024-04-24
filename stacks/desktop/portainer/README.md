@@ -100,8 +100,8 @@ Very first thing to do is create a backup for the Portainer configuration.
 Log in as an admin user. From the menu select Settings, then scroll down to the Backup Portainer section. Download backup file is the default option. As an optional step, toggle Password protect on and enter a password to encrypt the backup file.
 * [Portainer Documentation: Backing up to a local disk](https://docs.portainer.io/admin/settings#backup-portainer)
 
-You'll make use of this backup when you do your first login to the upgraded Portainer.
-Log in as a user that was known by the Portainer that was restored.
+Restoring a configuration is only possible on a fresh instance of Portainer during the initial installation. When you need to restore Portainer, deploy a fresh instance of Portainer with an empty data volume and choose the Restore Portainer from backup option during setup.
+You'll make use of this backup when you do your first login to the upgraded Portainer. Log in as a user that was known by the Portainer that was restored.
 * [Portainer Documentation: Restoring from a local file](https://docs.portainer.io/admin/settings#restoring-from-a-local-file)
 
 Next you do the upgrade.

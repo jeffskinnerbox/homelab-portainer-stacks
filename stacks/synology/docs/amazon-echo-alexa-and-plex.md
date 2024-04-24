@@ -1,0 +1,1 @@
+/home/jeff/blogging/content/ideas/amazon-echo-alexa-and-plex.md
