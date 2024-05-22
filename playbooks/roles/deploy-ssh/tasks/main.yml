@@ -1,0 +1,88 @@
+
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.5.0
+#
+# DESCRIPTION
+#    Role file for 'deploy-ssh' role - install useful devlopment utilities
+#
+# TESTING
+#    YAML linter to spot Ansible YAML syntax errors
+#       yamllint rpi-loader.yml roles/deploy-ssh/tasks
+#       ansible-lint roles/deploy-ssh/tasks/main.ynl
+#
+#    Ansible linter to spot Ansible playbook syntax errors
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --syntax-check
+#
+#    Generate a list of tasks that will be executed for the tags
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags deploy-ssh --skip-tags uninstall --list-tasks
+#
+#    Ansible dry-run checking for errors and showing results of a run
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags deploy-ssh --skip-tags uninstall --check
+#
+# EXECUTION
+#    Run the entire playbook for real
+#       ansible-playbook -i inventory -l test-pi  rpi-loader.yml --tags deploy-ssh --skip-tags uninstall
+#
+# SOURCES
+#
+#  --   Deprecated   --   Deprecated   --   Deprecated   --   Deprecated   --
+#
+
+
+---
+
+
+# --- Install Block of Tasks ---------------------------------------------------
+
+- name: Install / Unisntall SSH Authentication
+  tags: ['never', 'install']           # 'never' implies you must pass the tag to execute this block
+  block:
+    - name: Add a new user named provision (as root)
+      ansible.builtin.user:
+        name=provision
+        password={{ provision_password }}
+
+    - name: Add provision user to the sudoers (as root)
+      ansible.builtin.copy:
+        dest: "/etc/sudoers.d/provision"
+        content: "provision  ALL=(ALL)  NOPASSWD: ALL"
+        owner: root
+        group: root
+        mode: u+rw, g+rw, o-rwx
+
+    - name: Deploy SSH Key (as root)
+      ansible.posix.authorized_key: user=provision
+        key="{{ lookup('file', '/home/provision/.ssh/id_rsa.pub') }}"
+        state=present
+
+    - name: Disable password authentication (as root)
+      ansible.builtin.lineinfile:
+        dest=/etc/ssh/sshd_config
+        regexp='^PasswordAuthentication'
+        line="PasswordAuthentication no"
+        state=present
+        backup=yes
+      notify:
+        - restart ssh
+
+    - name: Disable root login (as root)
+      ansible.builtin.lineinfile:
+        dest=/etc/ssh/sshd_config
+        regexp='^PermitRootLogin'
+        line="PermitRootLogin no"
+        state=present
+        backup=yes
+      notify:
+        - restart ssh
+
+# --- Uninstall Block of Tasks -------------------------------------------------
+
+- name: Uninstall SSH
+  tags: ['never', 'uninstall']   # 'never' implies you must pass the 'install' tag to execute this block
+  block:
+    - name: Message to user
+      ansible.builtin.debug:
+        msg: Nothing needs to be uninstalled, therefore, it is not
+
+# ------------------------------------------------------------------------------
+

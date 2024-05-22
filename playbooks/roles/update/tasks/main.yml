@@ -1,0 +1,90 @@
+
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.5.0
+#
+# DESCRIPTION
+#    Role file to update all packages (equivalent to "apt update && apt full-upgrade")
+#
+# TESTING
+#    YAML linter to spot Ansible YAML syntax errors
+#       yamllint rpi-loader.yml roles/update/tasks
+#       ansible-lint  roles/update/tasks/main.yml
+#
+#    Ansible linter to spot Ansible playbook syntax errors
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --syntax-check
+#
+#    Generate a list of tasks that will be executed for the tags
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags update --skip-tags uninstall --list-tasks
+#
+#    Ansible dry-run checking for errors and showing results of a run
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags update --skip-tags uninstall --check
+#
+# EXECUTION
+#    Run the entire playbook for real
+#       ansible-playbook -i inventory -l test-pi  rpi-loader.yml --tags update --skip-tags uninstall
+#
+# SOURCES
+#
+
+
+---
+
+
+# --- Install Block of Tasks ---------------------------------------------------
+
+- name: Install Full-upgrade, Add Required Packages, and Reboot as Needed
+  tags: ['never', 'install']     # 'never' implies you must pass the other tag to execute this block
+  block:
+    - name: Update the apt repository cache (as root)
+      ansible.builtin.apt:
+        state: present           # must be one of: absent, build-dep, fixed, latest, present
+        update_cache: true       # update the apt repository list cache
+        cache_valid_time: 86400  # update the apt cache if it is older than this seconds
+
+    - name: Execute script to create list of upgrades needed (as root)
+      ansible.builtin.command:
+        cmd: apt list --upgradeable
+      register: my_output                                # registers the command output
+      changed_when: my_output.rc != 0                    # uses the return code to define when the task has changed
+
+    - name: Script output - the list of upgrades needed (as root)
+      ansible.builtin.debug:
+        var: cmd_output.stdout_lines
+
+    - name: Upgrade all apt repository packages (as root)
+      ansible.builtin.apt:
+        state: present
+        upgrade: dist
+        cache_valid_time: 86400  # update the apt cache if it is older than this seconds
+
+    - name: Remove apt repositories not needed anymore (as root)
+      ansible.builtin.apt:
+        autoremove: true
+
+    - name: Check if a reboot is needed because of kernel changes, etc. (as root)
+      register: reboot_required_file
+      ansible.builtin.stat:
+        path: var/run/reboot-required
+        get_md5: false
+
+    - name: Reboot the box if needed (as root)
+      ansible.builtin.reboot:
+        msg: "Reboot Initiated By Ansible"
+        connect_timeout: 5
+        reboot_timeout: 300
+        pre_reboot_delay: 0
+        post_reboot_delay: 30
+        test_command: uptime
+      when: reboot_required_file.stat.exists
+
+# --- Uninstall Block of Tasks -------------------------------------------------
+
+- name: Uninstall Full-upgrade on All Packages (as root)
+  tags: ['never', 'uninstall']   # 'never' implies you must pass the other tag to execute this block
+  block:
+    - name: Message to user
+      ansible.builtin.debug:
+        msg: Nothing done. Packages newly installed and up-grades are unchanged.
+
+# ------------------------------------------------------------------------------
+

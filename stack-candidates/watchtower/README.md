@@ -14,5 +14,7 @@ Version:      0.0.1
 
 
 
+* [Watchtower: The Docker Container That Automatically Updates Your Images](https://www.youtube.com/watch?v=DNfMuDLDq7k)
 * [Watchtower - open source way to get notified, or have your Docker containers updated automatically](https://www.youtube.com/watch?v=1YMqkNv8HKQ)
 * [Watchtower Documentation](https://containrrr.dev/watchtower/)
+

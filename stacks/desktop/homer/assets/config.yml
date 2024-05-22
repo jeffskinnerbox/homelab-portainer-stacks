@@ -211,6 +211,35 @@ services:
         target: "_blank"
 
 
+  # ------ Live Streaming News Content -----------------------------------------
+  - name: "Live Streaming News"
+    icon: "fas fa-arrows-to-circle"
+    items:
+      # https://www.foxnews.com/video
+      - name: "Fox News"
+        logo: "assets/icons/fox-news-logo.png"
+        subtitle: "Live News Service"
+        tag: "streaming"
+        url: https://www.foxnews.com/video/5614615980001#sp=watch-live
+        target: "_blank"
+
+      # https://www.cnn.com/specials/about-live-tv
+      - name: "CNN"
+        logo: "assets/icons/cnn-logo.png"
+        subtitle: "Live News Service"
+        tag: "streaming"
+        url: https://www.cnn.com/videos/cnn
+        target: "_blank"
+
+      # https://www.cbsnews.com/video/
+      - name: "CBS News"
+        logo: "assets/icons/cbs-news-logo.png"
+        subtitle: "Live News Service"
+        tag: "streaming"
+        url: https://www.cbsnews.com/live/
+        target: "_blank"
+
+
   # ------ Music & Video Media -------------------------------------------------
   - name: "Music & Video Media"
     icon: "fas fa-music"

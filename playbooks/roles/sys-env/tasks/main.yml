@@ -1,0 +1,73 @@
+
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.5.0
+#
+# DESCRIPTION
+#    Role file to install desirable system wide tools and settings
+#
+# TESTING
+#    YAML linter to spot Ansible YAML syntax errors
+#       yamllint rpi-loader.yml roles/sys-env/tasks
+#
+#    Ansible linter to spot Ansible playbook syntax errors
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --syntax-check
+#
+#    Generate a list of tasks that will be executed for the tags
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags sys-env --skip-tags uninstall --list-tasks
+#
+#    Ansible dry-run checking for errors and showing results of a run
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags sys-env --skip-tags uninstall --check
+#
+# EXECUTION
+#    Run the entire playbook for real
+#       ansible-playbook -i inventory -l test-pi  rpi-loader.yml --tags sys-env --skip-tags uninstall
+#
+# SOURCES
+#
+
+
+---
+
+
+# --- Install Block of Tasks ---------------------------------------------------
+
+- name: Install Your System Environment
+  tags: ['never', 'install']     # 'never' implies you must pass the tag to execute this block
+  block:
+    - name: Install git tools
+      ansible.builtin.apt:
+        state: present           # must be one of: absent, build-dep, fixed, latest, present
+        update_cache: true       # update the apt repository list cache
+        cache_valid_time: 86400  # update the apt cache if it is older than this seconds
+        pkg: [git, git-lfs]
+
+    - name: Install the trash tool
+      ansible.builtin.apt:
+        state: present           # must be one of: absent, build-dep, fixed, latest, present
+        pkg: [trash-cli]
+
+    - name: Install the network time protocal (ntp) tool
+      ansible.builtin.apt:
+        state: present           # must be one of: absent, build-dep, fixed, latest, present
+        pkg: [ntp]
+
+    - name: Set the timezone
+      community.general.timezone:
+        name: America/New_York
+
+    - name: Install the ufw firewall tool but don't enable
+      ansible.builtin.apt:
+        state: present           # must be one of: absent, build-dep, fixed, latest, present
+        pkg: [ufw]
+
+# --- Uninstall Block of Tasks -------------------------------------------------
+
+- name: Uninstall System Environment
+  tags: ['never', 'uninstall']   # 'never' implies you must pass the tag to execute this block
+  block:
+    - name: Message to user
+      ansible.builtin.debug:
+        msg: Nothing needs to be uninstalled, therefore, it is not
+
+# ------------------------------------------------------------------------------
+

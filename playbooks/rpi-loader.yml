@@ -1,0 +1,139 @@
+
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.5.0
+#
+# DESCRIPTION
+#
+# TESTING
+#    YAML linter to spot Ansible YAML syntax errors:working_dir: dir
+#       ymllint rpi-loader.yml roles/*/tasks
+#       ansible-lint rpi-loader.yml roles/*/tasks
+#
+#    Ansible linter to spot Ansible playbook syntax errors
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --syntax-check
+#
+#    Ansible dry-run to idenify tasks that are not tagged
+#       ansible-playbook -i inventory -l test-pi  rpi-loader.yml --tags untagged --list-tasks
+#
+#    Ansible dry-run to understand what task will be executed without making changes
+#       ansible-playbook -i inventory -l test-pi  rpi-loader.yml --tags install --list-tasks
+#
+#    Ansible dry-run to understand what task will be executed for a tag without making changes
+#       ansible-playbook -i inventory -l test-pi  rpi-loader.yml --tags install --list-tasks
+#
+#    Ansible dry-run checking for errors and showing results of a run without making changes
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags install --check
+#
+# EXECUTION
+#    Run the entire playbook for real
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags install
+#
+#    Run just the role 'update' & 'dev-env' and skip the 'uninstall' tasks
+#       ansible-playbook -i inventory -l test-pi rpi-loader.yml --tags "update, dev-env" --skip-tags uninstall --list-tasks
+#
+
+---
+
+- name: Install / Uninstall Raspberry Pi With Foundation Software
+  hosts: all
+  become: true           # set to 'true' to activate privilege escalation => use sudo and be root by default
+  become_method: sudo
+  gather_facts: true
+
+  vars:
+    # ----- used by all --------------------------------------------------------
+    login_env_host: "test-pi"
+    app_user: "pi"
+    app_user_home: "/home/pi"
+    tmp_path: /tmp                           # location for temporary files / executables
+
+    # ----- used by docker -----------------------------------------------------
+    docker_path: /usr/local/bin              # location for docker executables
+    portainer_port: 9000
+    portainer_agent_port: 9001
+    portainer_data: portainer/data           # within 'app_user_home' path
+    portainer_volumes: portainer/volumes     # within 'app_user_home' path
+
+    # ----- used by apache -----------------------------------------------------
+    http_host: "test-pi"
+    http_conf: "test-pi.conf"
+    http_port: "80"
+
+    # ----- used by backup-user & rsnapshot & rsnapshot-container --------------
+    backup_user: "backup_user"
+    backup_user_home: "/home/backup_user"
+    rsnapshot_store: "rsnapshot"             # root directory for rsnapshot data, files, tect
+    rsnapshot_config: config                 # contains all relevant configuration files
+    rsnapshop_source_data: zzz               # optional - storage location for data to be backed up
+    rsnapshop_sink_data: xxx                 # optional - storage location for all snapshots
+
+    # ----- used by duplicati --------------------------------------------------
+    duplicati_port: 8270
+    # duplicati_compose_path: "{{ backup_user_home }}/src/duplicati"
+    # duplicati_config_path: "{{ duplicati_compose_path }}/config"
+    # duplicati_compose_path: "/home/backup_user/src/duplicati"
+    # duplicati_config_path: "/home/backup_user/src/duplicati/config"
+    duplicati_config_path: "/home/backup_user/duplicati/config"
+    duplicati_source_path: "/home/"
+
+  tasks:
+    # - {ansible.builtin.import_role: {name: deploy-ssh}, tags: deploy-ssh}                    # Deprecated  -  turned into a playbook (setup-ansible.yml)
+    # - {ansible.builtin.import_role: {name: static-ip}, tags: static-ip}                      # Deprecated  -  turned into a playbook (static-ip.yml)
+    - {ansible.builtin.import_role: {name: config-pi}, tags: config-pi}
+    - {ansible.builtin.import_role: {name: ups-pi}, tags: ups-pi}                              # requires activation of i2c via 'sudo raspi-config'
+    - {ansible.builtin.import_role: {name: update}, tags: update}
+    - {ansible.builtin.import_role: {name: prerequisites}, tags: prerequisites}
+    - {ansible.builtin.import_role: {name: sys-env}, tags: sys-env}
+    - {ansible.builtin.import_role: {name: net-tools}, tags: net-tools}
+    - {ansible.builtin.import_role: {name: crypto-tools}, tags: crypto-tools}
+    # - {ansible.builtin.import_role: {name: login-env}, tags: login-env}                      # Deprecated  -  replaced by 'dotfiles' role
+    # - {ansible.builtin.import_role: {name: vim-config}, tags: vim-config}                    # Deprecated  -  replaced by 'dotfiles' role
+    - {ansible.builtin.import_role: {name: dotfiles}, tags: dotfiles}
+    - {ansible.builtin.import_role: {name: dev-env}, tags: dev-env}
+    - {ansible.builtin.import_role: {name: dev-tools}, tags: dev-tools}
+    - {ansible.builtin.import_role: {name: docker}, tags: docker}
+    - {ansible.builtin.import_role: {name: apache}, tags: apache}
+    - {ansible.builtin.import_role: {name: backup-user}, tags: backup-user}
+    - {ansible.builtin.import_role: {name: duplicati}, tags: duplicati}
+    # - {ansible.builtin.import_role: {name: rsnapshot}, tags: rsnapshot}                      # not working yet
+    # - {ansible.builtin.import_role: {name: rsnapshot-container}, tags: rsnapshot-container}  # not working yet
+
+  # --- Handlers ---------------------------------------------------------------
+
+  handlers:
+    - name: RebootHost        # reboot-host
+      ansible.builtin.reboot:
+        msg: "Ansible reboot triggered to finish install/uninstall tasks"
+        pre_reboot_delay: 0       # seconds to wait before reboot
+        post_reboot_delay: 30     # seconds to wait after the reboot command was successful before validate
+        reboot_timeout: 600       # keep attempting to connect for 10 minutes (600 seconds)
+        connect_timeout: 5        # disconnect after these seconds if ssh isn’t working, and try again
+        test_command: whoami      # validate the node is up and working
+
+    - name: StartApache       # start-apache
+      ansible.builtin.service:
+        name: apache2
+        state: started
+
+    - name: RestartApache     # restart-apache
+      ansible.builtin.service:
+        name: apache2
+        state: restarted
+
+    - name: StopApache        # stop-apache
+      ansible.builtin.service:
+        name: apache2
+        state: stopped
+
+    - name: RestartSSH        # restart-ssh
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
+
+    - name: RestartCron       # restart-cron
+      ansible.builtin.service:
+        name: cron
+        state: restarted
+
+# ------------------------------------------------------------------------------
+

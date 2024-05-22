@@ -1,3 +1,8 @@
+
+
+* [Easily Install Plex using Docker and Portainer | Docker Series](https://www.youtube.com/watch?v=SXIkouncOzg)
+
+
 # Plex
 
 This contains a docker compose file that can be used to run Plex via a Docker Swarm.

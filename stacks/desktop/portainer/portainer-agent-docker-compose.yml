@@ -55,5 +55,5 @@ services:
     #attachable: true
 
 volumes:
-  portainer_data:         # data is stored in /var/lib/docker/volumes
+  portainer_data:               # on linux, this is /var/lib/docker/volumes a host filesystem managed by docker
 

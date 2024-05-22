@@ -12,6 +12,10 @@ Version:      0.0.1
 ----
 
 
+
+* [Don't use local Docker Volumes](https://www.youtube.com/watch?v=eKAQiYu4NyI)
+
+
 desktop           192.168.1.200
 synology          192.168.1.201:9001
 router-firewall   192.168.1.204:9001
@@ -61,7 +65,7 @@ Collection of docker-compose recipes for my HomeLab
 * Router/Firewall
 
 * Docker
-* Docker Volumes - Volumes are a mechanism for storing data outside containers. All volumes are managed by Docker and stored in a dedicated directory on your host, usually `/var/lib/docker/volumes` for Linux systems. When containers write to a path beneath a volume mount point, the changes will be applied to the volume instead of the container’s writable image layer. The written data will still be available if the container stops – as the volume’s stored separately on your host, it can be remounted to another container or accessed directly using manual tools.
+* Docker Volumes - Volumes are a mechanism for storing data outside containers. All volumes are managed by Docker and stored in a dedicated directory on your host, usually `/var/lib/docker/volumes` for Linux systems. When containers write to a path beneath a volume mount point, the changes will be applied to the volume instead of the container’s writable image layer. The written data will still be available if the container stops – as the volume’s stored separately on your host, it can be remounted to another container or accessed directly using manual tools. Volumes are stored in a part of the host filesystem which is managed by Docker (`/var/lib/docker/volumes/` on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
 * Bind Mounts vs. Docker Volumes - Bind mounts are another way to give containers access to files and folders on your host. They directly mount a host directory into your container. Any changes made to the directory will be reflected on both sides of the mount, whether the modification originates from the host or within the container.
 Bind mounts are best used for ad-hoc storage on a short-term basis. They’re convenient in development workflows. For example: bind mounting your working directory into a container automatically synchronizes your source code files, allowing you to immediately test changes without rebuilding your Docker image.
 Volumes are a better solution when you’re providing permanent storage to operational containers. Because they’re managed by Docker, you don’t need to manually maintain directories on your host. There’s less chance of data being accidentally modified and no dependency on a particular folder structure. Volume drivers also offer increased performance and the possibility of writing changes directly to remote locations.

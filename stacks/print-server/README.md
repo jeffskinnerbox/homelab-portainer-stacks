@@ -17,6 +17,7 @@ Version:      0.0.1
 * [How to make a print server with a Raspberry Pi](https://www.xda-developers.com/how-to-make-a-print-server-with-a-raspberry-pi/)
 * [DockerHub: olbat/cupsd](https://hub.docker.com/r/olbat/cupsd)
     * [GitHub: olbat/dockerfiles/cupsd](https://github.com/olbat/dockerfiles/tree/master/cupsd)
+* [Raspberry Pi print server with no server-side driver](https://tzlee.com/blog/2017/11/raspberry-pi-print-server-with-no-server-side-driver/)
 
 
 # CUPS print server image
