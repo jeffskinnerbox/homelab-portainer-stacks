@@ -4,27 +4,30 @@
 # and then to visualize the connections as a graph.
 #
 # To access Obsidian visit
-# http://ip-of-your-server:port, in my cased http://192.168.1.200:8081
+# http://ip-of-your-server:port, in my cased http://192.168.1.200:3001
 #
 # To start this docker container
 # sudo docker-compose --file ./obsidian-docker-compose.yml up -d
 #
+# Source: https://hub.docker.com/r/linuxserver/obsidian
+#
 
 ---
 
-version: "3.8"
 services:
   obsidian:
-    image: "ghcr.io/sytone/obsidian-remote:latest"
+    image: lscr.io/linuxserver/obsidian:latest
     container_name: obsidian
     restart: unless-stopped
     ports:
-      - 8081:8080
+      - 3000:3000                                 # listen on for http, obsidian desktop gui (no encryption)
+      - 3001:3001                                 # listen on for https, obsidian desktop gui (encrypted)
     volumes:
-      - /home/jeff/src/docker-volumes/obsidian/vaults:/vaults
-      - /home/jeff/src/docker-volumes/obsidian/config:/config
+      - /home/jeff/src/homelab-portainer-stacks/stacks/desktop/obsidian/config:/config
+    shm_size: "1gb"                               # needed for electron applications to function properly
+    security_opt:
+      - seccomp:unconfined                        # optional
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=America/New_York
-      - DOCKER_MODS=linuxserver/mods:universal-git

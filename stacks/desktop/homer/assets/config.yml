@@ -371,7 +371,7 @@ services:
         logo: "assets/icons/obsidian-logo.png"
         subtitle: "note-taking app for any device"
         tag: "notes"
-        url: "http://192.168.1.200:8081"
+        url: "http://192.168.1.200:3001"
         target: "_blank"
 
       # https://plus.excalidraw.com/
