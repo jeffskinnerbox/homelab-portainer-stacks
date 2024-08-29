@@ -1,16 +1,17 @@
 #
-# Obsidian] is a knowledge base and note-taking software application that
+# Obsidian is a knowledge base and note-taking software application that
 # operates on Markdown files. It allows users to make internal links for notes
 # and then to visualize the connections as a graph.
 #
 # To access Obsidian visit
-# http://<ip of your server>:<port>, in my cased http://192.168.1.200:8081
+# http://ip-of-your-server:port, in my cased http://192.168.1.200:8081
 #
 # To start this docker container
 # sudo docker-compose --file ./obsidian-docker-compose.yml up -d
 #
 
 ---
+
 version: "3.8"
 services:
   obsidian:

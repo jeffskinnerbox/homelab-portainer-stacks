@@ -104,9 +104,8 @@ Sources:
 
 
 ## Install Obsidian
-
 As of 03/2023, there doesn't appear to be an offical Docker image for Obsidian
-but this is a popular [communitiy supported Docker image][02] on [GitHub][03],
+but there is a popular [communitiy supported Docker image][02] on [GitHub][03],
 with the image accessable via [GitHub Packages][01].
 
 ```bash
