@@ -3,7 +3,7 @@
 # Version:      0.7.0
 
 # includes:
-   # - secrets.yaml
+# - secrets.yaml
 
 # HOMER_URL: "http://192.168.1.200:8080"
 # PORTAINER_URL: "http://192.168.1.200:8001/#!/home"
@@ -21,11 +21,11 @@
 
 # Set the default layout and color scheme
 defaults:
-  layout: columns     # Either 'columns', or 'list'
-  colorTheme: auto    # One of 'auto', 'light', or 'dark'
+  layout: columns # Either 'columns', or 'list'
+  colorTheme: auto # One of 'auto', 'light', or 'dark'
 
 # Optional theme customization
-theme: default        # 'default' or one of the themes available in 'src/assets/themes'.
+theme: default # 'default' or one of the themes available in 'src/assets/themes'.
 
 # Here is the exhaustive list of customization parameters
 # However all value are optional and will fallback to default if not set.
@@ -63,7 +63,7 @@ colors:
 title: "HomeLab Dashboard"
 subtitle: "Homer"
 logo: "logo.png"
-#icon: "fas fa-skull-crossbones" # optional additional icon
+#icon: "fa-solid fa-skull-crossbones" # optional additional icon
 header: true
 
 # set to 'footer: false' if you want to hide it
@@ -73,26 +73,26 @@ footer: '<p>Created with <span class="has-text-danger">❤️</span> with <a hre
 # links: [] # Allows for navbar (dark mode, layout, and search) without any links
 links:
   - name: "Contribute"
-    icon: "fab fa-github"
+    icon: "fa-brands fa-github"
     url: "https://github.com/bastienwirtz/homer"
     target: "_blank"
   - name: "Wiki"
-    icon: "fas fa-book"
+    icon: "fa-solid fa-book"
     url: "https://www.wikipedia.org/"
     target: "_blank"
   # this will link to a second homer page that will load config from additional-page.yml and keep default config values as in config.yml file
   # see url field and assets/additional-page.yml.dist used in this example:
   - name: "another page!"
-    icon: "fas fa-file-alt"
+    icon: "fa-solid fa-file-alt"
     url: "#additional-page"
 
 ## optional message
 # message:
-  # #url: https://b4bz.io
-  # style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
-  # title: "Demo !"
-  # icon: "fa fa-grin"
-  # content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
+# #url: https://b4bz.io
+# style: "is-dark" # See https://bulma.io/documentation/components/message/#colors for styling options.
+# title: "Demo !"
+# icon: "fa fa-grin"
+# content: "This is a dummy homepage demo. <br /> Find more information on <a href='https://github.com/bastienwirtz/homer'>github.com/bastienwirtz/homer</a>"
 
 # optional message: duckduckgo search box
 # see https://smarthomepursuits.com/add-internet-search-bar-to-homer-dashboard/
@@ -110,7 +110,7 @@ columns: "4" # "auto" or number (must be a factor of 12: 1, 2, 3, 4, 6, 12)
 services:
   # ------ Applications --------------------------------------------------------
   - name: "Applications"
-    icon: "fas fa-cloud"
+    icon: "fa-solid fa-cloud"
     items:
       # https://hub.docker.com/r/kale5/rickroll
       - name: "Rickroll"
@@ -154,14 +154,6 @@ services:
         url: "https://dashy.to/"
         target: "_blank"
 
-      # https://www.youtube.com/watch?v=Y8OrPZADPkc
-      - name: "Snippit Box"
-        logo: "assets/icons/snippet-box-logo.png"
-        subtitle: "organizing your code snippets"
-        tag: "app"
-        url: "http://192.168.1.200:5000/snippets"
-        target: "_blank"
-
       # https://github.com/zadam/trilium
       - name: "Trilium Notes"
         logo: "assets/icons/trilium-notes-logo.png"
@@ -202,6 +194,10 @@ services:
         url: "https://maclookup.app/"
         target: "_blank"
 
+  # ------ Scripts & Snips -----------------------------------------------------
+  - name: "Scripts & Snips"
+    icon: "fa-solid fa-scissors"
+    items:
       # https://www.commandlinefu.com/commands/browse
       - name: "CommandLineFu.com"
         logo: "assets/icons/command-line-fu-logo.png"
@@ -210,10 +206,17 @@ services:
         url: "https://www.commandlinefu.com/commands/browse"
         target: "_blank"
 
+      # https://www.youtube.com/watch?v=Y8OrPZADPkc
+      - name: "Snippit Box"
+        logo: "assets/icons/snippet-box-logo.png"
+        subtitle: "organizing your code snippets"
+        tag: "app"
+        url: "http://192.168.1.200:5000/snippets"
+        target: "_blank"
 
   # ------ Live Streaming News Content -----------------------------------------
   - name: "Live Streaming News"
-    icon: "fas fa-arrows-to-circle"
+    icon: "fa-solid fa-arrows-to-circle"
     items:
       # https://www.foxnews.com/video
       - name: "Fox News"
@@ -239,10 +242,29 @@ services:
         url: https://www.cbsnews.com/live/
         target: "_blank"
 
+      # https://www.msnbc.com/live
+      - name: "MSNBC News"
+        logo: "assets/icons/msnbc-logo.png"
+        subtitle: "Live News Service"
+        tag: "streaming"
+        url: https://www.cbsnews.com/video/
+        target: "_blank"
+
+  # ------ Print News Sources --------------------------------------------------
+  - name: "Print News"
+    icon: "fa-solid fa-newspaper"
+    items:
+      # https://ground.news/
+      - name: "Ground News"
+        logo: "assets/icons/ground-news-logo.png"
+        subtitle: "Compare Diverse Perspectives from Multiple Sources"
+        tag: "News"
+        url: "https://ground.news/"
+        target: "_blank"
 
   # ------ Music & Video Media -------------------------------------------------
   - name: "Music & Video Media"
-    icon: "fas fa-music"
+    icon: "fa-solid fa-music"
     items:
       # https://www.plex.tv/
       - name: "Plex"
@@ -276,10 +298,9 @@ services:
         url: "https://jellyfin.org/"
         target: "_blank"
 
-
   # ------ AI Assistance -------------------------------------------------------
   - name: "AI Assistances"
-    icon: "fas fa-clipboard-question"
+    icon: "fa-solid fa-clipboard-question"
     items:
       # https://chat.openai.com/auth/login
       - name: "ChatGPT"
@@ -297,10 +318,9 @@ services:
         url: "https://claude.ai/login"
         target: "_blank"
 
-
   # ------ eMail, Messaging ----------------------------------------------------
   - name: "eMail, Messaging"
-    icon: "fas fa-envelope"
+    icon: "fa-solid fa-envelope"
     items:
       # https://mail.aol.com/webmail-std/en-us/suite
       - name: "Verizon/AOL eMail"
@@ -334,10 +354,9 @@ services:
         url: "https://slack.com/"
         target: "_blank"
 
-
   # ------ Blogs, Wikis & Notes ------------------------------------------------
   - name: "Blogs, Wikis & Notes"
-    icon: "fas fa-blog"
+    icon: "fa-solid fa-blog"
     items:
       # https://github.com/jeffskinnerbox/jeffskinnerbox.github.io
       - name: "Blog"
@@ -443,10 +462,9 @@ services:
         url: "https://joplinapp.org/"
         target: "_blank"
 
-
   # ------ Internet of Things --------------------------------------------------
   - name: "Internet of Things"
-    icon: "fas fa-microchip"
+    icon: "fa-solid fa-microchip"
     items:
       # https://nodered.org/
       - name: "Node-RED"
@@ -504,10 +522,9 @@ services:
         url: "https://www.philips-hue.com/en-us/p/hue-bridge/046677458478"
         target: "_blank"
 
-
   # ------ Fonts & Colors ------------------------------------------------------
   - name: "Fonts & Colors"
-    icon: "fas fa-palette"
+    icon: "fa-solid fa-palette"
     items:
       # https://fontawesome.com/
       - name: "Font Awesome"
@@ -531,10 +548,9 @@ services:
         url: "https://coolors.co/"
         target: "_blank"
 
-
   # ------ Tools ---------------------------------------------------------------
   - name: "Tools"
-    icon: "fas fa-hammer"
+    icon: "fa-solid fa-hammer"
     items:
       # https://www.diagrams.net/
       - name: "diagrams.net"
@@ -560,10 +576,9 @@ services:
         url: "https://filezilla-project.org/"
         target: "_blank"
 
-
   # ------ Inventory -----------------------------------------------------------
   - name: "Inventory"
-    icon: "fas fa-boxes"
+    icon: "fa-solid fa-boxes"
     items:
       # https://github.com/netbox-community/netbox
       - name: "NetBox"
@@ -581,10 +596,9 @@ services:
         url: "https://hay-kot.github.io/homebox/"
         target: "_blank"
 
-
   # ------ Remote Access -------------------------------------------------------
   - name: "Remote Access"
-    icon: "fas fa-terminal"
+    icon: "fa-solid fa-terminal"
     items:
       # https://github.com/jeffskinnerbox/jeffskinnerbox.github.io
       - name: "Blog"
@@ -594,7 +608,7 @@ services:
         url: "https://blog.jeffskinnerbox.me/"
         target: "_blank"
 
-       # https://guacamole.apache.org/
+        # https://guacamole.apache.org/
       - name: "Guacamole"
         logo: "assets/icons/guacamole-logo.png"
         subtitle: "Clientless Remote VNC, RDP, and SSH Gateway"
@@ -602,7 +616,7 @@ services:
         url: "https://guac.jeffskinnerbox.me"
         target: "_blank"
 
-     # https://www.geeksforgeeks.org/shell-in-a-box-remote-linux-server-via-web-browser/
+      # https://www.geeksforgeeks.org/shell-in-a-box-remote-linux-server-via-web-browser/
       - name: "Shell In A Box"
         logo: "assets/icons/shell-in-a-box-logo.png"
         subtitle: "Web Secure Shell (SSH)"
@@ -610,10 +624,9 @@ services:
         url: "https://www.geeksforgeeks.org/shell-in-a-box-remote-linux-server-via-web-browser/"
         target: "_blank"
 
-
   # ------ Virtualization ------------------------------------------------------
   - name: "Virtualization"
-    icon: "fas fa-gears"
+    icon: "fa-solid fa-gears"
     items:
       # https://www.portainer.io/
       - name: "Portainer"
@@ -668,10 +681,9 @@ services:
         # url: !secrets portainer_url
         target: "_blank"
 
-
   # ------ Troubleshooting -----------------------------------------------------
   - name: "Troubleshooting"
-    icon: "fas fa-toolbox"
+    icon: "fa-solid fa-toolbox"
     items:
       # https://github.com/aceberg/WatchYourLAN
       - name: "Watch Your LAN"
@@ -736,10 +748,9 @@ services:
         # url: !secrets NETDATA_URL
         target: "_blank"
 
-
   # ------ Alerts & Notifications ----------------------------------------------
   - name: "Alerts & Notifications"
-    icon: "fas fa-bell"
+    icon: "fa-solid fa-bell"
     items:
       # https://github.com/jokob-sk/Pi.Alert a port to docker of pi.alert = https://github.com/pucherot/Pi.Alert
       - name: "Pi.Alert"
@@ -777,10 +788,9 @@ services:
         # url: !secrets netdata_url
         target: "_blank"
 
-
   # ------ Log Management ------------------------------------------------------
   - name: "Log Management"
-    icon: "fas fa-clipboard-list"
+    icon: "fa-solid fa-clipboard-list"
     items:
       #  https://grafana.com/oss/loki/
       - name: "Grafana Loki"
@@ -808,18 +818,17 @@ services:
         # url: !secrets netdata_url
         target: "_blank"
 
-
   # ------ Network Services ----------------------------------------------------
   - name: "Networking Services"
-    icon: "fas fa-network-wired"
+    icon: "fa-solid fa-network-wired"
     items:
       #  https://www.verizon.com/about/sites/default/files/fios-qgr-userguide140925.pdf
       # - name: "FiOS Router"
-        # logo: "assets/icons/fios-logo.png"
-        # subtitle: "ISP Provided Router / Firewall"
-        # tag: "network"
-        # url: "http://192.168.1.1"
-        # target: "_blank"
+      # logo: "assets/icons/fios-logo.png"
+      # subtitle: "ISP Provided Router / Firewall"
+      # tag: "network"
+      # url: "http://192.168.1.1"
+      # target: "_blank"
 
       # https://www.pfsense.org/
       - name: "pfSense"
@@ -911,16 +920,15 @@ services:
 
       # https://www.tp-link.com/us/business-networking/omada-sdn-controller/
       # - name: "SDN Controller"
-        # logo: "assets/icons/tplink-logo.png"
-        # subtitle: "Omada Software Controller"
-        # tag: "network"
-        # url: "https://192.168.1.35:8043"
-        # target: "_blank"
-
+      # logo: "assets/icons/tplink-logo.png"
+      # subtitle: "Omada Software Controller"
+      # tag: "network"
+      # url: "https://192.168.1.35:8043"
+      # target: "_blank"
 
   # ------ Storage -------------------------------------------------------------
   - name: "Storage"
-    icon: "fas fa-database"
+    icon: "fa-solid fa-database"
     items:
       # https://www.synology.com/en-global
       - name: "Synology NAS"
@@ -946,10 +954,9 @@ services:
         url: "https://account.box.com/login"
         target: "_blank"
 
-
   # ------ Backup --------------------------------------------------------------
   - name: "Backup"
-    icon: "fas fa-trash-restore"
+    icon: "fa-solid fa-trash-restore"
     items:
       # https://www.synology.com/en-global
       - name: "Synology NAS"
@@ -999,11 +1006,34 @@ services:
         url: "https://www.veeam.com/"
         target: "_blank"
 
-
   # ------ Security Services ---------------------------------------------------
   - name: "Security Services"
-    icon: "fas fa-lock"
+    icon: "fa-solid fa-lock"
     items:
+      # https://www.identitytheft.gov/
+      - name: "IdentityTheft.gov"
+        logo: "assets/icons/federal-trade-commission-logo.png"
+        subtitle: "Report Identity Theft and get a Recovery Plan"
+        tag: "security"
+        url: "https://www.identitytheft.gov/"
+        target: "_blank"
+
+      # https://opm.myidcare.com/
+      - name: "MyIDCare"
+        logo: "assets/icons/myidcare-logo.png"
+        subtitle: "Identity Protection Services"
+        tag: "security"
+        url: "https://opm.myidcare.com/login"
+        target: "_blank"
+
+      # https://www.annualcreditreport.com
+      - name: "Annual Credit Report"
+        logo: "assets/icons/annual-credit-report.jpeg"
+        subtitle: "Credit Report Services"
+        tag: "security"
+        url: "https://www.annualcreditreport.com/index.action"
+        target: "_blank"
+
       # https://bitwarden.com/
       - name: "Bitwarden"
         logo: "assets/icons/bitwarden-logo.png"
@@ -1060,10 +1090,9 @@ services:
         url: "https://haveibeenpwned.com/"
         target: "_blank"
 
-
   # ------ Investments ---------------------------------------------------------
   - name: "Investments"
-    icon: "fas fa-sack-dollar"
+    icon: "fa-solid fa-sack-dollar"
     items:
       # https://www.fidelity.com/
       - name: "Fidelity Retirement Planner"
@@ -1113,10 +1142,9 @@ services:
         url: "https://www.mycollegeadvantagedirect.com/ohtpl/auth/ll.cs?Be7X3aLjo0qWfMVq2jI%2B7A%3D%3D="
         target: "_blank"
 
-
   # ------ Benefits ------------------------------------------------------------
   - name: "Benefits"
-    icon: "fas fa-suitcase-medical"
+    icon: "fa-solid fa-suitcase-medical"
     items:
       # https://www.verizonbenefitsconnection.com/
       - name: "Verizon Benefits Connect"
@@ -1150,10 +1178,9 @@ services:
         url: "https://www.verizonbenefitsconnection.com/"
         target: "_blank"
 
-
   # ------ Shopping ------------------------------------------------------------
   - name: "Shopping"
-    icon: "fas fa-shopping-cart"
+    icon: "fa-solid fa-shopping-cart"
     items:
       # https://www.amazon.com/
       - name: "Amazon"
@@ -1283,10 +1310,9 @@ services:
         url: "https://unitednuclear.com/"
         target: "_blank"
 
-
   # ------ Smart Home ----------------------------------------------------------
   - name: "Smart Home"
-    icon: "fas fa-home"
+    icon: "fa-solid fa-home"
     items:
       # https://smarthomepursuits.com
       - name: "Smart Home Pursuits"
@@ -1344,7 +1370,6 @@ services:
         url: "https://www.youtube.com/c/SmartHomeMakers"
         target: "_blank"
 
-
   # ------ Computer Vision -----------------------------------------------------
   - name: "Computer Vision"
     icon: "fa-solid fa-video"
@@ -1365,10 +1390,9 @@ services:
         url: "https://pyimagesearch.com/blog/"
         target: "_blank"
 
-
   # ------ Self Hosting --------------------------------------------------------
   - name: "Self Hosting"
-    icon: "fas fa-server"
+    icon: "fa-solid fa-server"
     items:
       # https://geek-cookbook.funkypenguin.co.nz/
       - name: "Geek Cookbook"
@@ -1394,10 +1418,9 @@ services:
         url: "https://www.youtube.com/c/AwesomeOpenSource"
         target: "_blank"
 
-
   # ------ Development and Testing Tools ---------------------------------------
   - name: "Dev & Test Tools"
-    icon: "fab fa-dev"
+    icon: "fa-brands fa-dev"
     items:
       # https://opentelemetry.io/
       - name: "OpenTelemetry"
@@ -1487,10 +1510,9 @@ services:
         url: "https://www.dfrobot.com/blog-tag-esp32.html"
         target: "_blank"
 
-
   # ------ Health and Fitness --------------------------------------------------
-  - name: "Health & Fitness"
-    icon: "fab fa-dumbbell"
+  - name: "ealth & Fitness"
+    icon: "fa-solid fa-dumbbell"
     items:
       # https://www.withings.com/us/en/
       - name: "Withings Health Mate"
@@ -1500,10 +1522,9 @@ services:
         url: "https://healthmate.withings.com/31298649/timeline"
         target: "_blank"
 
-
   # ------ Website Monitoring --------------------------------------------------
   - name: "Website Monitoring"
-    icon: "fab fa-watchman-monitoring"
+    icon: "fa-brands fa-watchman-monitoring"
     items:
       # https://opensource.com/article/22/9/changedetection-io-open-source-website-changes
       - name: "Change Detection"
@@ -1513,10 +1534,9 @@ services:
         url: "https://opensource.com/article/22/9/changedetection-io-open-source-website-changes"
         target: "_blank"
 
-
   # ------ Resume & Job Search -------------------------------------------------
   - name: "Resume & Job Search"
-    icon: "fas fa-file"
+    icon: "fa-solid fa-file"
     items:
       # https://www.linkedin.com/
       - name: "LinkedIn"
@@ -1566,10 +1586,9 @@ services:
         url: "https://retirementjobs.com/seeker-home"
         target: "_blank"
 
-
   # ------ Educational Computing -----------------------------------------------
   - name: "Educational Computing"
-    icon: "fas fa-graduation-cap"
+    icon: "fa-solid fa-graduation-cap"
     items:
       # https://microblocks.fun/
       - name: "MicroBlocks"
@@ -1587,10 +1606,9 @@ services:
         url: "https://scratch.mit.edu/"
         target: "_blank"
 
-
   # ------ Skills Building -----------------------------------------------------
   - name: "Skills Building"
-    icon: "fas fa-chalkboard-teacher"
+    icon: "fa-solid fa-chalkboard-teacher"
     items:
       # https://skillsbuild.org/
       - name: "IBM Skills Building"
@@ -1624,10 +1642,17 @@ services:
         url: "https://plus.maths.org/content/"
         target: "_blank"
 
+      # https://www.statology.org/
+      - name: "Statology"
+        logo: "assets/icons/statology-logo.png"
+        subtitle: "Learning Statistics"
+        tag: "tools"
+        url: "https://www.statology.org/"
+        target: "_blank"
 
   # ------ Online Courses and Books --------------------------------------------
   - name: "Online Courses and Books"
-    icon: "fas fa-book-open"
+    icon: "fa-solid fa-book-open"
     items:
       # https://www.youtube.com/playlist?list=PLlXfTHzgMRULkodlIEqfgTS-H1AY_bNtq
       - name: "Introduction to Tensor Calculus"
@@ -1637,10 +1662,9 @@ services:
         url: "https://www.youtube.com/playlist?list=PLlXfTHzgMRULkodlIEqfgTS-H1AY_bNtq"
         target: "_blank"
 
-
   # ------ Quantum Computing ---------------------------------------------------
   - name: "Quantum Computing"
-    icon: "fas fa-chalkboard-teacher"
+    icon: "fa-solid fa-chalkboard-teacher"
     items:
       # https://phasespacecomputing.com/
       - name: "Phase Space Computing"
@@ -1650,7 +1674,7 @@ services:
         url: "https://phasespacecomputing.com/"
         target: "_blank"
 
-     # https://qiskit.org/
+      # https://qiskit.org/
       - name: "Qiskit"
         logo: "assets/icons/qiskit-logo.png"
         subtitle: "Open-source toolkit for quantum computing"
@@ -1658,10 +1682,9 @@ services:
         url: "https://qiskit.org/"
         target: "_blank"
 
-
   # ------ Websites ------------------------------------------------------------
   - name: "Websites"
-    icon: "fas fa-window-restore"
+    icon: "fa-solid fa-window-restore"
     items:
       # https://www.wmbriggs.com/
       - name: "William M. Briggs"
@@ -1687,10 +1710,9 @@ services:
         url: "https://streetscience.net/"
         target: "_blank"
 
-
   # ------ Edge Computing ------------------------------------------------------
   - name: "Edge Computing"
-    icon: "fas fa-project-diagram"
+    icon: "fa-solid fa-project-diagram"
     items:
       # https://www.lfedge.org/
       - name: "LF Edge"
@@ -1708,10 +1730,9 @@ services:
         url: "https://github.com/edgexfoundry"
         target: "_blank"
 
-
   # ------ Cheatsheets ---------------------------------------------------------
   - name: "Cheatsheets"
-    icon: "fas fa-clipboard"
+    icon: "fa-solid fa-clipboard"
     items:
       # https://collabnix.com/docker-cheatsheet/
       - name: "Docker Cheatsheets"
@@ -1721,19 +1742,10 @@ services:
         url: "https://github.com/lf-edge"
         target: "_blank"
 
-
   # ------ Physics Explained ---------------------------------------------------
   - name: "Physics Explained"
-    icon: "fas fa-atom"
+    icon: "fa-solid fa-atom"
     items:
-      # https://www.youtube.com/@DotPhysics
-      - name: "Physics Explained"
-        logo: "assets/icons/physics-explained-logo.jpg"
-        subtitle: "Derivations & Descriptions"
-        tag: "physics"
-        url: "https://www.youtube.com/@DotPhysics"
-        target: "_blank"
-
       # https://www.youtube.com/@viascience
       - name: "Quantum Mechanics"
         logo: "assets/icons/null.png"
@@ -1758,10 +1770,17 @@ services:
         url: "https://www.physicswithelliot.com/"
         target: "_blank"
 
+      # https://www.youtube.com/@DotPhysics
+      - name: "Dot Physics"
+        logo: "assets/icons/dot-physics-logo.jpg"
+        subtitle: "Computational Physics with Python"
+        tag: "physics"
+        url: "https://www.youtube.com/@DotPhysics"
+        target: "_blank"
 
   # ------ Mathematics Explained -----------------------------------------------
   - name: "Mathematics Explained"
-    icon: "fas fa-infinity"
+    icon: "fa-solid fa-infinity"
     items:
       # https://grinfeld.org/
       - name: "MathTheBeautiful"
@@ -1779,10 +1798,9 @@ services:
         url: "https://cloud.google.com/blog/topics/developers-practitioners/celebrating-pi-day-cloud-functions"
         target: "_blank"
 
-
   # ------ Philosophy in Small Bites -------------------------------------------
   - name: "Philosophy in Small Bites"
-    icon: "fas fa-clipboard"
+    icon: "fa-solid fa-clipboard"
     items:
       # https://www.wi-phi.com/
       # https://www.youtube.com/@WirelessPhilosophy
@@ -1793,10 +1811,9 @@ services:
         url: "https://www.wi-phi.com/videos/"
         target: "_blank"
 
-
   # ------ People Search & Background ------------------------------------------
   - name: "People Search & Background"
-    icon: "fas fa-user-check"
+    icon: "fa-solid fa-user-check"
     items:
       # https://www.beenverified.com/
       - name: "Been Verified"
@@ -1814,10 +1831,9 @@ services:
         url: "https://radaris.com/"
         target: "_blank"
 
-
   # ------  Continuous Integration and Continuous Delivery (CI/CD) -------------
   - name: "CI/CD"
-    icon: "fas fa-truck"
+    icon: "fa-solid fa-truck"
     items:
       # https://www.ansible-semaphore.com/
       - name: "Ansible Semaphore"
@@ -1827,10 +1843,9 @@ services:
         url: "https://www.ansible-semaphore.com/"
         target: "_blank"
 
-
   # ------  Global Navigation Satellite Systems (GNSS) -------------------------
   - name: "GNSS"
-    icon: "fas fa-truck"
+    icon: "fa-solid fa-truck"
     items:
       # https://gssc.esa.int/navipedia/index.php?title=Main_Page
       - name: "Navipedia"
@@ -1840,10 +1855,9 @@ services:
         url: "https://gssc.esa.int/navipedia/index.php?title=Main_Page"
         target: "_blank"
 
-
   # ------  Computer Aided Design (CAD) ----------------------------------------
   - name: "CAD"
-    icon: "fas fa-computer"
+    icon: "fa-solid fa-computer"
     items:
       # https://openscad.org/
       - name: "OpenSCAD"
@@ -1853,10 +1867,17 @@ services:
         url: "https://openscad.org/"
         target: "_blank"
 
+      # https://www.freecad.org/
+      - name: "FreeCAD"
+        logo: "assets/icons/freecad-logo.jpg"
+        subtitle: "Your Own 3D Parametric Modeler"
+        tag: "CAD"
+        url: "https://www.freecad.org/"
+        target: "_blank"
 
   # ------  3D Printing  -------------------------------------------------------
   - name: "3D Printing"
-    icon: "fas fa-cubes"
+    icon: "fa-solid fa-cubes"
     items:
       # https://www.klipper3d.org/
       - name: "Klipper"
@@ -1867,7 +1888,7 @@ services:
         target: "_blank"
 
       # https://marlinfw.org/
-      - name: "Klipper"
+      - name: "Marlin"
         logo: "assets/icons/marlin-logo.png"
         subtitle: "3d-Printer Firmware"
         tag: "3D-Print"
@@ -1906,10 +1927,9 @@ services:
         url: "https://makerworld.com/en"
         target: "_blank"
 
-
   # ------  FPV Drones ---------------------------------------------------------
   - name: "FPV Drones"
-    icon: "fas fa-plane"
+    icon: "fa-solid fa-plane"
     items:
       # https://oscarliang.com/
       - name: "OscarLiang.com"
@@ -1927,10 +1947,17 @@ services:
         url: "https://dojofordrones.com/"
         target: "_blank"
 
+      # https://www.friamap.com/
+      - name: "FAA FRIA Map"
+        logo: "assets/icons/faa-logo.jpg"
+        subtitle: "Fly Without Remote ID"
+        tag: "FPV"
+        url: "https://www.arcgis.com/apps/instant/basic/index.html?appid=dd5185b824ee426aabae9b59e50e5b2c"
+        target: "_blank"
 
   # ------  Home Lab -----------------------------------------------------------
   - name: "Home Lab"
-    icon: "fas fa-flask-vial"
+    icon: "fa-solid fa-flask-vial"
     items:
       # https://dbtechreviews.com/
       - name: "DB Tech"
@@ -1940,23 +1967,9 @@ services:
         url: https://dbtechreviews.com/"
         target: "_blank"
 
-
-  # ------  News Sources -------------------------------------------------------
-  - name: "News"
-    icon: "fas fa-newspaper"
-    items:
-      # https://ground.news/
-      - name: "Ground News"
-        logo: "assets/icons/ground-news-logo.png"
-        subtitle: "Compare Diverse Perspectives from Multiple Sources"
-        tag: "News"
-        url: "https://ground.news/"
-        target: "_blank"
-
-
   # ------ Genealogy -----------------------------------------------------------
   - name: "Genealogy"
-    icon: "fas fa-newspaper"
+    icon: "fa-solid fa-people-roof"
     items:
       # https://www.ancestry.com
       - name: "Ancestry"
@@ -1966,3 +1979,22 @@ services:
         url: "https://www.ancestry.com/account/signin?returnUrl="
         target: "_blank"
 
+  # ------ Python --------------------------------------------------------------
+  - name: "Python"
+    icon: "fa-brands fa-python"
+    items:
+      # https://calmcode.io/
+      - name: "Calm Code"
+        logo: "assets/icons/calm-code-logo.png"
+        subtitle: "Short & Simple Video Lessons"
+        tag: "Code"
+        url: "https://calmcode.io/"
+        target: "_blank"
+
+      # https://realpython.com/
+      - name: "Real Python"
+        logo: "assets/icons/real-python-logo.jpg"
+        subtitle: "Online Python Training"
+        tag: "Code"
+        url: "https://realpython.com/"
+        target: "_blank"

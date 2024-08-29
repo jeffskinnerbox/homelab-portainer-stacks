@@ -1,6 +1,8 @@
 
 
 * [Easily Install Plex using Docker and Portainer | Docker Series](https://www.youtube.com/watch?v=SXIkouncOzg)
+* [Plex Docker Container with NFS Mounts](https://www.youtube.com/watch?v=OffGg2F6TlU)
+* [How to install Plex on Docker using Docker Compose](https://www.youtube.com/watch?v=xZrdkBJgDp4)
 
 
 # Plex

@@ -9,7 +9,7 @@ Version:      0.0.1
 </div>
 
 
-----
+---------------
 
 
 
@@ -24,7 +24,7 @@ print-server
 
 
 
-Connect existing Portainer agent to new Portainer host - https://www.reddit.com/r/portainer/comments/xmdbt1/connect_existing_portainer_agent_to_new_portainer/
+Connect existing Portainer agent to new Portainer host - <https://www.reddit.com/r/portainer/comments/xmdbt1/connect_existing_portainer_agent_to_new_portainer/>
     do this: `sudo docker restart portainer-agent`
 
 
@@ -39,7 +39,9 @@ Docker itself uses port numbers from 32768-65535
 * [Docker networking is CRAZY!! (you NEED to learn it)](https://www.youtube.com/watch?v=bKFMS5C4CG0)
 * [Understanding Docker Networking](https://earthly.dev/blog/docker-networking/)
 
+
 # The 7 Types of Docker Networks
+
 * [Docker networking is CRAZY!! (you NEED to learn it)](https://www.youtube.com/watch?v=bKFMS5C4CG0)
 * [Understanding Docker Networking](https://earthly.dev/blog/docker-networking/)
 * [Docker Networking Tutorial // ALL Network Types explained!](https://www.youtube.com/watch?v=5grbXvV_DSk&t=210s)
@@ -60,8 +62,8 @@ Docker itself uses port numbers from 32768-65535
 Collection of docker-compose recipes for my HomeLab
 
 * Desktop
-    * **HomeLab Dashboard** is a very simple static homepage for your server.- [homer](https://github.com/bastienwirtz/homer) - http://192.168.1.200:8080
-    * **Snippit Box** is a simple self-hosted app for organizing your code snippets. - [snippit](https://github.com/pawelmalak/snippet-box) - http://192.168.1.200:5000
+  * **HomeLab Dashboard** is a very simple static homepage for your server.- [homer](https://github.com/bastienwirtz/homer) - <http://192.168.1.200:8080>
+  * **Snippit Box** is a simple self-hosted app for organizing your code snippets. - [snippit](https://github.com/pawelmalak/snippet-box) - <http://192.168.1.200:5000>
 * Router/Firewall
 
 * Docker
@@ -76,7 +78,7 @@ Volumes are a better solution when you’re providing permanent storage to opera
 * Portainer
 * GitHub
 * CI/CD
-* Docker Standalone environment (Agent, API, Socket, Edge Agent Standard, Edge Agent Async) - https://docs.portainer.io/admin/environments/add/docker
+* Docker Standalone environment (Agent, API, Socket, Edge Agent Standard, Edge Agent Async) - <https://docs.portainer.io/admin/environments/add/docker>
 
 Portainer can be combined with a GitHub repo to allow for continuous deployment oaf Docker Swarm services,
 allowing all the benefits of Git to be applied to your stack files.
@@ -97,6 +99,7 @@ at the cost of less scaleability and isolation between the virtual environment a
 >**NOTE:** If your considering using Docke Swarm,
 >these instructions are not likely complete and/or correct.
 >Handling Docker Swarm will be addressed at a later date.
+
 
 ### Installing on Ubuntu
 Ubuntu is my go-to Linux OS and installing on Ubuntu is fairly straight-forward.
@@ -159,6 +162,7 @@ sudo docker run hello-world
 docker compose version
 ```
 
+
 ### Upgrading Docker
 Docker and Docker Compose will be automatically upgraded by Ubuntu from the official Ubuntu repository for Docker.
 
@@ -173,6 +177,7 @@ Portainer gives users a way to manage their Docker containers,
 accross multiple sites, through a web interface.
 Portainer also gives you the ability to use stacks,
 which is an easy way to create new containers and allows them to be created using a docker-compose format.
+
 
 ### Installing on Ubuntu
 >**NOTE:** These instructions below must be performed on Ubuntu 22.04 or greater.
@@ -193,6 +198,7 @@ google-chrome https://localhost:9000   # <-- for http access
 ```
 
 Now using your browser, log into portainer via this URL: `localhost:9000`.
+
 
 ### Upgrading Portainer
 To [upgrade to the latest version of Portainer Server][40],
@@ -257,6 +263,7 @@ It is easy to do, just follow these steps:
 
 # Future Inplementations
 
+
 ## Docker Swarm
 Docker Swarm is an easy way to turn multiple computers into a automatically load balanced
 set of Docker services you spin upand manage it with Portainers help.
@@ -269,7 +276,9 @@ You can do this with as few as one manager node, and one worker node.
 * [Install Portainer CE with Docker Swarm on Linux](https://docs.portainer.io/start/install-ce/server/swarm/linux)
 * [How to install Portainer](https://joshbuker.com/blog/how-to-install-portainer/)
 
+
 # Sources
+
 * [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 * [Install the Compose plugin](https://docs.docker.com/compose/install/linux/#install-using-the-repository)
 * [How to Install Portainer on Ubuntu](https://www.wundertech.net/portainer-on-ubuntu/)

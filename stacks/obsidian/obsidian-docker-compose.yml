@@ -10,11 +10,11 @@
 # sudo docker-compose --file ./obsidian-docker-compose.yml up -d
 #
 
-
-version: '3.8'
+---
+version: "3.8"
 services:
   obsidian:
-    image: 'ghcr.io/sytone/obsidian-remote:latest'
+    image: "ghcr.io/sytone/obsidian-remote:latest"
     container_name: obsidian
     restart: unless-stopped
     ports:
@@ -27,4 +27,3 @@ services:
       - PGID=1000
       - TZ=America/New_York
       - DOCKER_MODS=linuxserver/mods:universal-git
-
