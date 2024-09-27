@@ -250,6 +250,22 @@ services:
         url: https://www.cbsnews.com/video/
         target: "_blank"
 
+      # https://curiositystream.com/
+      - name: "CuriosityStream"
+        logo: "assets/icons/curiositystreaming-logo.png"
+        subtitle: "Documentaries of All Types"
+        tag: "Video"
+        url: "https://curiositystream.com/"
+        target: "_blank"
+
+      # https://netflix.com/
+      - name: "NetFlix"
+        logo: "assets/icons/netflix-logo.png"
+        subtitle: "Movies & TV Shows"
+        tag: "Video"
+        url: "https://netflix.com/"
+        target: "_blank"
+
   # ------ Print News Sources --------------------------------------------------
   - name: "Print News"
     icon: "fa-solid fa-newspaper"
@@ -371,7 +387,7 @@ services:
         logo: "assets/icons/obsidian-logo.png"
         subtitle: "note-taking app for any device"
         tag: "notes"
-        url: "http://192.168.1.200:3001"
+        url: "http://192.168.1.200:3000"
         target: "_blank"
 
       # https://plus.excalidraw.com/
@@ -1176,6 +1192,14 @@ services:
         subtitle: "work related benefits"
         tag: "benefits"
         url: "https://www.verizonbenefitsconnection.com/"
+        target: "_blank"
+
+      # https://www.express-scripts.com/login
+      - name: "Express Scripts"
+        logo: "assets/icons/express-scripts-logo.png"
+        subtitle: "home delivered medication"
+        tag: "benefits"
+        url: "https://www.express-scripts.com/login"
         target: "_blank"
 
   # ------ Shopping ------------------------------------------------------------
@@ -1983,7 +2007,7 @@ services:
   - name: "Python"
     icon: "fa-brands fa-python"
     items:
-      # https://calmcode.io/
+      # https://calmcode.io/:working_dir
       - name: "Calm Code"
         logo: "assets/icons/calm-code-logo.png"
         subtitle: "Short & Simple Video Lessons"
@@ -1998,3 +2022,4 @@ services:
         tag: "Code"
         url: "https://realpython.com/"
         target: "_blank"
+

@@ -1,0 +1,189 @@
+{
+  "main": {
+    "id": "0177aa33eefec7f2",
+    "type": "split",
+    "children": [
+      {
+        "id": "acd7937afaa1a066",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "94eebd7e79192ebe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "blog/Templates/Core Idea.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0ce0d3026ceee3a6",
+    "type": "split",
+    "children": [
+      {
+        "id": "a1428e06f561b3bc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1f3411a45797e105",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8cbb9a5e8838da11",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "206691337e7f52af",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7f867b6efa21db43",
+    "type": "split",
+    "children": [
+      {
+        "id": "c94682afdf366ee2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4880f37ca568f155",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "blog/Templates/Core Idea.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "64d7d81a286d3662",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "blog/Templates/Core Idea.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "fce7f512a06a52ad",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "f682d4b3e5aa6da9",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "blog/Templates/Core Idea.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "94eebd7e79192ebe",
+  "lastOpenFiles": [
+    "blog/Zettelkasten/Untitled.md",
+    "blog/Zettelkasten/Quantum Computing Pedagogy Challenge.md",
+    "blog/Zettelkasten/Home Note.md",
+    "blog/Templates/Core Idea.md",
+    "blog/Zettelkasten/Core Idea.md",
+    "blog/Templates",
+    "blog/Files",
+    "blog/Untitled",
+    "blog/Reference Notes",
+    "blog/Zettelkasten",
+    "blog/Untitled.canvas",
+    "blog/img/posts/jekyll-posts/em_absorption.jpg,.md",
+    "blog/img/posts/jekyll-posts",
+    "blog/img/posts",
+    "blog/img",
+    "blog/zerotier-software-define-network.md",
+    "blog/xbee-on-the-arduino-and-raspberry-pi.md",
+    "blog/will-and-estate-planning.md",
+    "blog/wifi-enabled-garage-door-controller.md",
+    "blog/whole-house-water-leak-detection.md",
+    "blog/while-i-was-sleeping.md",
+    "blog/where-is-my-stuff.md",
+    "blog/western-electric-bell-system-linemans-rotary-test-phone.md",
+    "blog/web-search-with-google-dorks-and-other-tools.md",
+    "blog/ways-of-debouncing-switches.md",
+    "blog/walkdown-basement-entrance-water-sensor.md",
+    "blog/voice-cloning.md",
+    "blog/visual-object-recognition-with-machine-vision.md",
+    "blog/virtual-weather-station-enabled-with-restful-apis.md",
+    "blog/vintage-radio-build.md",
+    "blog/verizon-lte-asset-tracker-and-thingspace.md",
+    "blog/verizon-iot-security-credentialing-service.md",
+    "blog/verizon-5g-edge.md",
+    "blog/using-vagrant-docker-and-ansible.md",
+    "blog/using-the-phoronix-test-suite-for-benchmarking.md",
+    "Untitled 1",
+    "Untitled"
+  ]
+}

@@ -34,12 +34,13 @@ Check out the following
 
 * [Tips & Tricks](https://github.com/bastienwirtz/homer/blob/main/docs/tips-and-tricks.md)
 
+
 ## Install Homer
 
 ```bash
 # launch homer container via docker
 sudo HOMER_PORT=8001 HOMER_HOME='/home/jeff/src/docker-containers/homer' docker run -d \
-  -p 8001:8080 \
+  -p ${HOMER_PORT}:8080 \
   -v ${HOMER_HOME}/assets/assets/:/www/assets \
   --name="homer" \
   --restart=always \
@@ -75,6 +76,7 @@ sudo HOMER_PORT=8001 HOMER_HOME='/home/jeff/src/docker-containers/homer' docker-
 sudo docker logs homer
 ```
 
+
 ## Removing Images & Containers
 If you run into problems, kill the Homer dashboard
 and clean-up any unused resources
@@ -103,8 +105,10 @@ Source:
 
 * [How To Remove Docker Images, Containers, and Volumes](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
+
 # Homer Color Scheme
 You can create a well matched color palette scheme with the site [Coolors](https://coolors.co/).
+
 
 # Homer Icons
 You can find icons suitable for the Homer dashboard at the following sites:

@@ -1,0 +1,162 @@
+{
+  "main": {
+    "id": "d929531797820834",
+    "type": "split",
+    "children": [
+      {
+        "id": "17f5abc86a045597",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0c9e7c208c93b0ce",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Start Here.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6980e1f87a3db97a",
+    "type": "split",
+    "children": [
+      {
+        "id": "6ef8e36dea2c6a32",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6bf6a2852cb38f0e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "51026892a9056fc9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fe9aa30390cb5bf8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "21ab5e4f5c201308",
+    "type": "split",
+    "children": [
+      {
+        "id": "ef52a496594bfed0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0447a0fcc5bf25e4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Start Here.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d0421c2bcfc3f1a9",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Start Here.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0266c6ba2df38718",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1069b1e6e84857f4",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Start Here.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "0c9e7c208c93b0ce",
+  "lastOpenFiles": [
+    "Untitled.md",
+    "Start Here.md",
+    "Vault is just a local folder.md",
+    "Guides/Create your first note.md",
+    "Guides/Create a vault.md",
+    "Guides/Get started with Obsidian.md",
+    "Adventurer/From plain-text note-taking.md",
+    "Adventurer/No prior experience.md",
+    "Formatting/Embeds.md"
+  ]
+}
