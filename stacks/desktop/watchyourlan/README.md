@@ -17,19 +17,20 @@ WatchYourLAN is a lightweight, continuiously operating network IP scanner with w
 It can be used to notify you about new hosts,
 maintains a list of all hosts in the network,
 log host online/offline history,
-and sends data to InfluxDB2 to make a Grafana dashboard.
-It is packaged as a Docker Container and can be found on DockerHub as [aceberg/watchyourlan][03].
+and it can sends data to InfluxDB2 to make a Grafana dashboard (not implemented).
+It is packaged as a Docker Container and can be found on DockerHub as [aceberg/watchyourlan][02]
+with its source code on [GitHub: aceberg/WatchYourLAN][01].
 
 Currently `docker0` is not allowed, as arp-scan wouldn't work with it correctly
 
 Sources:
 
-* [Homelab Series - Setup WatchYourLan Server - Network IP Scanner for your LAN](https://www.youtube.com/watch?v=Zs9sKx8rXrs)
-* [This is How You WatchYourLan](https://www.youtube.com/watch?v=DknqJrnlLQo)
-* [Pi.Alert or WatchYourLAN can alert you to unknown devices appearing on your WiFi or LAN network](https://www.youtube.com/watch?v=v6an9QG2xF0)
+* [GitHub - aceberg/WatchYourLAN: Lightweight network IP scanner.](https://www.youtube.com/watch?v=Xb5yZA0emuU)
+* [Homelab Series - Setup WatchYourLan Server - Network IP Scanner for your LAN](https://www.youtube.com/watch?v=Zs9sKx8rXrs) - Old Video
+* [This is How You WatchYourLan](https://www.youtube.com/watch?v=DknqJrnlLQo) - Old Video
 
 
-#### Step X: Idenify Your LAN & WiFi Interfaces to Scan
+#### Step 1: Idenify Your LAN & WiFi Interfaces to Scan
 You'll need one WatchYourLAN instance on each of your subnets to get a complet picture of host activity.
 In my case, I have my 'geast' accessible network which also incldues my Fios TV, IoT devices, camera, etc.
 Firewalled off from this network is my homelab network.
@@ -41,11 +42,13 @@ useing the following script:
 
 ```bash
 # list your network interfaces
-sudo ip link show
-```
+ip link show
+
+ip addr
+``
 
 
-#### Step X: Quick Start WatchYourLAN for Testing
+#### Step 2: Quick Start WatchYourLAN for Testing
 To get htings going quickly, you can use the script below:
 
 ```bash
@@ -73,24 +76,23 @@ If you prefer a permanent setup, as I do, to launch WatchYourLAN via `docker-com
 you can do that in the subsequent steps.
 
 
-#### Step X: Docker Compose File for WatchYourLAN
+#### Step 4: Docker Compose File for WatchYourLAN
 
 ```yaml
+---
+
 version: "3"
 services:
   watchyourlan:
-    container_name: watchyourlan
-    host_name: watchyourlan
     image: aceberg/watchyourlan:v2
-    network_mode: "host"                # needs access to host network to do network scan
+    container_name: watchyourlan
+    network_mode: "host"                # it needs access to host network to do network scan
     restart: unless-stopped
-    ports:
-      - 8840:8840                       # watchyourlan web gui at http://localhost:8840
     volumes:
       - ~/src/homelab-portainer-stacks/stacks/desktop/watchyourlan/data:/data/WatchYourLAN   # sqlite data will be stored here
     environment:
       TZ: America/New_York              # required: needs your TZ for correct time
-      IFACE: "enp4s0 wlx94dbc95110ca"   # required: interface to scan, could be one or more, separated by space
+      IFACES: "enp4s0 wlx94dbc95110ca"  # required: interface to scan, could be one or more, separated by space
       HOST: "0.0.0.0"                   # optional, default: 0.0.0.0
       PORT: "8840"                      # optional, default: 8840
       TIMEOUT: "120"                    # optional, time in seconds, default: 120
@@ -104,17 +106,29 @@ Sources:
 * [Beginners Guide to Containers and Stacks in Portainer : How to set up Fast](https://www.youtube.com/watch?v=_g6QFm0-Umg)
 
 
-#### Step X: Test GUI
+#### Step 5: Test GUI
 WatchYourLAN will serve its Web GUI at `http://localhost:8840` (aka `http://desktop:8840` in my case).
 
 
-#### Step X: Update Your Docker Container
-You can update you Docker containers via the commandline,
-but Portainer provides a intuitive browser UI to do the same.
-Check out the videos:
+#### Step 6: Update Your Docker Container
+You can install you Docker containers via the `docker`
+and `docker compose` commandline tools,
+but Portainer provides a intuitive browser UI to do the same
+using the `docker-compose.yml` file stoed in GitHub.
+To use this approach, you need to add the following to Portainer:
+
+* **Name** `watchyourlan`
+* **Repository URL** `https://github.com/jeffskinnerbox/homelab-portainer-stacks`
+* **Repository reference** ``
+* **Compose path** `stacks/desktop/watchyourlan/docker-compose.yml`
+
+For more information, check out these videos:
 
 * [Use Portainer to update your Docker Containers while they are running. No command line needed](https://www.youtube.com/watch?v=Eme2TlR7Z7E)
 * [How to Update a Docker Container using Portainer](https://www.wundertech.net/how-to-update-a-docker-container-using-portainer/)
+
+
+---------------
 
 
 ## Removing WatchYourLAN Images & Containers
@@ -130,6 +144,9 @@ sudo docker exec -it watchyourlan bash
 
 # kill the container
 sudo docker kill watchyourlan
+
+# remove the container
+sudo docker rm watchyourlan
 
 # remove the container image
 sudo docker rmi aceberg/watchyourlan
@@ -165,15 +182,6 @@ Source:
 
 
 
+[01]:https://github.com/aceberg/WatchYourLAN
+[02]:https://hub.docker.com/r/aceberg/watchyourlan
 
-
-[01]:
-[02]:
-[03]:https://hub.docker.com/r/aceberg/watchyourlan
-[04]:
-[05]:
-[06]:
-[07]:
-[08]:
-[09]:
-[10]:
