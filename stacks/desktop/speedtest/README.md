@@ -9,6 +9,7 @@ Version:      0.0.1
 
 ---------------
 
+
 # Speedtest Tracker
 
 Speedtest Tracker is a self-hosted internet performance tracking application
@@ -35,7 +36,7 @@ it with a database to maintain historical information, etc.
 Sources:
 
 * [How to install Speedtest Tracker 2 on Portainer](https://www.youtube.com/watch?v=n7uLTrv3FmQ)
-  * [How to install Speedtest Tracker on Portainer](https://www.youtube.com/watch?v=9FK7F_cVWEU)
+    * [How to install Speedtest Tracker on Portainer](https://www.youtube.com/watch?v=9FK7F_cVWEU)
 * [Speedtest Tracker](https://docs.speedtest-tracker.dev/)
 * [GitHub: alexjustesen/speedtest-tracker](https://github.com/alexjustesen/speedtest-tracker)
 * [Internet SpeedTest Tracker on Docker - 2022 Edition](https://www.youtube.com/watch?v=feArak6WCLw)
@@ -43,15 +44,18 @@ Sources:
 
 ---------------
 
+
 ## Installation of Speedtest Tracker
 
 These stps will show you how to use `docker-compose` via `portainer`
 to install Speedtest Tracker.
 
+
 #### Step 1: Choose a Database
 
 Speedtest Tracker requires a database and supports several.
 I have a choosen the [MairaDB][09] database for my solution.
+
 
 #### Step 2: Quick Test of Speedtest Tracker
 
@@ -60,7 +64,7 @@ Documentation for the parameters required can be found in the [Parameter section
 The `APP_KEY` is used for encrypting stored data and you can generate a key at `https://speedtest-tracker.dev`.
 
 ```bash
-sudo docker-compose up -d --file /home/jeff/src/homelab-portainer-stacks/stacks/desktop/speedtest/docker-compose.yml
+sudo docker compose up --detach
 ```
 
 The above command should use the `docker-compose.yml` file listed below:
@@ -111,6 +115,7 @@ volumes:
   speedtest-db:                             # database is stored in /var/lib/docker/volumes
 ```
 
+
 #### Step 3: Log into Speedtest Tracker
 
 Once the Speedtest Tracker container starts,
@@ -127,10 +132,11 @@ To get a list of the Ookla sites, execute the command below:
 sudo docker exec speedtest-tracker php /app/www/artisan app:ookla-list-servers
 ```
 
+
 #### Step X: Update Your Docker Container
 
 You can install you Docker containers via the `docker`
-and `docker-compose` commandline tools,
+and `docker compose` commandline tools,
 but Portainer provides a intuitive browser UI to do the same
 using the `docker-compose.yml` file stoed in GitHub.
 To use this approach, you need to add the following to Portainer:
@@ -146,6 +152,7 @@ For more information, check out these videos:
 * [How to Update a Docker Container using Portainer](https://www.wundertech.net/how-to-update-a-docker-container-using-portainer/)
 
 ---------------
+
 
 ## Removing Speedtest Tracker Images & Containers
 
