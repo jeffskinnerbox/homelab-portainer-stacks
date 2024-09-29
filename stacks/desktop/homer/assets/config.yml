@@ -130,6 +130,16 @@ services:
         # url: !secret HOMER_URL
         # target: "_blank"
 
+      # https://newreleases.io
+      - name: "(new)releases"
+        logo: "assets/icons/newreleases-logo.png"
+        subtitle: "Software Releases Notification System"
+        tag: "app"
+        url: "https://newreleases.io/login"
+        # url: "{{HOMER_URL}}"
+        # url: !secret HOMER_URL
+        # target: "_blank"
+
       # https://gethomepage.dev/latest/
       - name: "Homepage"
         logo: "assets/icons/homepage-logo.png"
