@@ -1,0 +1,43 @@
+
+# ------------------------------------------------------------------------------
+#
+# Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
+# Version:      1.0.0
+#
+# DESCRIPTION
+#     Gotify self-hosted Docker container that makes sending & receiving real-time
+#     notifications/messages easy. By self-hosted your notifications your data
+#     isn't be used by any of the comercial servers in the market. It send messages
+#     via REST-API and receive messages via WebSocket.
+#
+# TESTING
+#     YAML linter to spot YAML syntax errors
+#         yamllint docker-compose.yml
+#     To start this docker container for validation
+#         sudo docker compose up --detach
+#     To stop & remove container for compose file modification
+#         sudo docker stop gotify
+#         sudo docker rm gotify
+#
+# ACCESS
+#     To access gotify GUI when deployed
+#         http://localhost:8070, in my cased http://192.168.1.200:8070
+#
+# SOURCES
+#
+# ------------------------------------------------------------------------------
+---
+
+version: "3"
+services:
+  gotify:
+    image: gotify/server
+    container_name: gotify
+    restart: unless-stopped
+    ports:
+      - 8070:80
+    environment:
+      - TZ="America/New_York"
+    volumes:
+      - "~/src/homelab-portainer-stacks/stacks/desktop/gotify/data:/app/data"
+
