@@ -344,8 +344,8 @@ services:
         url: "https://claude.ai/login"
         target: "_blank"
 
-  # ------ eMail, Messaging ----------------------------------------------------
-  - name: "eMail, Messaging"
+  # ------ eMail & Messaging ---------------------------------------------------
+  - name: "eMail & Messaging"
     icon: "fa-solid fa-envelope"
     items:
       # https://mail.aol.com/webmail-std/en-us/suite
@@ -378,6 +378,54 @@ services:
         subtitle: "Developer friendly messaging"
         tag: "email"
         url: "https://slack.com/"
+        target: "_blank"
+
+  # ------ Alerts & Notifications ----------------------------------------------
+  - name: "Alerts & Notifications"
+    icon: "fa-solid fa-bell"
+    items:
+      # https://gotify.net/
+      - name: "Gotify"
+        logo: "assets/icons/gotify-logo.png"
+        subtitle: "real-time notifications server"
+        tag: "alerts"
+        url: "http://192.168.1.200:8070/#/login"
+        target: "_blank"
+
+      # https://pushover.net/
+      - name: "Pushover"
+        logo: "assets/icons/pushover-logo.png"
+        subtitle: "real-time notifications client"
+        tag: "alerts"
+        url: "https://pushover.net/login"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://github.com/caronc/apprise-api
+      - name: "Apprise"
+        logo: "assets/icons/apprise-logo.png"
+        subtitle: "send alerts to popular notification services"
+        tag: "alerts"
+        url: "http://localhost:8005/cfg/apprise"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://github.com/YoRyan/mailrise
+      - name: "Mailrise"
+        logo: "assets/icons/mailrise-logo.png"
+        subtitle: "SMTP gateway for Apprise notifications"
+        tag: "alerts"
+        url: "https://github.com/YoRyan/mailrise"
+        # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://github.com/jokob-sk/Pi.Alert a port to docker of pi.alert = https://github.com/pucherot/Pi.Alert
+      - name: "Pi.Alert"
+        logo: "assets/icons/pialert-logo.png"
+        subtitle: "WiFi/LAN intruder detector"
+        tag: "alerts"
+        url: "https://github.com/jokob-sk/Pi.Alert"
+        # url: !secrets netdata_url
         target: "_blank"
 
   # ------ Blogs, Wikis & Notes ------------------------------------------------
@@ -774,47 +822,7 @@ services:
         # url: !secrets NETDATA_URL
         target: "_blank"
 
-  # ------ Alerts & Notifications ----------------------------------------------
-  - name: "Alerts & Notifications"
-    icon: "fa-solid fa-bell"
-    items:
-      # https://github.com/jokob-sk/Pi.Alert a port to docker of pi.alert = https://github.com/pucherot/Pi.Alert
-      - name: "Pi.Alert"
-        logo: "assets/icons/pialert-logo.png"
-        subtitle: "WiFi/LAN intruder detector"
-        tag: "alerts"
-        url: "https://github.com/jokob-sk/Pi.Alert"
-        # url: !secrets netdata_url
-        target: "_blank"
-
-      # https://github.com/caronc/apprise-api
-      - name: "Apprise"
-        logo: "assets/icons/apprise-logo.png"
-        subtitle: "send alerts to popular notification services"
-        tag: "alerts"
-        url: "http://localhost:8005/cfg/apprise"
-        # url: !secrets netdata_url
-        target: "_blank"
-
-      # https://github.com/YoRyan/mailrise
-      - name: "Mailrise"
-        logo: "assets/icons/mailrise-logo.png"
-        subtitle: "SMTP gateway for Apprise notifications"
-        tag: "alerts"
-        url: "https://github.com/YoRyan/mailrise"
-        # url: !secrets netdata_url
-        target: "_blank"
-
-      # https://pushover.net/
-      - name: "Pushover"
-        logo: "assets/icons/pushover-logo.png"
-        subtitle: "real-time notifications client"
-        tag: "alerts"
-        url: "https://pushover.net/login"
-        # url: !secrets netdata_url
-        target: "_blank"
-
-  # ------ Log Management ------------------------------------------------------
+# ------- Log Management ------------------------------------------------------
   - name: "Log Management"
     icon: "fa-solid fa-clipboard-list"
     items:

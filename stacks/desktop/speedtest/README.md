@@ -117,7 +117,7 @@ volumes:
 ```
 
 
-#### Step 3: Log into Speedtest Tracker
+#### Step 3: Login to Speedtest Tracker
 
 Once the Speedtest Tracker container starts,
 you can login into it via a browser with URL `locahost:8083`.
@@ -151,6 +151,7 @@ For more information, check out these videos:
 
 * [Use Portainer to update your Docker Containers while they are running. No command line needed](https://www.youtube.com/watch?v=Eme2TlR7Z7E)
 * [How to Update a Docker Container using Portainer](https://www.wundertech.net/how-to-update-a-docker-container-using-portainer/)
+
 
 ---------------
 

@@ -51,11 +51,11 @@ useing the following script:
 ip link show
 
 ip addr
-``
+```
 
 
 #### Step 2: Quick Start WatchYourLAN for Testing
-To get htings going quickly, you can use the script below:
+To get things going quickly, you can use the script below:
 
 ```bash
 # change directory to where you want your data stored,
@@ -83,6 +83,13 @@ you can do that in the subsequent steps.
 
 
 #### Step 4: Docker Compose File for WatchYourLAN
+For a more perminate solution (using Docker Compose), you can use the script below.
+
+```bash
+sudo docker compose up --detach
+```
+
+The above command should use the `docker-compose.yml` file listed below:
 
 ```yaml
 ---
