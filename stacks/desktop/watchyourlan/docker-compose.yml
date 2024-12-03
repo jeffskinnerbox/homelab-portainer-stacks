@@ -1,4 +1,3 @@
-
 # ------------------------------------------------------------------------------
 #
 # Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
@@ -13,6 +12,7 @@
 #     YAML linter to spot YAML syntax errors
 #         yamllint docker-compose.yml
 #     To start this docker container for validation
+#         cd /home/jeff/src/homelab-portainer-stacks/stacks/desktop/watchyourlan
 #         sudo docker compose up --detach
 #     To stop & remove container for compose file modification
 #         sudo docker stop watchyourlan
@@ -27,23 +27,22 @@
 # ------------------------------------------------------------------------------
 
 ---
-
 version: "3"
 services:
   watchyourlan:
-    image: aceberg/watchyourlan:v2
+    image: aceberg/watchyourlan:latest
     container_name: watchyourlan
-    network_mode: "host"                # it needs access to host network to do network scan
+    network_mode: "host" # it needs access to host network to do network scan
     restart: unless-stopped
     volumes:
-      - ~/src/homelab-portainer-stacks/stacks/desktop/watchyourlan/data:/data/WatchYourLAN   # sqlite data will be stored here
+      - ~/src/homelab-portainer-stacks/stacks/desktop/watchyourlan/data:/data/WatchYourLAN # sqlite data will be stored here
     environment:
-      TZ: America/New_York              # required: needs your TZ for correct time
-      IFACES: "enp4s0 wlx94dbc95110ca"  # required: interface to scan, could be one or more, separated by space
-      HOST: "0.0.0.0"                   # optional, default: 0.0.0.0
-      PORT: "8840"                      # optional, default: 8840
-      TIMEOUT: "120"                    # optional, time in seconds, default: 120
-      SHOUTRRR_URL: ""                  # optional, url for notification service: Shoutrrr (pushover, email, telegram and others)
-      THEME: "sand"                     # optional
-      COLOR: "dark"                     # optional
+      TZ: America/New_York # required: needs your TZ for correct time
+      IFACES: "enp4s0 wlx94dbc95110ca" # required: interface to scan, could be one or more, separated by space
+      HOST: "0.0.0.0" # optional, default: 0.0.0.0
+      PORT: "8840" # optional, default: 8840
+      TIMEOUT: "120" # optional, time in seconds, default: 120
+      SHOUTRRR_URL: "" # optional, url for notification service: Shoutrrr (pushover, email, telegram and others)
+      THEME: "sand" # optional
+      COLOR: "dark" # optional
 
