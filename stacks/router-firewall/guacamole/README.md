@@ -3,24 +3,21 @@ Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
 Version:      1.0.0
 -->
 
-
 <div align="center">
 <img src="https://raw.githubusercontent.com/jeffskinnerbox/blog/main/content/images/banners-bkgrds/work-in-progress.jpg" title="These materials require additional work and are not ready for general use." align="center" width=420px height=219px>
 </div>
 
-
 # Check this out
+
 * [How To Access Your PCs and Servers from Anywhere Using Guacamole and Cloudflare Tunnels](https://www.youtube.com/watch?v=tg1CbMEzCsc)
-    * [DockerHub: abesnier/guacamole](https://hub.docker.com/r/abesnier/guacamole)
-    * [Secure Cloudflare Tunnels with vLANs and an Internal Firewall Before It's Too Late!](https://www.youtube.com/watch?v=1n9lCYCLUYI)
-    * [Cloudflare Tunnels: Restrict Access with Google and Github](https://www.youtube.com/watch?v=wdmbAo02ktQ)
-
-
-
+  * [DockerHub: abesnier/guacamole](https://hub.docker.com/r/abesnier/guacamole)
+  * [Secure Cloudflare Tunnels with vLANs and an Internal Firewall Before It's Too Late!](https://www.youtube.com/watch?v=1n9lCYCLUYI)
+  * [Cloudflare Tunnels: Restrict Access with Google and Github](https://www.youtube.com/watch?v=wdmbAo02ktQ)
 
 -----
 
 # Guacamole
+
 [Guacamole][01] is a free & open source application
 that allows you to access your computers from anywhere.
 It can be put behind a proxy server which allows you to access your servers from anywhere in the world.
@@ -37,6 +34,7 @@ These APIs allow Guacamole to be tightly integrated into other applications,
 whether they be open source or proprietary.
 
 #### Step 1: Install Guacamole & Start - DONE
+
 I'm getting my Docker container for Guacamole from the DockerHub repository [abesnier/guacamole][09].
 It is a self-contained Guacamole Docker container using the latest
 [tomcat][05], [postgresql][06], [s6overlay][07], and, [guacamole][01].
@@ -95,6 +93,7 @@ via `google-chrome 192.168.1.204:8194`
 but we will first configure Cloudflare.
 
 #### Step 2 - Configure Cloudflare to Support Guacamole - DONE
+
 I'm using [Cloudflare as my DNS server][10] and [Cloudflare Tunnels][11] for increased protection of my LAN.
 To configure Cloudflare to support my home LAN environment,
 [login to Cloudflare][12],
@@ -118,6 +117,7 @@ Scroll down to **Command** and paste in the token and then select **Deploy the c
 The container should be restarted with the new token.
 
 #### Step 3: Create New Guacamole Admin login - DONE
+
 We are now done with Cloudflare and time to move back to Guacamole.
 
 Make sure to remove the default username and password and create a new one.
@@ -134,6 +134,7 @@ and select the `guacadmin` account and disable it.
 Now do all you administrative work for Guacamole via this new login.
 
 #### Step 4: Guacamole Two Factor Authentication (2FA) via Cloudflare Tunnels - DONE
+
 Guacamole, as currently implemented above,
 provides no secuirty protection other than login/password.
 Given that I plan to used Guacamole outside my home LAN, this isn't very safe.
@@ -142,6 +143,7 @@ but I prefer to use Cloudflare's Access controls.
 This [video][08] provide a good tutoral on using Cloudflare Access to protect your Guacamole remote gatway.
 
 #### Step 5: Create New Guacamole Admin login - DONE
+
 We are now done with Cloudflare and time to move back to Guacamole.
 
 Make sure to remove the default Guacamole username and password and create a new one.
@@ -158,6 +160,7 @@ and select the `guacadmin` account and disable it.
 Now do all you administrative work for Guacamole via this new login.
 
 #### Step 5: Create a Guacamole Connection - DONE
+
 Goto the top right-hand menu and select **Settings** > **Connections**.
 Click the button **New Connections**.
 Enter the following information
@@ -175,11 +178,10 @@ Select you connection and you should be logged in,
 In this case, the VNC client must be running on the target machine
 and we'll install that next.
 
-
 -----
 
-
 # Install Virtual Network Computing (VNC)
+
 I want to remote desktop into Linux so I can take full advantage of the the desktop GUI menu system.
 There are in fact [many remote desktop software packages][32] available to choose from,
 but only small number seem to have any following in the Linux world,
@@ -218,15 +220,15 @@ Therefore, my remote Linux will be configured as a VNC server.
 We need to make sure VNCserver software is installed already on remote and configured as needed.
 
 Sources:
+
 * [How to use Apache Guacamole to create a VNC Connection](https://www.howtoforge.com/how-to-use-apache-guacamole-to-create-a-vnc-connection)
 * [How to Install and Use Apache Guacamole Remote Desktop on Rocky Linux 8](https://www.howtoforge.com/how-to-install-and-use-apache-guacamole-remote-desktop-on-rocky-linux-8/)
 * [Install Apache Guacamole for SSH and VNC over HTML5](https://leandeep.com/install-apache-guacamole-for-ssh-and-vnc-over-html5/)
 
-
 -----
 
-
 ## Update Your Docker Container
+
 You can update you Docker containers via the commandline,
 but Portainer provides a intuitive browser UI to do the same.
 Check out these videos:
@@ -235,6 +237,7 @@ Check out these videos:
 * [How to Update a Docker Container using Portainer](https://www.wundertech.net/how-to-update-a-docker-container-using-portainer/)
 
 ## Removing Guacamole Images & Containers
+
 If you run into problems, kill Guacamole container
 and clean-up any unused resources
 (i.e. images, containers, volumes, and networks)
@@ -271,8 +274,6 @@ Source:
 
 * [How To Remove Docker Images, Containers, and Volumes](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
-
-
 [01]:https://guacamole.apache.org/
 [02]:https://guacamole.apache.org/api-documentation/
 [03]:https://guacamole.apache.org/doc/gug/
@@ -297,5 +298,3 @@ Source:
 [40]:https://www.techradar.com/news/5-of-the-best-linux-remote-desktop-clients
 [41]:https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-16-04
 [42]:https://en.wikipedia.org/wiki/Remote_Desktop_Protocol
-
-

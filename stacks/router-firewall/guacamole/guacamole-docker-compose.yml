@@ -16,6 +16,7 @@
 #    sudo GUAC_PORT=8194 docker-compose up -d --file ./guacamole-docker-compose.yml
 #
 
+---
 
 version: "3"
 services:

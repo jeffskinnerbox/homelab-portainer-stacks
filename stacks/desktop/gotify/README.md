@@ -3,16 +3,14 @@ Maintainer:   jeffskinnerbox@yahoo.com / www.jeffskinnerbox.me
 Version:      0.0.0
 -->
 
-
 <div align="center">
 <img src="https://raw.githubusercontent.com/jeffskinnerbox/blog/main/content/images/banners-bkgrds/work-in-progress.jpg" title="These materials require additional work and are not ready for general use." align="center" width=420px height=219px>
 </div>
 
-
 ---------------
 
-
 # Gotify
+
 [Gotify][01] self-hosted Docker container that makes sending & receiving real-time notifications/messages easy.
 By self-hosted your notifications your data isn't be used by any of the comercial servers in the market.
 It send messages via REST-API and receive messages via WebSocket.
@@ -23,20 +21,20 @@ and it support a [plugins][08] to extend its capabilities.
 
 Sources:
 
-* [Gotify Documentation][02]
-* [GitHub: gotify/server][03]
-* [DockerHub: gotify/server][04]
-
+* [GitHub: gotify/server][03] - A simple server for sending and receiving messages in real-time per WebSocket.
+* [DockerHub: gotify/server][04] - Docker container for locally hosted Gotify Server
+* [GitHub: gotify/cli][09] - A command line interface for pushing messages to gotify/server.
+* [Gotify Documentation][02] - Documentation of gotify/server for user and developers.
 
 ---------------
-
 
 ## Installation of Gotify
 
 * [Gotify: My New Favorite Way To Get Notified!](https://www.youtube.com/watch?v=mIVHxFrFKqQ)
-
+* [Create Notifications For ANYTHING Using Gotify (Crowdsec, Cron Jobs, Scripts, Uptime, File Copy)](https://www.youtube.com/watch?v=Ft69PY7iitw)
 
 #### Step 1: Quick Test of Gotify
+
 To get things going quickly, you can use the script below:
 
 ```bash
@@ -59,8 +57,8 @@ See below to kill and cleanup when testing is completed.
 If you prefer a permanent setup, as I do, to launch WatchYourLAN via `docker-compose` on Portainer,
 you can do that in the subsequent steps.
 
-
 #### Step 2: Docker Compose File for Gotify
+
 For a more perminate solution (using Docker Compose), you can use the script below.
 
 ```bash
@@ -69,13 +67,8 @@ sudo docker compose up --detach
 
 The above command should use the `docker-compose.yml` file listed below:
 
-
 ```bash
----
-
 version: "3"
-
-name: Gotify - real-time send/receive notifications
 services:
   gotify:
     image: gotify/server
@@ -89,17 +82,14 @@ services:
       - "~/src/homelab-portainer-stacks/stacks/desktop/gotify/data:/app/data"
 ```
 
-
 #### Step X: Configure the Gotify Server
 
-
 #### Step X: xxx
 
-
 #### Step X: xxx
-
 
 #### Step X: Update Your Docker Container
+
 You can install you Docker containers via the `docker`
 and `docker compose` commandline tools,
 but Portainer provides a intuitive browser UI to do the same
@@ -117,7 +107,6 @@ For more information, check out these videos:
 * [How to Update a Docker Container using Portainer](https://www.wundertech.net/how-to-update-a-docker-container-using-portainer/)
 
 ---------------
-
 
 ## Removing Gotify Images & Containers
 
@@ -167,11 +156,6 @@ Source:
 
 * [How To Remove Docker Images, Containers, and Volumes](https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes)
 
-
-
-
-
-
 [01]:https://gotify.net/
 [02]:https://gotify.net/docs/index
 [03]:https://github.com/gotify/server
@@ -180,3 +164,4 @@ Source:
 [06]:https://github.com/gotify/cli
 [07]:https://github.com/gotify/android
 [08]:https://gotify.net/docs/plugin
+[09]:https://github.com/gotify/cli

@@ -130,16 +130,6 @@ services:
         # url: !secret HOMER_URL
         # target: "_blank"
 
-      # https://newreleases.io
-      - name: "(new)releases"
-        logo: "assets/icons/newreleases-logo.png"
-        subtitle: "Software Releases Notification System"
-        tag: "app"
-        url: "https://newreleases.io/login"
-        # url: "{{HOMER_URL}}"
-        # url: !secret HOMER_URL
-        # target: "_blank"
-
       # https://gethomepage.dev/latest/
       - name: "Homepage"
         logo: "assets/icons/homepage-logo.png"
@@ -204,6 +194,7 @@ services:
         url: "https://maclookup.app/"
         target: "_blank"
 
+
   # ------ Scripts & Snips -----------------------------------------------------
   - name: "Scripts & Snips"
     icon: "fa-solid fa-scissors"
@@ -224,8 +215,9 @@ services:
         url: "http://192.168.1.200:5000/snippets"
         target: "_blank"
 
-  # ------ Live Streaming News Content -----------------------------------------
-  - name: "Live Streaming News"
+
+  # ------ Live Streaming Content ----------------------------------------------
+  - name: "Live Streaming Content"
     icon: "fa-solid fa-arrows-to-circle"
     items:
       # https://www.foxnews.com/video
@@ -276,6 +268,7 @@ services:
         url: "https://netflix.com/"
         target: "_blank"
 
+
   # ------ Print News Sources --------------------------------------------------
   - name: "Print News"
     icon: "fa-solid fa-newspaper"
@@ -288,6 +281,7 @@ services:
         url: "https://ground.news/"
         target: "_blank"
 
+
   # ------ Music & Video Media -------------------------------------------------
   - name: "Music & Video Media"
     icon: "fa-solid fa-music"
@@ -296,7 +290,7 @@ services:
       - name: "Plex"
         logo: "assets/icons/plex-logo.jpg"
         subtitle: "Home Media Server"
-        tag: "app"
+        tag: "media"
         url: "http://192.168.1.201:32400/"
         target: "_blank"
 
@@ -304,7 +298,7 @@ services:
       - name: "myMedia for Alexa"
         logo: "assets/icons/myMediaforAlexa-logo.png"
         subtitle: "Stream Music to Alexa"
-        tag: "music"
+        tag: "media"
         url: "http://127.0.0.1:52051/index.html#!/"
         target: "_blank"
 
@@ -312,7 +306,7 @@ services:
       - name: "Youtube"
         logo: "assets/icons/youtube-logo.png"
         subtitle: "Streaming Videos"
-        tag: "video"
+        tag: "media"
         url: "https://www.youtube.com/feed/history"
         target: "_blank"
 
@@ -320,9 +314,10 @@ services:
       - name: "Jellyfin"
         logo: "assets/icons/jellyfin-logo.png"
         subtitle: "Media Server"
-        tag: "storage"
+        tag: "media"
         url: "https://jellyfin.org/"
         target: "_blank"
+
 
   # ------ AI Assistance -------------------------------------------------------
   - name: "AI Assistances"
@@ -343,6 +338,7 @@ services:
         tag: "ai-asssit"
         url: "https://claude.ai/login"
         target: "_blank"
+
 
   # ------ eMail & Messaging ---------------------------------------------------
   - name: "eMail & Messaging"
@@ -380,6 +376,7 @@ services:
         url: "https://slack.com/"
         target: "_blank"
 
+
   # ------ Alerts & Notifications ----------------------------------------------
   - name: "Alerts & Notifications"
     icon: "fa-solid fa-bell"
@@ -395,10 +392,18 @@ services:
       # https://pushover.net/
       - name: "Pushover"
         logo: "assets/icons/pushover-logo.png"
-        subtitle: "real-time notifications client"
+        subtitle: "real-time notifications client & server"
         tag: "alerts"
         url: "https://pushover.net/login"
         # url: !secrets netdata_url
+        target: "_blank"
+
+      # https://newreleases.io
+      - name: "(new)releases"
+        logo: "assets/icons/newreleases-logo.png"
+        subtitle: "Software Releases Notification System"
+        tag: "alerts"
+        url: "https://newreleases.io/login"
         target: "_blank"
 
       # https://github.com/caronc/apprise-api
@@ -427,6 +432,7 @@ services:
         url: "https://github.com/jokob-sk/Pi.Alert"
         # url: !secrets netdata_url
         target: "_blank"
+
 
   # ------ Blogs, Wikis & Notes ------------------------------------------------
   - name: "Blogs, Wikis & Notes"
@@ -536,6 +542,7 @@ services:
         url: "https://joplinapp.org/"
         target: "_blank"
 
+
   # ------ Internet of Things --------------------------------------------------
   - name: "Internet of Things"
     icon: "fa-solid fa-microchip"
@@ -596,6 +603,7 @@ services:
         url: "https://www.philips-hue.com/en-us/p/hue-bridge/046677458478"
         target: "_blank"
 
+
   # ------ Fonts & Colors ------------------------------------------------------
   - name: "Fonts & Colors"
     icon: "fa-solid fa-palette"
@@ -621,6 +629,7 @@ services:
         tag: "tools"
         url: "https://coolors.co/"
         target: "_blank"
+
 
   # ------ Tools ---------------------------------------------------------------
   - name: "Tools"
@@ -650,6 +659,7 @@ services:
         url: "https://filezilla-project.org/"
         target: "_blank"
 
+
   # ------ Inventory -----------------------------------------------------------
   - name: "Inventory"
     icon: "fa-solid fa-boxes"
@@ -669,6 +679,7 @@ services:
         tag: "inventory"
         url: "https://hay-kot.github.io/homebox/"
         target: "_blank"
+
 
   # ------ Remote Access -------------------------------------------------------
   - name: "Remote Access"
@@ -697,6 +708,7 @@ services:
         tag: "remote-access"
         url: "https://www.geeksforgeeks.org/shell-in-a-box-remote-linux-server-via-web-browser/"
         target: "_blank"
+
 
   # ------ Virtualization ------------------------------------------------------
   - name: "Virtualization"
@@ -754,6 +766,7 @@ services:
         url: "https://www.linuxserver.io/"
         # url: !secrets portainer_url
         target: "_blank"
+
 
   # ------ Troubleshooting -----------------------------------------------------
   - name: "Troubleshooting"
@@ -822,6 +835,7 @@ services:
         # url: !secrets NETDATA_URL
         target: "_blank"
 
+
 # ------- Log Management ------------------------------------------------------
   - name: "Log Management"
     icon: "fa-solid fa-clipboard-list"
@@ -851,6 +865,7 @@ services:
         url: "https://hometechhacker.com/centralizing-docker-logging-using-logspout-and-graylog/"
         # url: !secrets netdata_url
         target: "_blank"
+
 
   # ------ Network Services ----------------------------------------------------
   - name: "Networking Services"
@@ -960,6 +975,7 @@ services:
       # url: "https://192.168.1.35:8043"
       # target: "_blank"
 
+
   # ------ Storage -------------------------------------------------------------
   - name: "Storage"
     icon: "fa-solid fa-database"
@@ -987,6 +1003,7 @@ services:
         tag: "storage"
         url: "https://account.box.com/login"
         target: "_blank"
+
 
   # ------ Backup --------------------------------------------------------------
   - name: "Backup"
@@ -1039,6 +1056,7 @@ services:
         tag: "backup"
         url: "https://www.veeam.com/"
         target: "_blank"
+
 
   # ------ Security Services ---------------------------------------------------
   - name: "Security Services"
@@ -1124,6 +1142,7 @@ services:
         url: "https://haveibeenpwned.com/"
         target: "_blank"
 
+
   # ------ Investments ---------------------------------------------------------
   - name: "Investments"
     icon: "fa-solid fa-sack-dollar"
@@ -1176,6 +1195,23 @@ services:
         url: "https://www.mycollegeadvantagedirect.com/ohtpl/auth/ll.cs?Be7X3aLjo0qWfMVq2jI%2B7A%3D%3D="
         target: "_blank"
 
+      # https://smartasset.com
+      - name: "SmartAsset"
+        logo: "assets/icons/smartasset-logo.jpg"
+        subtitle: "Consumer Financial Advice"
+        tag: "investments"
+        url: "https://smartasset.com/blog"
+        target: "_blank"
+
+      # https://www.empower.com/
+      - name: "Empower"
+        logo: "assets/icons/empower-logo.jpg"
+        subtitle: "Financial Dashboard"
+        tag: "investments"
+        url: "https://home.personalcapital.com/page/login/goHome"
+        target: "_blank"
+
+
   # ------ Benefits ------------------------------------------------------------
   - name: "Benefits"
     icon: "fa-solid fa-suitcase-medical"
@@ -1219,6 +1255,7 @@ services:
         tag: "benefits"
         url: "https://www.express-scripts.com/login"
         target: "_blank"
+
 
   # ------ Shopping ------------------------------------------------------------
   - name: "Shopping"
@@ -1352,6 +1389,7 @@ services:
         url: "https://unitednuclear.com/"
         target: "_blank"
 
+
   # ------ Smart Home ----------------------------------------------------------
   - name: "Smart Home"
     icon: "fa-solid fa-home"
@@ -1412,6 +1450,7 @@ services:
         url: "https://www.youtube.com/c/SmartHomeMakers"
         target: "_blank"
 
+
   # ------ Computer Vision -----------------------------------------------------
   - name: "Computer Vision"
     icon: "fa-solid fa-video"
@@ -1431,6 +1470,7 @@ services:
         tag: "computer-vision"
         url: "https://pyimagesearch.com/blog/"
         target: "_blank"
+
 
   # ------ Self Hosting --------------------------------------------------------
   - name: "Self Hosting"
@@ -1459,6 +1499,7 @@ services:
         tag: "self-hosting"
         url: "https://www.youtube.com/c/AwesomeOpenSource"
         target: "_blank"
+
 
   # ------ Development and Testing Tools ---------------------------------------
   - name: "Dev & Test Tools"
@@ -1552,6 +1593,7 @@ services:
         url: "https://www.dfrobot.com/blog-tag-esp32.html"
         target: "_blank"
 
+
   # ------ Health and Fitness --------------------------------------------------
   - name: "ealth & Fitness"
     icon: "fa-solid fa-dumbbell"
@@ -1564,6 +1606,7 @@ services:
         url: "https://healthmate.withings.com/31298649/timeline"
         target: "_blank"
 
+
   # ------ Website Monitoring --------------------------------------------------
   - name: "Website Monitoring"
     icon: "fa-brands fa-watchman-monitoring"
@@ -1575,6 +1618,7 @@ services:
         tag: "website monitoring"
         url: "https://opensource.com/article/22/9/changedetection-io-open-source-website-changes"
         target: "_blank"
+
 
   # ------ Resume & Job Search -------------------------------------------------
   - name: "Resume & Job Search"
@@ -1628,6 +1672,7 @@ services:
         url: "https://retirementjobs.com/seeker-home"
         target: "_blank"
 
+
   # ------ Educational Computing -----------------------------------------------
   - name: "Educational Computing"
     icon: "fa-solid fa-graduation-cap"
@@ -1647,6 +1692,7 @@ services:
         tag: "educational"
         url: "https://scratch.mit.edu/"
         target: "_blank"
+
 
   # ------ Skills Building -----------------------------------------------------
   - name: "Skills Building"
@@ -1692,6 +1738,7 @@ services:
         url: "https://www.statology.org/"
         target: "_blank"
 
+
   # ------ Online Courses and Books --------------------------------------------
   - name: "Online Courses and Books"
     icon: "fa-solid fa-book-open"
@@ -1703,6 +1750,7 @@ services:
         tag: "courses & books"
         url: "https://www.youtube.com/playlist?list=PLlXfTHzgMRULkodlIEqfgTS-H1AY_bNtq"
         target: "_blank"
+
 
   # ------ Quantum Computing ---------------------------------------------------
   - name: "Quantum Computing"
@@ -1723,6 +1771,7 @@ services:
         tag: "educational"
         url: "https://qiskit.org/"
         target: "_blank"
+
 
   # ------ Websites ------------------------------------------------------------
   - name: "Websites"
@@ -1752,6 +1801,7 @@ services:
         url: "https://streetscience.net/"
         target: "_blank"
 
+
   # ------ Edge Computing ------------------------------------------------------
   - name: "Edge Computing"
     icon: "fa-solid fa-project-diagram"
@@ -1772,6 +1822,7 @@ services:
         url: "https://github.com/edgexfoundry"
         target: "_blank"
 
+
   # ------ Cheatsheets ---------------------------------------------------------
   - name: "Cheatsheets"
     icon: "fa-solid fa-clipboard"
@@ -1783,6 +1834,7 @@ services:
         tag: "cheatsheet"
         url: "https://github.com/lf-edge"
         target: "_blank"
+
 
   # ------ Physics Explained ---------------------------------------------------
   - name: "Physics Explained"
@@ -1820,6 +1872,7 @@ services:
         url: "https://www.youtube.com/@DotPhysics"
         target: "_blank"
 
+
   # ------ Mathematics Explained -----------------------------------------------
   - name: "Mathematics Explained"
     icon: "fa-solid fa-infinity"
@@ -1840,6 +1893,7 @@ services:
         url: "https://cloud.google.com/blog/topics/developers-practitioners/celebrating-pi-day-cloud-functions"
         target: "_blank"
 
+
   # ------ Philosophy in Small Bites -------------------------------------------
   - name: "Philosophy in Small Bites"
     icon: "fa-solid fa-clipboard"
@@ -1852,6 +1906,7 @@ services:
         tag: "philosophy"
         url: "https://www.wi-phi.com/videos/"
         target: "_blank"
+
 
   # ------ People Search & Background ------------------------------------------
   - name: "People Search & Background"
@@ -1873,6 +1928,7 @@ services:
         url: "https://radaris.com/"
         target: "_blank"
 
+
   # ------  Continuous Integration and Continuous Delivery (CI/CD) -------------
   - name: "CI/CD"
     icon: "fa-solid fa-truck"
@@ -1885,6 +1941,7 @@ services:
         url: "https://www.ansible-semaphore.com/"
         target: "_blank"
 
+
   # ------  Global Navigation Satellite Systems (GNSS) -------------------------
   - name: "GNSS"
     icon: "fa-solid fa-truck"
@@ -1896,6 +1953,7 @@ services:
         tag: "GNSS"
         url: "https://gssc.esa.int/navipedia/index.php?title=Main_Page"
         target: "_blank"
+
 
   # ------  Computer Aided Design (CAD) ----------------------------------------
   - name: "CAD"
@@ -1916,6 +1974,7 @@ services:
         tag: "CAD"
         url: "https://www.freecad.org/"
         target: "_blank"
+
 
   # ------  3D Printing  -------------------------------------------------------
   - name: "3D Printing"
@@ -1969,6 +2028,7 @@ services:
         url: "https://makerworld.com/en"
         target: "_blank"
 
+
   # ------  FPV Drones ---------------------------------------------------------
   - name: "FPV Drones"
     icon: "fa-solid fa-plane"
@@ -1997,6 +2057,7 @@ services:
         url: "https://www.arcgis.com/apps/instant/basic/index.html?appid=dd5185b824ee426aabae9b59e50e5b2c"
         target: "_blank"
 
+
   # ------  Home Lab -----------------------------------------------------------
   - name: "Home Lab"
     icon: "fa-solid fa-flask-vial"
@@ -2009,6 +2070,7 @@ services:
         url: https://dbtechreviews.com/"
         target: "_blank"
 
+
   # ------ Genealogy -----------------------------------------------------------
   - name: "Genealogy"
     icon: "fa-solid fa-people-roof"
@@ -2020,6 +2082,7 @@ services:
         tag: "News"
         url: "https://www.ancestry.com/account/signin?returnUrl="
         target: "_blank"
+
 
   # ------ Python --------------------------------------------------------------
   - name: "Python"
@@ -2039,5 +2102,42 @@ services:
         subtitle: "Online Python Training"
         tag: "Code"
         url: "https://realpython.com/"
+        target: "_blank"
+
+      # https://www.pythonmorsels.com
+      - name: "Python Glossary"
+        logo: "assets/icons/python-morsels-logo.jpg"
+        subtitle: "Python Terminology"
+        tag: "Code"
+        url: "https://www.pythonmorsels.com/terms/"
+        target: "_blank"
+
+
+  # ------ Linters & Formatters ------------------------------------------------
+  - name: "Linters & Formatters"
+    icon: "fa-solid fa-broom"
+    items:
+      # https://www.composeverter.com
+      - name: "Convert Compose Version"
+        logo: "assets/icons/compose-converter-logo.png"
+        subtitle: "convert `docker compose` to V2 or V3"
+        tag: "Formatter"
+        url: "https://www.composeverter.com"
+        target: "_blank"
+
+      # https://www.composerize.com
+      - name: "Convert Run to Compose"
+        logo: "assets/icons/compose-converter-logo.png"
+        subtitle: "convert `docker run` to `docker compose`"
+        tag: "Formatter"
+        url: "https://www.composerize.com"
+        target: "_blank"
+
+      # https://www.decomposerize.com
+      - name: "Convert Compose to Run"
+        logo: "assets/icons/compose-converter-logo.png"
+        subtitle: "convert `docker compose` to `docker run`"
+        tag: "Formatter"
+        url: "https://www.decomposerize.com"
         target: "_blank"
 

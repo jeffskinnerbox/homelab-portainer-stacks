@@ -14,14 +14,17 @@
 #         curl -X POST http://localhost:8070/message?token=ArEooNjRXNE67qj -F "title=Test Notification" -F "message=status concerning something important"
 #         curl http://localhost:8070/message?token=ArEooNjRXNE67qj -s -S --data '{"message": "Hello: ![](https://gotify.net/img/logo.png) - status concerning something important", "title": "Test Notification", "priority":'10', "extras": {"client::display": {"contentType": "text/markdown"}}}' -H 'Content-Type: application/json'
 #
+#         Test pushover ...
+#         curl --silent -F "token=a24CwQiK9KfxdLxV6wmir4o7c3rFVD" -F "user=u7pVGpnNFYQHy9aUNcyEVKGfzqezyx" -F "message=MESSAGE" -F "device=desktop" -F "title=TITLE" -F "sound=spacealarm" https://api.pushover.net/1/messages.json 
+#
 # TESTING
 #     YAML linter to spot YAML syntax errors
 #         yamllint docker-compose.yml
 #     To start this docker container for validation
 #         sudo docker compose up
 #     To stop & remove container for compose file modification
-#         sudo docker kill gotify
-#         sudo docker rmi gotify/server
+#         sudo docker kill pushtify
+#         sudo docker irm pushtify
 #
 # ACCESS
 #     To access gotify GUI when deployed
@@ -40,16 +43,12 @@
 
 ---
 
-version: "3"
 services:
-  gotify:
-    image: gotify/server
-    container_name: gotify
+  pushtify:
+    image: ghcr.io/sebw/pushtify:latest
+    container_name: pushtify
     restart: unless-stopped
-    ports:
-      - 8070:80
     environment:
-      - TZ="America/New_York"
-    volumes:
-      - "~/src/homelab-portainer-stacks/stacks/desktop/gotify/data:/app/data"
-
+      - GOTIFY_TOKEN="ChEho62Mz.xUHl3"
+      - PUSHOVER_USERKEY="u7pVGpnNFYQHy9aUNcyEVKGfzqezyx"
+      - GOTIFY_HOST=192.168.1.200:8070
